@@ -138,7 +138,7 @@ header{padding:9px 16px}
 <div id="outing63Preview" class="hidden" aria-live="polite"></div>
 </section><div id="replanPreview" class="hidden" style="background:#fff;border:2px solid #86a995;border-radius:14px;padding:13px;margin:10px 0"><h3 style="margin:0 0 8px">Proposed timetable</h3><div id="replanList" style="font-size:14px;max-height:180px;overflow:auto"></div><div class="row" style="margin-top:10px"><button class="btn primary" onclick="acceptReplan()">Apply changes</button><button class="btn" onclick="cancelReplan()">Keep original</button></div><p class="small">Only flexible activities can move. Fixed appointments and essential care stay at their existing times. Review all proposed changes.</p></div><div class="notice" id="message">Tap Bear asleep or awake to record the current time instantly. Use ⋯ beside a task to edit, move, postpone or skip it.</div>
 
-<section class="panel" id="today65" style="padding:10px 12px;margin:9px 0"><div class="weatherhead"><strong>✓ Household jobs for today</strong><span id="today65Count">0 complete</span></div><button class="btn" id="v68HouseToggle" onclick="v68ToggleHouse()" aria-expanded="false">Show daily jobs ▾</button><div id="v68HouseDetails" class="hidden"><div id="today65List" class="today65grid"></div></div></section><div class="v67key">🔒 Fixed appointment &nbsp; ♥ Essential care &nbsp; ↔ Flexible activity. Edit any activity using ⋯ to choose its type.</div><div class="columns"><section class="panel"><h2>🌤 Morning</h2><div id="morning"></div></section><section class="panel"><h2>☀️ Afternoon</h2><div id="afternoon"></div></section><section class="panel"><h2>🌙 Evening</h2><div id="evening"></div></section></div><details class="day617Details" id="calendar618"><summary>Personal calendar</summary><!-- Personal calendar --><section class="panel" style="padding:12px;margin:8px 0"><p id="personalCalendarStatus" aria-live="polite">Connect your personal Google Calendar to see today’s appointments.</p><div class="row"><button class="btn" onclick="personalCalendarConnect()">Connect Google Calendar</button><button class="btn" onclick="personalCalendarRefresh()">Refresh appointments</button><button class="btn" onclick="personalCalendarDisconnect()">Clear calendar from this tab</button></div><div id="personalCalendarEvents"></div></section></details><div class="footer"><section id="notes618"><h3>✏️ Notes & reminders</h3><textarea class="field" id="notes" placeholder="Little reminders, plans, observations…" oninput="noteChange()"></textarea></section><section><h3>✨ Quick adjustments</h3><div class="row"><button class="btn" onclick="shiftRemaining(15)">Everything +15 min</button><button class="btn" onclick="shiftRemaining(30)">+30 min</button><button class="btn" onclick="undo()">↶ Undo</button><button class="btn" onclick="shiftRemaining(-15)">−15 min</button></div><p class="small" id="lastEvent">Tap an activity to tick it off; ⋯ opens its options.</p></section></div></div>
+<section class="panel" id="today65" style="padding:10px 12px;margin:9px 0"><div class="weatherhead"><strong>✓ Household jobs for today</strong><span id="today65Count">0 complete</span></div><button class="btn" id="v68HouseToggle" onclick="v68ToggleHouse()" aria-expanded="false">Show daily jobs ▾</button><div id="v68HouseDetails" class="hidden"><div id="today65List" class="today65grid"></div><div id="household624RotationTools"></div></div></section><div class="v67key">🔒 Fixed appointment &nbsp; ♥ Essential care &nbsp; ↔ Flexible activity. Edit any activity using ⋯ to choose its type.</div><div class="columns"><section class="panel"><h2>🌤 Morning</h2><div id="morning"></div></section><section class="panel"><h2>☀️ Afternoon</h2><div id="afternoon"></div></section><section class="panel"><h2>🌙 Evening</h2><div id="evening"></div></section></div><details class="day617Details" id="calendar618"><summary>Personal calendar</summary><!-- Personal calendar --><section class="panel" style="padding:12px;margin:8px 0"><p id="personalCalendarStatus" aria-live="polite">Connect your personal Google Calendar to see today’s appointments.</p><div class="row"><button class="btn" onclick="personalCalendarConnect()">Connect Google Calendar</button><button class="btn" onclick="personalCalendarRefresh()">Refresh appointments</button><button class="btn" onclick="personalCalendarDisconnect()">Clear calendar from this tab</button></div><div id="personalCalendarEvents"></div></section></details><div class="footer"><section id="notes618"><h3>✏️ Notes & reminders</h3><textarea class="field" id="notes" placeholder="Little reminders, plans, observations…" oninput="noteChange()"></textarea></section><section><h3>✨ Quick adjustments</h3><div class="row"><button class="btn" onclick="shiftRemaining(15)">Everything +15 min</button><button class="btn" onclick="shiftRemaining(30)">+30 min</button><button class="btn" onclick="undo()">↶ Undo</button><button class="btn" onclick="shiftRemaining(-15)">−15 min</button></div><p class="small" id="lastEvent">Tap an activity to tick it off; ⋯ opens its options.</p></section></div></div>
 <div id="view-bear" class="hidden"><div class="v61intro"><h2>🌙 Bear</h2><span>Sleep, routines and gentle replanning</span></div><section class="sleep53" id="sleep53">
 <h3>🌙 Bear's sleep &amp; gentle replanning</h3>
 <div class="smalltext" id="sleep53Status">Tap Bear asleep and Bear awake to record naps.</div>
@@ -150,12 +150,12 @@ header{padding:9px 16px}
 <div class="smalltext">The interval is an editable planning preference, not a medical or developmental recommendation. This planner does not set Bear's bedtime or remove essential care.</div>
 <div id="nap613Active" class="buttons hidden"><button class="btn" onclick="nap613Active(false)">Correct nap start</button><button class="btn" onclick="nap613Active(true)">Cancel nap timer</button></div><div id="nap613History" class="hidden"></div><div id="sleep53Preview" class="hidden suggestion"></div>
 </section><section class="panel" style="padding:14px;margin-top:12px"><h3>Bear’s day</h3><p class="small">Use the Bear asleep and Bear awake buttons at the top to record naps. Review any proposed changes before applying. Essential routines should be checked against your actual care plan.</p><button class="btn" onclick="switchTab('day')">Back to today</button></section></div><div id="view-chores" class="hidden"><div class="v61intro"><h2>🧹 Household</h2><span>Today’s jobs and your weekly rhythm</span></div><div id="house52" class="hq52">
-<h3>Household rhythm · Today &amp; This week</h3>
+<h3>Household checklist</h3>
 <div class="tools">
 <button class="btn primary" id="house52TodayBtn" onclick="hq52Tab('today')">Today's jobs</button>
-<button class="btn" id="house52WeekBtn" onclick="hq52Tab('week')">This week</button>
+<button class="btn" id="house52WeekBtn" onclick="hq52Tab('week')">Weekly jobs</button>
 <button class="btn" onclick="hq52Plan()">Suggest a housework slot</button>
-<button class="btn" onclick="hq52Carry()">Unfinished jobs</button>
+<button class="btn" id="house52UnfinishedBtn" onclick="hq52Tab('unfinished')">Unfinished jobs</button>
 </div>
 <div id="house52Content" aria-live="polite"></div>
 </div>
@@ -168,17 +168,17 @@ header{padding:9px 16px}
  <div class="row"><button type="submit" class="btn primary">Save job</button><button type="button" class="btn" onclick="household623Close()">Cancel</button></div>
 </form>
 <details id="household623Starter" class="panel" style="padding:12px;margin:8px 0"><summary>Room-by-room starter list</summary><p class="small">Preview the suggested jobs, then add the list if it suits your home. Existing jobs and ticks stay in place.</p><div class="row"><button class="btn" onclick="household623Preview()">Preview jobs</button><button class="btn" onclick="household623Import()">Add starter jobs</button></div><div id="household623Preview"></div></details>
-<div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div><div><h3>As needed</h3><div id="household623AsNeeded"></div></div></div><details class="panel" style="padding:12px;margin:8px 0"><summary>Paused and removed jobs</summary><div id="household623Inactive"></div></details><div class="row" style="margin-top:10px"><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.23</strong> · Manage household jobs by room, edit their frequency, and choose what Today shows.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts. Household jobs can sync when connected. The rest of the planner saves on this device.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
+<div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div><div><h3>As needed</h3><div id="household623AsNeeded"></div></div></div><details class="panel" style="padding:12px;margin:8px 0"><summary>Paused and removed jobs</summary><div id="household623Inactive"></div></details><div class="row" style="margin-top:10px"><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.24</strong> · Household views share the same checklist. Choose or skip the optional job and tick a timed chore from either view.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="hq52Carry()">Recover unfinished timetable activities</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts. Household jobs can sync when connected. The rest of the planner saves on this device.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
 /* Deliberately ES5-compatible for older iPad Safari. No libraries, fetch or external resources. */
 var KEY='strawberry-family-hq-v4', state=null,previous=null,editing=null,editingChore=false;
 function el(id){return document.getElementById(id)}function pad(n){return n<10?'0'+n:String(n)}function timeNow(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())}function mins(s){var p=(s||'00:00').split(':');return Number(p[0])*60+Number(p[1])}function fmt(m){m=Math.max(0,Math.min(1439,m));return pad(Math.floor(m/60))+':'+pad(m%60)}function dayKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}function weekKey(){var d=new Date(),w=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));return w.getFullYear()+'-'+pad(w.getMonth()+1)+'-'+pad(w.getDate())}function monthKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)}function clone(o){return JSON.parse(JSON.stringify(o))}function safe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function task(id,time,title,period,priority,duration){return{id:id,time:time,title:title,period:period,priority:priority||'normal',duration:duration||30,done:false,skip:false}}function defaultTasks(){return[task('breakfast','08:00','Breakfast, feeds & hydration','morning','essential',30),task('nebs','08:30','Morning nebulisers','morning','essential',30),task('vest1','09:00','Vest physiotherapy · 30 min','morning','essential',30),task('bed','09:35','Make bed & empty dishwasher','morning','normal',20),task('play','10:00','Play, stories & learning','morning','normal',45),task('nap','11:00','Bear’s nap / contact rest','morning','essential',75),task('lunch','12:30','Lunch & feeds','afternoon','essential',40),task('outing','13:30','Outing or outside play','afternoon','normal',75),task('laundry','15:00','Laundry & kitchen floor sweep','afternoon','normal',30),task('vest2','16:00','Vest physiotherapy · 30 min','afternoon','essential',30),task('dinner','17:30','Family dinner','evening','essential',45),task('reset','18:30','Kitchen reset & dishwasher','evening','normal',25),task('shower','19:00','Shower together, stories & cuddles','evening','normal',35),task('bedtime','19:45','Bedtime routine / feed','evening','essential',40)]}
 function defaultChores(){return[{id:'c1',name:'Make bed',cadence:'daily',done:false},{id:'c2',name:'Empty dishwasher',cadence:'daily',done:false},{id:'c3',name:'Load dishwasher & wipe kitchen',cadence:'daily',done:false},{id:'c4',name:'Sweep kitchen floor',cadence:'daily',done:false},{id:'c5',name:'Laundry as needed',cadence:'daily',done:false},{id:'c6',name:'Empty household rubbish if needed',cadence:'daily',done:false},{id:'c7',name:'Hoover main floors — session 1',cadence:'weekly',done:false},{id:'c8',name:'Hoover main floors — session 2',cadence:'weekly',done:false},{id:'c9',name:'Mop hard floors',cadence:'weekly',done:false},{id:'c10',name:'Check fridge dates & leftovers',cadence:'weekly',done:false},{id:'c11',name:'Restock Bear’s outings bag',cadence:'weekly',done:false},{id:'c12',name:'Small declutter / cupboard',cadence:'weekly',done:false},{id:'c13',name:'Tidy car interior',cadence:'monthly',done:false},{id:'c14',name:'Sort outgrown clothes / Vinted',cadence:'monthly',done:false}]}
 function fresh(){return{day:dayKey(),week:weekKey(),month:monthKey(),tasks:defaultTasks(),chores:defaultChores(),notes:'',sleeping:false,sleepStart:'',wakeTime:'',mode:'normal',message:'Ready for today. Tap a button to update your plan.',event:'',idCounter:100}}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){el('message').innerHTML='Storage is unavailable. Changes may not survive a reload.'}}function remember(){previous=clone(state)}function rollover(){if(state.day!==dayKey()){var oldWeek=state.week,oldMonth=state.month,oldChores=state.chores||defaultChores(),newState=fresh();routine616Seed(newState);newState.chores=oldChores;newState.sleep53History=state.sleep53History||[];newState.sleep53Window=state.sleep53Window||210;newState.sleep614BirthMonth=state.sleep614BirthMonth;newState.sleep614NapCount=state.sleep614NapCount;newState.idCounter=state.idCounter||100;draft621RollForward(newState,state);state=newState;for(var i=0;i<state.chores.length;i++){if((state.chores[i].cadence==='daily'||state.chores[i].cadence==='as-needed')||(state.chores[i].cadence==='weekly'&&oldWeek!==weekKey())||(state.chores[i].cadence==='monthly'&&oldMonth!==monthKey()))state.chores[i].done=false}state.week=weekKey();state.month=monthKey();save()}else{if(state.week!==weekKey()||state.month!==monthKey()){for(var j=0;j<state.chores.length;j++){if(state.week!==weekKey()&&state.chores[j].cadence==='weekly')state.chores[j].done=false;if(state.month!==monthKey()&&state.chores[j].cadence==='monthly')state.chores[j].done=false}state.week=weekKey();state.month=monthKey();save()}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){el('message').innerHTML='Storage is unavailable. Changes may not survive a reload.'}}function remember(){previous=clone(state)}function rollover(){if(state.day!==dayKey()){var oldWeek=state.week,oldMonth=state.month,oldChores=state.chores||defaultChores(),newState=fresh();routine616Seed(newState);newState.chores=oldChores;newState.sleep53History=state.sleep53History||[];newState.sleep53Window=state.sleep53Window||210;newState.sleep614BirthMonth=state.sleep614BirthMonth;newState.sleep614NapCount=state.sleep614NapCount;newState.idCounter=state.idCounter||100;newState.household624Reviewed=state.household624Reviewed;draft621RollForward(newState,state);state=newState;for(var i=0;i<state.chores.length;i++){if((state.chores[i].cadence==='daily'||state.chores[i].cadence==='as-needed')||(state.chores[i].cadence==='weekly'&&oldWeek!==weekKey())||(state.chores[i].cadence==='monthly'&&oldMonth!==monthKey()))state.chores[i].done=false}state.week=weekKey();state.month=monthKey();save()}else{if(state.week!==weekKey()||state.month!==monthKey()){for(var j=0;j<state.chores.length;j++){if(state.week!==weekKey()&&state.chores[j].cadence==='weekly')state.chores[j].done=false;if(state.month!==monthKey()&&state.chores[j].cadence==='monthly')state.chores[j].done=false}state.week=weekKey();state.month=monthKey();save()}}}
 function init(){try{var raw=localStorage.getItem(KEY);state=raw?JSON.parse(raw):fresh();if(!state||!state.tasks||!state.chores)state=fresh()}catch(e){state=fresh()}rollover();el('notes').value=state.notes||'';tickClock();render();setInterval(tickClock,1000);setInterval(function(){rollover();render()},60000)}function tickClock(){var d=new Date();el('clock').innerHTML=pad(d.getHours())+':'+pad(d.getMinutes())+'<small>'+pad(d.getSeconds())+' sec · live</small>';el('todayDate').innerHTML=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+' · Our day together'}
 function findTask(id){for(var i=0;i<state.tasks.length;i++)if(state.tasks[i].id===id)return state.tasks[i];return null}function setMessage(s){state.message=s;state.event=s;save();render()}function render(){if(!state)return;var groups={morning:[],afternoon:[],evening:[]};state.tasks.sort(function(a,b){return mins(a.time)-mins(b.time)});for(var i=0;i<state.tasks.length;i++){var t=state.tasks[i];if(groups[t.period])groups[t.period].push(t)}calendar611Slots().forEach(function(slot){groups[slot.period].push(slot)});var periods=['morning','afternoon','evening'];for(var j=0;j<periods.length;j++){var p=periods[j],html='';groups[p].sort(function(a,b){return mins(a.time)-mins(b.time)||Number(!!b.calendarLabel)-Number(!!a.calendarLabel)});for(var k=0;k<groups[p].length;k++){var t=groups[p][k];if(t.calendarLabel){html+='<div class="task v67fixed"><div class="taskmain"><div class="tasktitle">'+safe(t.title)+'</div><div class="meta">'+safe(t.calendarLabel)+' · Google Calendar · '+(t.calendarFree?'Free':'Fixed')+'</div></div></div>';continue}html+='<div class="task '+(t.done?'done ': '')+(t.skip?'skipped':'')+'"><button class="tick" aria-label="Toggle complete" onclick="toggleTask(\''+t.id+'\')">'+(t.done?'✓':'')+'</button><div class="taskmain"><div class="tasktitle">'+safe(t.title)+(t.skip?' (skipped)':'')+'</div><div class="meta">'+safe(t.time)+(t.priority==='optional'?' · optional':'')+'</div></div><button class="more" aria-label="Task options" onclick="editTask(\''+t.id+'\')">⋯</button></div>'}el(p).innerHTML=html||'<p class="small" style="padding:12px">Nothing planned yet</p>'}var done=0,active=0,up=null,now=mins(timeNow());for(var x=0;x<state.tasks.length;x++){var a=state.tasks[x];if(a.done)done++;if(!a.skip)active++;if(!a.done&&!a.skip&&(!up||mins(a.time)<mins(up.time)))up=a}el('progressText').innerHTML=done+' of '+active+' done';el('progressBar').style.width=(active?Math.min(100,Math.round(done/active*100)):100)+'%';el('rightNow').innerHTML=state.sleeping?'🌙 Bear is sleeping':(state.mode==='out'?'🚗 Out and about':state.mode==='easy'?'♥ Gentle day':'☀️ Our day');el('sleepInfo').innerHTML=state.sleeping?'Nap started '+safe(state.sleepStart)+' · '+Math.max(0,now-mins(state.sleepStart))+' min so far':state.wakeTime?'Last wake '+safe(state.wakeTime):'Tap to record sleep and wake';el('upNext').innerHTML=up?safe(up.title):'All planned tasks complete!';el('upTime').innerHTML=up?safe(up.time)+' · '+(mins(up.time)<now?'Overdue — review or mark done':'Coming up'):'Well done';el('message').innerHTML=safe(state.message||'Ready for today');el('lastEvent').innerHTML=safe(state.event||'Tap ⋯ to edit a task');renderChores()}
-function toggleTask(id){remember();var t=findTask(id);if(!t)return;t.done=!t.done;if(t.done)t.skip=false;state.message=t.done?'Completed: '+t.title:'Returned to plan: '+t.title;save();render()}
+function toggleTask(id){remember();var t=findTask(id);if(!t)return;t.done=!t.done;var job=household624Linked(t);if(job){household624Pin(job);job.done=t.done}if(t.done)t.skip=false;state.message=t.done?'Completed: '+t.title:'Returned to plan: '+t.title;save();render()}
 function moveFuture(anchor,delta,excluded){for(var i=0;i<state.tasks.length;i++){var t=state.tasks[i];if(!t.done&&!t.skip&&t.id!==excluded&&mins(t.time)>=anchor){t.time=fmt(mins(t.time)+delta)}}}function shiftRemaining(delta){remember();moveFuture(mins(timeNow()),delta,'');setMessage('Remaining activities moved '+delta+' minutes later. Completed tasks were kept.')}
 function sleepAction(){if(state.sleeping){alert("Bear is already asleep. Tap Bear awake to finish this nap.");return}remember();var t=timeNow();state.sleeping=true;state.sleepStart=t;var nap=findTask('nap');if(nap){nap.time=t;nap.done=false;nap.skip=false}state.message='Bear fell asleep at '+t+'. Nap timer running. The rest of the day will adjust when he wakes.';state.event='Nap started '+t;save();render()}
 function wakeAction(){
@@ -195,7 +195,7 @@ function wakeAction(){
 function changeMode(mode){remember();state.mode=mode;var t=timeNow(),out=findTask('outing');if(mode==='out'){if(out&&!out.done)out.time=t;state.message='Going out recorded at '+t+'. Outing moved to now.'}else if(mode==='home'){if(out&&!out.done)out.title='Indoor play, stories or a home activity';state.message='Home day selected. Outing changed to a home activity.'}else{for(var i=0;i<state.tasks.length;i++){var x=state.tasks[i];if(x.priority==='optional'&&!x.done)x.skip=true}state.message='Gentle day selected. Optional jobs skipped; essential routines retained.'}state.event=state.message;save();render()}
 function editTask(id){editing=id;editingChore=false;var t=findTask(id);if(!t)return;el('modalTitle').innerHTML='Edit activity';el('editTitle').value=t.title;el('editTime').value=t.time;el('editPeriod').value=t.period;rememberEditPeriod();el('editDuration').value=t.duration||30;el('editPriority').value=t.priority||'normal';el('postponeBtn').style.display='';el('skipBtn').style.display='';el('deleteBtn').style.display='';el('modalwrap').style.display='flex'}function openAdd(){editing=null;editingChore=false;el('modalTitle').innerHTML='Add an activity';el('editTitle').value='';el('editTime').value=timeNow();el('editPeriod').value=mins(timeNow())<720?'morning':mins(timeNow())<1020?'afternoon':'evening';rememberEditPeriod();el('editDuration').value=30;el('editPriority').value='normal';el('postponeBtn').style.display='none';el('skipBtn').style.display='none';el('deleteBtn').style.display='none';el('modalwrap').style.display='-webkit-flex';el('modalwrap').style.display='flex';}function closeModal(){el('modalwrap').style.display='none'}function saveEdit(){var name=el('editTitle').value.replace(/^\s+|\s+$/g,'');if(!name){alert('Please give the activity a name.');return}remember();if(editingChore){var c=findChore(editing);if(c)c.name=name}else{var t=editing?findTask(editing):null;if(!t){state.idCounter++;t=task('custom'+state.idCounter,timeNow(),name,'afternoon','normal',30);state.tasks.push(t)}t.title=name;if(el('editTime').value!==editPeriodTime)suggestEditPeriod();t.time=el('editTime').value||timeNow();t.period=el('editPeriod').value;t.duration=Math.max(5,Number(el('editDuration').value)||30);t.priority=el('editPriority').value}closeModal();setMessage('Saved: '+name)}function postponeTask(){var t=findTask(editing);if(!t)return;remember();t.time=fmt(mins(t.time)+30);t.period=periodFor693(t.time);closeModal();setMessage(t.title+' postponed by 30 minutes.')}function skipTask(){var t=findTask(editing);if(!t)return;remember();t.skip=!t.skip;closeModal();setMessage(t.skip?'Skipped: '+t.title:'Restored: '+t.title)}function deleteTask(){if(!confirm('Delete this activity?'))return;remember();state.tasks=state.tasks.filter(function(t){return t.id!==editing});closeModal();setMessage('Activity deleted.')}function noteChange(){state.notes=el('notes').value;save()}function undo(){if(!previous){alert('Nothing to undo yet.');return}var old=state;state=previous;previous=old;el('notes').value=state.notes||'';save();render()}
 function switchTab(tab){var tabs=['day','bear','chores','settings'];for(var i=0;i<tabs.length;i++){el('view-'+tabs[i]).className=tabs[i]===tab?'':'hidden';el('tab-'+tabs[i]).className='btn'+(tabs[i]===tab?' activeTab':'')}renderChores()}
-function renderChores(){var types=['daily','weekly','monthly'];for(var i=0;i<types.length;i++){var type=types[i],html='';for(var j=0;j<state.chores.length;j++){var c=state.chores[j];if(c.cadence!==type)continue;html+='<div class="listrow"><button onclick="toggleChore(\''+c.id+'\')" aria-label="Toggle job">'+(c.done?'✓':'□')+'</button><span style="'+(c.done?'text-decoration:line-through;color:#829187':'')+'">'+safe(c.name)+'</span><button onclick="editChore(\''+c.id+'\')">⋯</button></div>'}el(type==='daily'?'dailyChores':type==='weekly'?'weeklyChores':'monthlyChores').innerHTML=html||'<p class="small">No jobs yet</p>'}}function findChore(id){for(var i=0;i<state.chores.length;i++)if(state.chores[i].id===id)return state.chores[i];return null}function toggleChore(id){remember();var c=findChore(id);if(c)c.done=!c.done;save();render()}function editChore(id){var c=findChore(id);if(!c)return;var name=prompt('Edit household job',c.name);if(name===null||!name.replace(/\s/g,''))return;remember();c.name=name;save();render()}function openChoreAdd(){var name=prompt('Name of new household job');if(!name)return;var cadence=prompt('How often? Enter daily, weekly or monthly','weekly');if(!cadence||!(/^(daily|weekly|monthly)$/).test(cadence.toLowerCase())){alert('Please choose daily, weekly or monthly.');return}remember();state.idCounter++;state.chores.push({id:'c'+state.idCounter,name:name,cadence:cadence.toLowerCase(),done:false});save();render()}
+function renderChores(){var types=['daily','weekly','monthly'];for(var i=0;i<types.length;i++){var type=types[i],html='';for(var j=0;j<state.chores.length;j++){var c=state.chores[j];if(c.cadence!==type)continue;html+='<div class="listrow"><button onclick="toggleChore(\''+c.id+'\')" aria-label="Toggle job">'+(c.done?'✓':'□')+'</button><span style="'+(c.done?'text-decoration:line-through;color:#829187':'')+'">'+safe(c.name)+'</span><button onclick="editChore(\''+c.id+'\')">⋯</button></div>'}el(type==='daily'?'dailyChores':type==='weekly'?'weeklyChores':'monthlyChores').innerHTML=html||'<p class="small">No jobs yet</p>'}}function findChore(id){for(var i=0;i<state.chores.length;i++)if(state.chores[i].id===id)return state.chores[i];return null}function toggleChore(id){remember();var c=findChore(id);if(c){household624Pin(c);c.done=!c.done}save();render()}function editChore(id){var c=findChore(id);if(!c)return;var name=prompt('Edit household job',c.name);if(name===null||!name.replace(/\s/g,''))return;remember();c.name=name;save();render()}function openChoreAdd(){var name=prompt('Name of new household job');if(!name)return;var cadence=prompt('How often? Enter daily, weekly or monthly','weekly');if(!cadence||!(/^(daily|weekly|monthly)$/).test(cadence.toLowerCase())){alert('Please choose daily, weekly or monthly.');return}remember();state.idCounter++;state.chores.push({id:'c'+state.idCounter,name:name,cadence:cadence.toLowerCase(),done:false});save();render()}
 function startNewDay(){if(!confirm('Start a new day? Today’s ticks and timetable will reset, but your household jobs will stay.'))return;remember();var chores=state.chores,id=state.idCounter;state=fresh();state.chores=chores;state.idCounter=id;for(var i=0;i<chores.length;i++)if(chores[i].cadence==='daily'||chores[i].cadence==='as-needed')chores[i].done=false;el('notes').value='';save();render();switchTab('day')}function resetAll(){if(!confirm('Delete ALL saved planner information on this iPad?'))return;remember();state=fresh();el('notes').value='';save();render();switchTab('day')}function makeBackup(){el('backup').value=JSON.stringify(state);el('backup').focus();el('backup').select();try{document.execCommand('copy')}catch(e){}alert('Backup created. Copy the text and keep it somewhere safe.')}function restoreBackup(){try{var data=JSON.parse(el('backup').value);if(!data.tasks||!data.chores)throw new Error('Invalid');if(!confirm('Replace your current planner with this backup?'))return;remember();state=data;el('notes').value=state.notes||'';save();render();alert('Backup restored.')}catch(e){alert('That does not look like a valid planner backup.')}}
 
 /* v5 additions: retain original v4 storage key and task schema. ES5 only. */
@@ -231,7 +231,7 @@ function acceptReplan(){if(!pendingReplan)return;remember();for(var i=0;i<pendin
 var hqFocus=false;
 function nextTask(){var now=mins(timeNow()),best=null,earliest=null,i,t;for(i=0;i<state.tasks.length;i++){t=state.tasks[i];if(t.done||t.skip)continue;if(!earliest||mins(t.time)<mins(earliest.time))earliest=t;if(mins(t.time)<=now&&(!best||mins(t.time)<mins(best.time)))best=t}return best||earliest}
 function updateFocus(){var t=nextTask(),now=mins(timeNow()),title=el('focusTitle'),detail=el('focusDetail'),nap=el('napLive');if(state.sleeping){title.innerHTML='🌙 Bear is sleeping';detail.innerHTML='Quiet time — you can tick off small jobs without waking him.';var start=mins(state.sleepStart),elapsed=now-start;if(elapsed<0)elapsed+=1440;nap.innerHTML=' · Nap '+elapsed+' min';}else{nap.innerHTML='';title.innerHTML=t?safe(t.title):'Everything planned is complete!';if(t){var diff=mins(t.time)-now;detail.innerHTML=safe(t.time)+' · '+(diff<0?'Planned '+Math.abs(diff)+' min ago':diff===0?'Scheduled now':'In '+diff+' min')+(t.started?' · Started '+safe(t.started):'')}else detail.innerHTML='Enjoy your free time.'}}
-function completeNext(){var t=nextTask();if(!t){alert('All planned tasks are complete.');return}if(state.sleeping&&t.id==='nap'){alert('Use Bear awake to finish his nap.');return}remember();t.done=true;t.skip=false;t.finished=timeNow();state.message='Finished '+t.title+' at '+t.finished;state.event=state.message;save();render()}
+function completeNext(){var t=nextTask();if(!t){alert('All planned tasks are complete.');return}if(state.sleeping&&t.id==='nap'){alert('Use Bear awake to finish his nap.');return}remember();var job=household624Linked(t);if(job){household624Pin(job);job.done=true}t.done=true;t.skip=false;t.finished=timeNow();state.message='Finished '+t.title+' at '+t.finished;state.event=state.message;save();render()}
 function delayNext(amount){var t=nextTask();if(!t)return;var start=mins(t.time)+amount;if(v67Protected(t)||start<0||start+(v67End(t)-mins(t.time))>1440||v67Collision(start,start+(v67End(t)-mins(t.time)),t.id)){alert('This delay would move or overlap a protected activity, or go past midnight.');return}remember();t.time=fmt(start);t.period=start<720?'morning':start<1020?'afternoon':'evening';state.message=t.title+' moved '+amount+' minutes later.';state.event=state.message;save();render()}
 function startNext(){var t=nextTask();if(!t)return;remember();t.started=timeNow();state.message='Started '+t.title+' at '+t.started;state.event=state.message;save();render()}
 function toggleFocus(){hqFocus=!hqFocus;document.body.className=hqFocus?'focusmode':'';el('focusBtn').innerHTML=hqFocus?'⛶ Full view':'⛶ Focus'}
@@ -261,28 +261,33 @@ function hq52Render(){
  var wrap=el('house52Content');if(!wrap||!state)return;
  el('house52TodayBtn').className='btn'+(hq52View==='today'?' primary':'');
  el('house52WeekBtn').className='btn'+(hq52View==='week'?' primary':'');
- var today=hq52Index(),rotation=household623Rotation(),html='',due=0,done=0;
- for(var i=0;i<state.chores.length;i++){
-  var c=state.chores[i],target=hq52DayFor(c),show=hq52View==='week'||c.cadence==='daily'||(c.cadence==='weekly'&&target<=today)||(c.cadence==='monthly'&&today>=5);
-  if(!household623Active(c))continue;
-  if(hq52View==='today'&&household623Mode(c)!=='auto')show=household623OnToday(c,rotation);
-  if(!show)continue;
-  if(!c.done)due++;else done++;
-  var when=c.cadence==='daily'?'Every day':c.cadence==='monthly'?'Monthly':c.cadence==='as-needed'?'As needed':hq52Days[target];
-  html+='<div class="rotrow"><button class="btn" style="padding:5px 9px;min-height:36px" onclick="toggleChore(\''+c.id+'\')">'+(c.done?'DONE':'Tick')+'</button><div class="rotlabel" style="'+(c.done?'text-decoration:line-through;opacity:.55':'')+'">'+safe(c.name)+'</div><span class="rotday">'+when+'</span></div>';
- }
- wrap.innerHTML='<p class="subtle">'+(hq52View==='today'?'Jobs due by today, including anything unfinished earlier this week.':'Your full recurring rotation; tick jobs as you complete them.')+' '+done+' done · '+due+' outstanding.</p>'+(html||'<p class="subtle">No jobs in this view.</p>');
+ el('house52UnfinishedBtn').className='btn'+(hq52View==='unfinished'?' primary':'');
+ var jobs=household624Jobs(hq52View),done=jobs.filter(function(job){return job.done}).length;
+ var hint=hq52View==='today'?'The same jobs as on your Today page.':hq52View==='week'?'Weekly jobs stay available until the Monday reset.':'All unticked household jobs, including as-needed jobs.';
+ var html=jobs.map(function(job){
+  var label=household623Mode(job)==='rotate'?'Optional rotation':household623Label(job);
+  return '<div class="rotrow"><button class="btn" data-job="'+safe(job.id)+'" onclick="toggleChore(this.dataset.job)">'+(job.done?'Done':'Tick')+'</button><div class="rotlabel">'+safe(job.name)+'</div><span class="rotday">'+safe(label)+'</span></div>';
+ }).join('');
+ wrap.innerHTML='<p class="subtle">'+hint+' '+done+' done · '+(jobs.length-done)+' open.</p>'+
+  (html||'<p class="subtle">No jobs in this view.</p>')+(hq52View==='today'?household624RotationButtons():'');
 }
 function hq52Plan(){
- var todo=[],i,c,today=hq52Index(),rotation=household623Rotation();
- for(i=0;i<state.chores.length;i++){c=state.chores[i];if(household623Active(c)&&!c.done&&(household623Mode(c)==='auto'?(c.cadence==='daily'||(c.cadence==='weekly'&&hq52DayFor(c)<=today)):household623OnToday(c,rotation)))todo.push(c.name)}
- if(!todo.length){alert('Your scheduled housework is already complete.');return}
- var name=todo[0],now=mins(timeNow()),start=fmt(Math.min(21*60,Math.max(now+10,9*60)));
- if(!confirm('Add a 15-minute household slot at '+start+' for "'+name+'"? Your other tasks will not be changed.'))return;
+ var job=household624Jobs(hq52View).find(function(item){
+  return !item.done&&!state.tasks.some(function(entry){return entry.householdJobId===item.id});
+ });
+ if(!job){alert('There are no unfinished jobs without a timetable slot in this view.');return}
+ var now=mins(timeNow()),start=null;
+ for(var at=Math.max(now+10,9*60);at<=21*60;at+=5){
+  var clashes=state.tasks.some(function(entry){return !entry.skip&&at<v67End(entry)&&at+15>mins(entry.time)});
+  if(!clashes&&!calendar611Collision(at,at+15)){start=fmt(at);break}
+ }
+ if(!start){alert('No free 15-minute slot was found today.');return}
+ if(!confirm('Add a 15-minute slot at '+start+' for "'+job.name+'"? Both views will share its tick.'))return;
  remember();state.idCounter=(state.idCounter||100)+1;
- var period=mins(start)<720?'morning':mins(start)<1020?'afternoon':'evening';
- state.tasks.push(task('house52_'+state.idCounter,start,'Household focus: '+name,period,'normal',15));
- state.message='Added a short household slot at '+start+'.';save();render();
+ var entry=task('house52_'+state.idCounter,start,'Household focus: '+job.name,periodFor693(start),'normal',15);
+ entry.householdJobId=job.id;entry.householdTitle=entry.title;
+ state.tasks.push(entry);
+ setMessage('Added a linked household slot at '+start+'.');
 }
 function hq52Carry(){
  var q=state.hq52Carry||[],i,html='';
@@ -745,7 +750,7 @@ startNewDay=function(){
  if(!history66Archive('Manual new day')){alert('Today could not be archived. Copy or download a backup first.');return}
  /* Original function includes a second confirmation; bypass that duplicate. */
  remember();var chores=state.chores,id=state.idCounter,history=state.sleep53History||[],windowSize=state.sleep53Window,birthMonth=state.sleep614BirthMonth,napCount=state.sleep614NapCount;
- var next=fresh();routine616Seed(next);next.draft621Days=state.draft621Days;state=next;state.chores=chores;state.idCounter=id;state.sleep53History=history;state.sleep53Window=windowSize;state.sleep614BirthMonth=birthMonth;state.sleep614NapCount=napCount;
+ var next=fresh();routine616Seed(next);next.draft621Days=state.draft621Days;next.household624Reviewed=state.household624Reviewed;state=next;state.chores=chores;state.idCounter=id;state.sleep53History=history;state.sleep53Window=windowSize;state.sleep614BirthMonth=birthMonth;state.sleep614NapCount=napCount;
  for(var i=0;i<chores.length;i++)if(chores[i].cadence==='daily'||chores[i].cadence==='as-needed')chores[i].done=false;
  el('notes').value='';save();render();switchTab('day');
 };
@@ -859,7 +864,7 @@ render=function(){
 function v68ToggleHouse(){var d=el('v68HouseDetails'),b=el('v68HouseToggle');var open=d.className.indexOf('hidden')>=0;d.className=open?'':'hidden';b.innerHTML=open?'Hide daily jobs ▴':'Show daily jobs ▾';b.setAttribute('aria-expanded',open?'true':'false')}
 
 
-function glance69Update(){if(!state)return;var bear=el('g69Bear'),care=el('g69Care'),house=el('g69House'),light=el('g69Light');if(!bear||!care||!house||!light)return;bear.textContent=state.sleeping?'🌙 Asleep since '+(state.sleepStart||'recently'):'☀️ Awake';var total=0,done=0,overdue=0,now=mins(timeNow()),i,t,c;for(i=0;i<state.tasks.length;i++){t=state.tasks[i];if(t.priority==='essential'||t.priority==='fixed'){total++;if(t.done)done++;else if(!t.skip&&mins(t.time)<now-15)overdue++}}care.textContent=done+'/'+total+' done'+(overdue?' · '+overdue+' to review':'');total=0;done=0;for(i=0;i<state.chores.length;i++){c=state.chores[i];if(c.cadence==='daily'&&household623Active(c)){total++;if(c.done)done++}}house.textContent=done+'/'+total+' daily jobs';if(typeof weather60Cache!=='undefined'&&weather60Cache&&weather60Cache.daily&&weather60Cache.daily.sunset&&weather60Cache.daily.sunset[0])light.textContent=sunset693Label(weather60Cache.daily.sunset[0]);else light.textContent='Weather not loaded'}
+function glance69Update(){if(!state)return;var bear=el('g69Bear'),care=el('g69Care'),house=el('g69House'),light=el('g69Light');if(!bear||!care||!house||!light)return;bear.textContent=state.sleeping?'🌙 Asleep since '+(state.sleepStart||'recently'):'☀️ Awake';var total=0,done=0,overdue=0,now=mins(timeNow()),i,t,c;for(i=0;i<state.tasks.length;i++){t=state.tasks[i];if(t.priority==='essential'||t.priority==='fixed'){total++;if(t.done)done++;else if(!t.skip&&mins(t.time)<now-15)overdue++}}care.textContent=done+'/'+total+' done'+(overdue?' · '+overdue+' to review':'');var todayJobs=household624Jobs('today');done=todayJobs.filter(function(job){return job.done}).length;house.textContent=done+'/'+todayJobs.length+' jobs today';if(typeof weather60Cache!=='undefined'&&weather60Cache&&weather60Cache.daily&&weather60Cache.daily.sunset&&weather60Cache.daily.sunset[0])light.textContent=sunset693Label(weather60Cache.daily.sunset[0]);else light.textContent='Weather not loaded'}
 var glance69PreviousRender=render;render=function(){glance69PreviousRender();glance69Update()};var glance69PreviousWeatherDisplay=weather60Display;weather60Display=function(data,stale){glance69PreviousWeatherDisplay(data,stale);glance69Update()};
 
 function history692Valid(s){
@@ -1585,12 +1590,13 @@ render=function(){draft621BaseRender();draft621Render()};
     if(!old||old[field]!==value)rememberJob(job,field,value,2);
    });
    var cycle=period(job.cadence,state);
-   if(cycle&&((!old&&job.done)||(old&&period(job.cadence,baseline)===cycle&&old.done!==!!job.done))){
+   if(cycle&&((!old&&job.done)||(old&&period(job.cadence,baseline)===cycle&&(old.cadence!==job.cadence||old.done!==!!job.done)))){
     rememberJob(job,'done:'+cycle,!!job.done,2);
    }
   });
  }
  function persist(){
+  household624Mirror();
   if(meta)state.household622=meta;
   else delete state.household622;
   var ok=originalSave();
@@ -1745,8 +1751,12 @@ render=function(){draft621BaseRender();draft621Render()};
    await push(access);
    if(access!==token)return;
    absorb((meta.batch?meta.batch.ops:[]).concat(meta.pending));
+   var rotation=household623Rotation();
    merge();
-   if(!persist())throw Error('storage');
+   if(rotation&&rotation.done&&!household624Selection())state.household624Selection={day:dayKey(),id:rotation.id};
+   baseline=snapshot();
+   var needsReview=household624ApplyReview();
+   if(!(needsReview?save():persist()))throw Error('storage');
    notice='Household jobs synced at '+timeNow()+' · '+email;
    render();
    if(meta.pending.length)schedule();
@@ -1821,7 +1831,7 @@ render=function(){draft621BaseRender();draft621Render()};
 })();
 
 /* Household job controls and optional room-by-room starter list. */
-var household623Areas=['Entrance and stairs','Bathroom','Kitchen','Main living room','Laundry and landing','Bedroom','Second living room / office','Whole house'];
+var household623Areas=['Entrance and stairs','Bathroom','Kitchen','Main living room','Laundry and landing','Bedroom','Second living room / office','Whole house','Car and errands'];
 var household623Labels={daily:'Daily',weekly:'Weekly',monthly:'Monthly','as-needed':'As needed'};
 var household623Starter=[
  ['Entrance and stairs','Put away shoes, coats and bags','as-needed','hide'],
@@ -1949,11 +1959,12 @@ function household623Preview(){
  details.open=true;
 }
 function household623Import(){
- var known=Object.create(null),count=0;
+ var known=Object.create(null),knownIds=Object.create(null),count=0;
  function key(name){return name.trim().replace(/\s+/g,' ').toLowerCase()}
  remember();
  state.chores.forEach(function(job){
   known[key(job.name)]=true;
+  if(job.householdSyncId)knownIds[job.householdSyncId]=true;
   var group=household623Groups[job.id],standard=defaultChores().find(function(item){return item.id===job.id});
   if(group&&standard&&key(standard.name)===key(job.name)){
    if(!job.area)job.area=group[0];
@@ -1962,11 +1973,12 @@ function household623Import(){
  });
  household623Starter.forEach(function(entry){
   var titleKey=key(entry[1]);
-  if(known[titleKey])return;
+  if(known[titleKey]||knownIds['starter623:'+titleKey])return;
   var newJob=household623New(entry[1],entry[2],entry[0],entry[3]);
   newJob.householdSyncId='starter623:'+titleKey;
   state.chores.push(newJob);known[titleKey]=true;count++;
  });
+ household624ApplyReview();
  if(household623Save(count?count+' starter jobs added. Your existing jobs and ticks were kept.':'The starter jobs are already in your list.'))el('household623Starter').open=false;
 }
 renderChores=function(){
@@ -1986,12 +1998,139 @@ renderChores=function(){
 household65Render=function(){
  var list=el('today65List'),count=el('today65Count');
  if(!list||!state)return;
- var rotation=household623Rotation(),jobs=state.chores.filter(function(job){return household623OnToday(job,rotation)});
+ var jobs=household624Jobs('today');
  var done=jobs.filter(function(job){return job.done}).length;
  list.innerHTML=jobs.map(function(job){
   return '<button class="today65job '+(job.done?'done':'')+'" data-job="'+safe(job.id)+'" onclick="toggleChore(this.dataset.job)" aria-label="Toggle '+safe(job.name)+'"><span>'+(job.done?'✓':'□')+'</span>'+safe(job.name)+(household623Mode(job)==='rotate'?' <small>Optional rotation</small>':'')+'</button>';
  }).join('')||'<p class="small">No household jobs are shown on Today.</p>';
+ el('household624RotationTools').innerHTML=household624RotationButtons();
  count.textContent=done+' of '+jobs.length+' done';
+};
+
+/* Household views and the timetable share the same job completion. */
+function household624Jobs(view){
+ var rotation=household623Rotation();
+ return state.chores.filter(function(job){
+  if(!household623Active(job))return false;
+  if(view==='week')return job.cadence==='weekly';
+  if(view==='unfinished')return !job.done;
+  return household623OnToday(job,rotation);
+ });
+}
+function household624Choices(){
+ return state.chores.filter(function(job){return household623Active(job)&&household623Mode(job)==='rotate'}).sort(function(a,b){
+  return (a.area||'').localeCompare(b.area||'')||a.name.localeCompare(b.name)||a.id.localeCompare(b.id);
+ });
+}
+function household624Selection(){
+ var saved=state.household624Selection;
+ return saved&&saved.day===dayKey()?saved:null;
+}
+household623Rotation=function(){
+ var selection=household624Selection(),jobs=household624Choices();
+ if(selection){
+  if(selection.skipped)return null;
+  var selected=jobs.find(function(job){return job.id===selection.id});
+  if(selected)return selected;
+ }
+ if(!jobs.length)return null;
+ var start=(new Date().getDate()-1)%jobs.length;
+ return jobs.slice(start).concat(jobs.slice(0,start)).find(function(job){return !job.done})||null;
+};
+function household624Pin(job){
+ if(!job||household623Mode(job)!=='rotate')return;
+ var current=household623Rotation();
+ if(current&&current.id===job.id)state.household624Selection={day:dayKey(),id:job.id};
+}
+function household624Rotate(action){
+ var current=household623Rotation(),selection=household624Selection();
+ if(action==='skip'){
+  remember();state.household624Selection={day:dayKey(),skipped:true};
+ }else if(action==='restore'){
+  remember();delete state.household624Selection;
+ }else{
+  var jobs=household624Choices(),index=current?jobs.indexOf(current):-1;
+  var next=jobs.slice(index+1).concat(jobs.slice(0,index<0?0:index)).find(function(job){return !job.done});
+  if(!next){alert('There is no other unfinished optional job.');return}
+  remember();state.household624Selection={day:dayKey(),id:next.id};
+ }
+ if(!save()){
+  state=previous;alert('Could not save this change on this device.');
+ }
+ render();
+}
+function household624RotationButtons(){
+ var selection=household624Selection();
+ if(selection&&selection.skipped)return '<p class="small">Optional job skipped for today. <button class="btn" onclick="household624Rotate(\'restore\')">Show optional job</button></p>';
+ return household623Rotation()?'<div class="row"><button class="btn" onclick="household624Rotate(\'next\')">Pick another</button><button class="btn" onclick="household624Rotate(\'skip\')">Skip today</button></div>':'';
+}
+function household624Linked(entry){
+ return entry&&entry.householdJobId?findChore(entry.householdJobId):null;
+}
+function household624LinkLegacy(){
+ state.tasks.forEach(function(entry){
+  var prefix='Household focus: ';
+  if(entry.householdJobId||entry.id.indexOf('house52_')!==0||entry.title.indexOf(prefix)!==0)return;
+  var title=entry.title.slice(prefix.length);
+  var matches=state.chores.filter(function(job){return job.name===title});
+  if(matches.length!==1)return;
+  entry.householdJobId=matches[0].id;
+  if(entry.done&&!matches[0].done){household624Pin(matches[0]);matches[0].done=true}
+ });
+}
+function household624Mirror(){
+ state.tasks.forEach(function(entry){
+  var job=household624Linked(entry);
+  if(!job)return;
+  if(entry.householdTitle===entry.title||!entry.householdTitle){
+   entry.householdTitle='Household focus: '+job.name;
+   entry.title=entry.householdTitle;
+  }
+  entry.done=!!job.done;
+  if(!household623Active(job)&&!entry.skip){entry.householdPaused=true;entry.skip=true}
+  if(household623Active(job)&&entry.householdPaused){delete entry.householdPaused;entry.skip=false}
+ });
+}
+function household624ApplyReview(){
+ if(state.household624Reviewed||!state.chores.some(function(job){return /^starter623:/.test(job.householdSyncId||'')}))return false;
+ function adjust(id,original,oldCadence,changes){
+  var job=findChore(id);
+  if(job&&job.name===original&&household623Active(job)&&job.cadence===oldCadence){
+   Object.keys(changes).forEach(function(key){
+    if(key==='area'&&job.area&&job.area!==household623Groups[id][0])return;
+    if(key==='visibility'&&job.visibility&&job.visibility!==household623Groups[id][1])return;
+    job[key]=changes[key];
+   });
+  }
+ }
+ function starter(original,area,cadence){
+  return state.chores.find(function(job){
+   return job.householdSyncId==='starter623:'+original.toLowerCase()&&job.name===original&&job.area===area&&job.cadence===cadence&&household623Active(job);
+  });
+ }
+ household624LinkLegacy();
+ adjust('c4','Sweep kitchen floor','daily',{cadence:'as-needed'});
+ adjust('c5','Laundry as needed','daily',{name:'Start a wash',cadence:'as-needed',visibility:'hide'});
+ adjust('c6','Empty household rubbish if needed','daily',{cadence:'as-needed'});
+ adjust('c9','Mop hard floors','weekly',{name:'Mop kitchen and other hard floors'});
+ adjust('c12','Small declutter / cupboard','weekly',{name:'Choose one area to declutter',cadence:'monthly',visibility:'rotate'});
+ adjust('c13','Tidy car interior','monthly',{area:'Car and errands'});
+ var cupboard=starter('Sort a bathroom cupboard or drawer','Bathroom','monthly');
+ var general=state.chores.find(function(job){return job.name==='Choose one area to declutter'&&household623Active(job)});
+ if(cupboard&&general&&cupboard.visibility==='rotate')cupboard.status='paused';
+ var paperwork=starter('Sort paperwork or one storage area','Second living room / office','monthly');
+ if(paperwork)paperwork.name='Sort office paperwork';
+ var linens=starter('Change bed linen','Bedroom','weekly');
+ if(linens)linens.name='Change shared bed linen';
+ state.household624Reviewed=true;
+ return true;
+}
+var household624BaseInit=init;
+init=function(){
+ household624BaseInit();
+ var hadUnlinked=state.tasks.some(function(entry){return entry.id.indexOf('house52_')===0&&!entry.householdJobId});
+ household624LinkLegacy();
+ if(household624ApplyReview()||hadUnlinked){save();render()}
 };
 
 init();
