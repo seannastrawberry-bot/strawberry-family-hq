@@ -118,7 +118,7 @@ header{padding:9px 16px}
 <button class="btn" onclick="openAdd()">＋ Add task</button>
 <button class="btn primary" onclick="proposeReplan()">↻ Replan</button>
 <button class="btn" id="more61Btn" onclick="more61Toggle()">⋯ Day options</button>
-</div><div class="nowbar"><div><strong id="focusTitle">Your next step</strong><small id="focusDetail">Your plan updates as the day changes</small><span class="sleepbanner" id="napLive"></span></div><div class="nowbuttons"><button class="btn" onclick="completeNext()" style="background:#ffffff !important;color:#173e32 !important;border:2px solid #173e32 !important;font-size:20px !important;font-weight:bold !important;opacity:1 !important;-webkit-text-fill-color:#173e32 !important;">DONE NOW</button><button class="btn" onclick="delayNext(15)">↷ 15 min</button><button class="btn" onclick="startNext()">▶ Start</button><button class="btn" id="focusBtn" onclick="toggleFocus()">⛶ Focus</button></div></div></div><div class="day617Priorities"><section class="panel hidden" id="day617Appointment"><strong id="day617Title"></strong><p class="small" id="day617Conflict"></p></section><section id="sleep614Card" class="panel hidden" style="padding:12px;margin:8px 0" aria-live="polite"></section></div><section class="glance69" id="glance69"><div class="g69item"><small>BEAR</small><strong id="g69Bear">Ready</strong></div><div class="g69item"><small>ESSENTIAL CARE</small><strong id="g69Care">Checking…</strong></div><div class="g69item"><small>HOUSEHOLD</small><strong id="g69House">Checking…</strong></div><div class="g69item"><small>DAYLIGHT</small><strong id="g69Light">Connect weather</strong></div></section><div class="v68heading"><strong>Today at a glance</strong><span>Tap any activity to update your day</span></div><button class="btn" id="week616Toggle" aria-expanded="false" aria-controls="week616Panel" onclick="week616Toggle()">Week and routines</button><section id="week616Panel" class="panel hidden" style="padding:12px;margin:8px 0"><details id="repeat620Manager" open><summary>Manage repeating routines</summary><div id="routine616List"></div><div class="formline"><input type="hidden" id="routine616Index"><label>Activity <input id="routine616Title" maxlength="120"></label><label>Time <input type="time" id="routine616Time"></label><label>Minutes <input type="number" id="routine616Duration" min="5" max="240"></label><label>Priority <select id="routine616Priority"><option value="normal">Flexible</option><option value="essential">Essential</option><option value="fixed">Fixed</option></select></label></div><fieldset><legend>Repeat on</legend><label><input type="checkbox" id="routine616Day1">Mon</label> <label><input type="checkbox" id="routine616Day2">Tue</label> <label><input type="checkbox" id="routine616Day3">Wed</label> <label><input type="checkbox" id="routine616Day4">Thu</label> <label><input type="checkbox" id="routine616Day5">Fri</label> <label><input type="checkbox" id="routine616Day6">Sat</label> <label><input type="checkbox" id="routine616Day0">Sun</label></fieldset><button class="btn" onclick="routine616Save()">Save routine</button> <button class="btn" onclick="routine616Form(-1)">New routine</button><p class="small">Changes apply to future days. Use Add today to add a one-off copy you can edit in Today.</p></details><h3>Next seven days</h3><p id="week616Status" aria-live="polite"></p><button class="btn" onclick="week616Load()">Refresh week appointments</button><div id="week616Days"></div></section>
+</div><div class="nowbar"><div><strong id="focusTitle">Your next step</strong><small id="focusDetail">Your plan updates as the day changes</small><span class="sleepbanner" id="napLive"></span></div><div class="nowbuttons"><button class="btn" onclick="completeNext()" style="background:#ffffff !important;color:#173e32 !important;border:2px solid #173e32 !important;font-size:20px !important;font-weight:bold !important;opacity:1 !important;-webkit-text-fill-color:#173e32 !important;">DONE NOW</button><button class="btn" onclick="delayNext(15)">↷ 15 min</button><button class="btn" onclick="startNext()">▶ Start</button><button class="btn" id="focusBtn" onclick="toggleFocus()">⛶ Focus</button></div></div></div><div class="day617Priorities"><section class="panel hidden" id="day617Appointment"><strong id="day617Title"></strong><p class="small" id="day617Conflict"></p></section><section id="sleep614Card" class="panel hidden" style="padding:12px;margin:8px 0" aria-live="polite"></section></div><section class="glance69" id="glance69"><div class="g69item"><small>BEAR</small><strong id="g69Bear">Ready</strong></div><div class="g69item"><small>ESSENTIAL CARE</small><strong id="g69Care">Checking…</strong></div><div class="g69item"><small>HOUSEHOLD</small><strong id="g69House">Checking…</strong></div><div class="g69item"><small>DAYLIGHT</small><strong id="g69Light">Connect weather</strong></div></section><div class="v68heading"><strong>Today at a glance</strong><span>Tap any activity to update your day</span></div><button class="btn" id="draft621Toggle" aria-expanded="false" aria-controls="draft621Panel" onclick="draft621Toggle()">Tomorrow and drafts</button><section id="draft621Panel" class="panel hidden" style="padding:12px;margin:8px 0"><h2>Family HQ drafts</h2><label>Plan for <select id="draft621Day" onchange="draft621Load()"><option value="tomorrow">Tomorrow</option><option value="today">Today</option></select></label><div class="row"><button class="btn" id="draft621Connect" onclick="personalCalendarConnect(true)">Connect draft inbox</button><button class="btn" onclick="draft621Load()">Refresh draft</button><button class="btn primary hidden" id="draft621Apply" onclick="draft621Load(true)">Apply plan</button></div><p class="small" id="draft621Status" role="status"></p><div id="draft621Items"></div></section><button class="btn" id="week616Toggle" aria-expanded="false" aria-controls="week616Panel" onclick="week616Toggle()">Week and routines</button><section id="week616Panel" class="panel hidden" style="padding:12px;margin:8px 0"><details id="repeat620Manager" open><summary>Manage repeating routines</summary><div id="routine616List"></div><div class="formline"><input type="hidden" id="routine616Index"><label>Activity <input id="routine616Title" maxlength="120"></label><label>Time <input type="time" id="routine616Time"></label><label>Minutes <input type="number" id="routine616Duration" min="5" max="240"></label><label>Priority <select id="routine616Priority"><option value="normal">Flexible</option><option value="essential">Essential</option><option value="fixed">Fixed</option></select></label></div><fieldset><legend>Repeat on</legend><label><input type="checkbox" id="routine616Day1">Mon</label> <label><input type="checkbox" id="routine616Day2">Tue</label> <label><input type="checkbox" id="routine616Day3">Wed</label> <label><input type="checkbox" id="routine616Day4">Thu</label> <label><input type="checkbox" id="routine616Day5">Fri</label> <label><input type="checkbox" id="routine616Day6">Sat</label> <label><input type="checkbox" id="routine616Day0">Sun</label></fieldset><button class="btn" onclick="routine616Save()">Save routine</button> <button class="btn" onclick="routine616Form(-1)">New routine</button><p class="small">Changes apply to future days. Use Add today to add a one-off copy you can edit in Today.</p></details><h3>Next seven days</h3><p id="week616Status" aria-live="polite"></p><button class="btn" onclick="week616Load()">Refresh week appointments</button><div id="week616Days"></div></section>
 <div class="actions hidden" id="more61">
 <button class="btn" onclick="outing63Open()">🚗 Plan an outing</button>
 <button class="btn" onclick="changeMode('home')">🏠 Staying home</button>
@@ -159,14 +159,14 @@ header{padding:9px 16px}
 </div>
 <div id="house52Content" aria-live="polite"></div>
 </div>
-<p class="hint">Daily jobs reset each morning. Weekly jobs reset on Monday; monthly jobs reset on the first. Daily jobs also appear on Today.</p><div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="openChoreAdd()">＋ Add household job</button><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.20:</strong> The quick-action bar records your next task, adjusts its timing and shows a live nap duration. All information stays on this device.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. No AI service or online synchronisation is connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
+<p class="hint">Daily jobs reset each morning. Weekly jobs reset on Monday; monthly jobs reset on the first. Daily jobs also appear on Today.</p><div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="openChoreAdd()">＋ Add household job</button><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.21</strong> · Preview and apply private Family HQ drafts. Approved tasks are saved on this device.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts when connected. Planner changes are saved on this device.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
 /* Deliberately ES5-compatible for older iPad Safari. No libraries, fetch or external resources. */
 var KEY='strawberry-family-hq-v4', state=null,previous=null,editing=null,editingChore=false;
 function el(id){return document.getElementById(id)}function pad(n){return n<10?'0'+n:String(n)}function timeNow(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())}function mins(s){var p=(s||'00:00').split(':');return Number(p[0])*60+Number(p[1])}function fmt(m){m=Math.max(0,Math.min(1439,m));return pad(Math.floor(m/60))+':'+pad(m%60)}function dayKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}function weekKey(){var d=new Date(),w=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));return w.getFullYear()+'-'+pad(w.getMonth()+1)+'-'+pad(w.getDate())}function monthKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)}function clone(o){return JSON.parse(JSON.stringify(o))}function safe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function task(id,time,title,period,priority,duration){return{id:id,time:time,title:title,period:period,priority:priority||'normal',duration:duration||30,done:false,skip:false}}function defaultTasks(){return[task('breakfast','08:00','Breakfast, feeds & hydration','morning','essential',30),task('nebs','08:30','Morning nebulisers','morning','essential',30),task('vest1','09:00','Vest physiotherapy · 30 min','morning','essential',30),task('bed','09:35','Make bed & empty dishwasher','morning','normal',20),task('play','10:00','Play, stories & learning','morning','normal',45),task('nap','11:00','Bear’s nap / contact rest','morning','essential',75),task('lunch','12:30','Lunch & feeds','afternoon','essential',40),task('outing','13:30','Outing or outside play','afternoon','normal',75),task('laundry','15:00','Laundry & kitchen floor sweep','afternoon','normal',30),task('vest2','16:00','Vest physiotherapy · 30 min','afternoon','essential',30),task('dinner','17:30','Family dinner','evening','essential',45),task('reset','18:30','Kitchen reset & dishwasher','evening','normal',25),task('shower','19:00','Shower together, stories & cuddles','evening','normal',35),task('bedtime','19:45','Bedtime routine / feed','evening','essential',40)]}
 function defaultChores(){return[{id:'c1',name:'Make bed',cadence:'daily',done:false},{id:'c2',name:'Empty dishwasher',cadence:'daily',done:false},{id:'c3',name:'Load dishwasher & wipe kitchen',cadence:'daily',done:false},{id:'c4',name:'Sweep kitchen floor',cadence:'daily',done:false},{id:'c5',name:'Laundry as needed',cadence:'daily',done:false},{id:'c6',name:'Empty household rubbish if needed',cadence:'daily',done:false},{id:'c7',name:'Hoover main floors — session 1',cadence:'weekly',done:false},{id:'c8',name:'Hoover main floors — session 2',cadence:'weekly',done:false},{id:'c9',name:'Mop hard floors',cadence:'weekly',done:false},{id:'c10',name:'Check fridge dates & leftovers',cadence:'weekly',done:false},{id:'c11',name:'Restock Bear’s outings bag',cadence:'weekly',done:false},{id:'c12',name:'Small declutter / cupboard',cadence:'weekly',done:false},{id:'c13',name:'Tidy car interior',cadence:'monthly',done:false},{id:'c14',name:'Sort outgrown clothes / Vinted',cadence:'monthly',done:false}]}
 function fresh(){return{day:dayKey(),week:weekKey(),month:monthKey(),tasks:defaultTasks(),chores:defaultChores(),notes:'',sleeping:false,sleepStart:'',wakeTime:'',mode:'normal',message:'Ready for today. Tap a button to update your plan.',event:'',idCounter:100}}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){el('message').innerHTML='Storage is unavailable. Changes may not survive a reload.'}}function remember(){previous=clone(state)}function rollover(){if(state.day!==dayKey()){var oldWeek=state.week,oldMonth=state.month,oldChores=state.chores||defaultChores(),newState=fresh();routine616Seed(newState);newState.chores=oldChores;newState.sleep53History=state.sleep53History||[];newState.sleep53Window=state.sleep53Window||210;newState.sleep614BirthMonth=state.sleep614BirthMonth;newState.sleep614NapCount=state.sleep614NapCount;newState.idCounter=state.idCounter||100;state=newState;for(var i=0;i<state.chores.length;i++){if(state.chores[i].cadence==='daily'||(state.chores[i].cadence==='weekly'&&oldWeek!==weekKey())||(state.chores[i].cadence==='monthly'&&oldMonth!==monthKey()))state.chores[i].done=false}state.week=weekKey();state.month=monthKey();save()}else{if(state.week!==weekKey()||state.month!==monthKey()){for(var j=0;j<state.chores.length;j++){if(state.week!==weekKey()&&state.chores[j].cadence==='weekly')state.chores[j].done=false;if(state.month!==monthKey()&&state.chores[j].cadence==='monthly')state.chores[j].done=false}state.week=weekKey();state.month=monthKey();save()}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){el('message').innerHTML='Storage is unavailable. Changes may not survive a reload.'}}function remember(){previous=clone(state)}function rollover(){if(state.day!==dayKey()){var oldWeek=state.week,oldMonth=state.month,oldChores=state.chores||defaultChores(),newState=fresh();routine616Seed(newState);newState.chores=oldChores;newState.sleep53History=state.sleep53History||[];newState.sleep53Window=state.sleep53Window||210;newState.sleep614BirthMonth=state.sleep614BirthMonth;newState.sleep614NapCount=state.sleep614NapCount;newState.idCounter=state.idCounter||100;draft621RollForward(newState,state);state=newState;for(var i=0;i<state.chores.length;i++){if(state.chores[i].cadence==='daily'||(state.chores[i].cadence==='weekly'&&oldWeek!==weekKey())||(state.chores[i].cadence==='monthly'&&oldMonth!==monthKey()))state.chores[i].done=false}state.week=weekKey();state.month=monthKey();save()}else{if(state.week!==weekKey()||state.month!==monthKey()){for(var j=0;j<state.chores.length;j++){if(state.week!==weekKey()&&state.chores[j].cadence==='weekly')state.chores[j].done=false;if(state.month!==monthKey()&&state.chores[j].cadence==='monthly')state.chores[j].done=false}state.week=weekKey();state.month=monthKey();save()}}}
 function init(){try{var raw=localStorage.getItem(KEY);state=raw?JSON.parse(raw):fresh();if(!state||!state.tasks||!state.chores)state=fresh()}catch(e){state=fresh()}rollover();el('notes').value=state.notes||'';tickClock();render();setInterval(tickClock,1000);setInterval(function(){rollover();render()},60000)}function tickClock(){var d=new Date();el('clock').innerHTML=pad(d.getHours())+':'+pad(d.getMinutes())+'<small>'+pad(d.getSeconds())+' sec · live</small>';el('todayDate').innerHTML=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+' · Our day together'}
 function findTask(id){for(var i=0;i<state.tasks.length;i++)if(state.tasks[i].id===id)return state.tasks[i];return null}function setMessage(s){state.message=s;state.event=s;save();render()}function render(){if(!state)return;var groups={morning:[],afternoon:[],evening:[]};state.tasks.sort(function(a,b){return mins(a.time)-mins(b.time)});for(var i=0;i<state.tasks.length;i++){var t=state.tasks[i];if(groups[t.period])groups[t.period].push(t)}calendar611Slots().forEach(function(slot){groups[slot.period].push(slot)});var periods=['morning','afternoon','evening'];for(var j=0;j<periods.length;j++){var p=periods[j],html='';groups[p].sort(function(a,b){return mins(a.time)-mins(b.time)||Number(!!b.calendarLabel)-Number(!!a.calendarLabel)});for(var k=0;k<groups[p].length;k++){var t=groups[p][k];if(t.calendarLabel){html+='<div class="task v67fixed"><div class="taskmain"><div class="tasktitle">'+safe(t.title)+'</div><div class="meta">'+safe(t.calendarLabel)+' · Google Calendar · '+(t.calendarFree?'Free':'Fixed')+'</div></div></div>';continue}html+='<div class="task '+(t.done?'done ': '')+(t.skip?'skipped':'')+'"><button class="tick" aria-label="Toggle complete" onclick="toggleTask(\''+t.id+'\')">'+(t.done?'✓':'')+'</button><div class="taskmain"><div class="tasktitle">'+safe(t.title)+(t.skip?' (skipped)':'')+'</div><div class="meta">'+safe(t.time)+(t.priority==='optional'?' · optional':'')+'</div></div><button class="more" aria-label="Task options" onclick="editTask(\''+t.id+'\')">⋯</button></div>'}el(p).innerHTML=html||'<p class="small" style="padding:12px">Nothing planned yet</p>'}var done=0,active=0,up=null,now=mins(timeNow());for(var x=0;x<state.tasks.length;x++){var a=state.tasks[x];if(a.done)done++;if(!a.skip)active++;if(!a.done&&!a.skip&&(!up||mins(a.time)<mins(up.time)))up=a}el('progressText').innerHTML=done+' of '+active+' done';el('progressBar').style.width=(active?Math.min(100,Math.round(done/active*100)):100)+'%';el('rightNow').innerHTML=state.sleeping?'🌙 Bear is sleeping':(state.mode==='out'?'🚗 Out and about':state.mode==='easy'?'♥ Gentle day':'☀️ Our day');el('sleepInfo').innerHTML=state.sleeping?'Nap started '+safe(state.sleepStart)+' · '+Math.max(0,now-mins(state.sleepStart))+' min so far':state.wakeTime?'Last wake '+safe(state.wakeTime):'Tap to record sleep and wake';el('upNext').innerHTML=up?safe(up.title):'All planned tasks complete!';el('upTime').innerHTML=up?safe(up.time)+' · '+(mins(up.time)<now?'Overdue — review or mark done':'Coming up'):'Well done';el('message').innerHTML=safe(state.message||'Ready for today');el('lastEvent').innerHTML=safe(state.event||'Tap ⋯ to edit a task');renderChores()}
 function toggleTask(id){remember();var t=findTask(id);if(!t)return;t.done=!t.done;if(t.done)t.skip=false;state.message=t.done?'Completed: '+t.title:'Returned to plan: '+t.title;save();render()}
@@ -734,7 +734,7 @@ startNewDay=function(){
  if(!history66Archive('Manual new day')){alert('Today could not be archived. Copy or download a backup first.');return}
  /* Original function includes a second confirmation; bypass that duplicate. */
  remember();var chores=state.chores,id=state.idCounter,history=state.sleep53History||[],windowSize=state.sleep53Window,birthMonth=state.sleep614BirthMonth,napCount=state.sleep614NapCount;
- var next=fresh();routine616Seed(next);state=next;state.chores=chores;state.idCounter=id;state.sleep53History=history;state.sleep53Window=windowSize;state.sleep614BirthMonth=birthMonth;state.sleep614NapCount=napCount;
+ var next=fresh();routine616Seed(next);next.draft621Days=state.draft621Days;state=next;state.chores=chores;state.idCounter=id;state.sleep53History=history;state.sleep53Window=windowSize;state.sleep614BirthMonth=birthMonth;state.sleep614NapCount=napCount;
  for(var i=0;i<chores.length;i++)if(chores[i].cadence==='daily')chores[i].done=false;
  el('notes').value='';save();render();switchTab('day');
 };
@@ -980,21 +980,23 @@ function personalCalendarRefresh(){
   el('personalCalendarStatus').textContent='Calendar refresh failed. Any appointments shown may be out of date.';
  });
 }
-function personalCalendarConnect(){
+function personalCalendarConnect(withDrafts){
  if(!personalCalendarClientId||!window.google||!google.accounts||!google.accounts.oauth2){
   el('personalCalendarStatus').textContent='Google Calendar connection is unavailable.';return;
  }
  var request=++personalCalendarRequest;
  var client=google.accounts.oauth2.initTokenClient({
-  client_id:personalCalendarClientId,scope:personalCalendarScope,include_granted_scopes:false,
+  client_id:personalCalendarClientId,scope:personalCalendarScope+(withDrafts?' '+draft621Scope:''),include_granted_scopes:false,
   callback:function(result){
    if(request!==personalCalendarRequest)return;
    if(result.error||!result.access_token||!google.accounts.oauth2.hasGrantedAllScopes(result,personalCalendarScope)){
     el('personalCalendarStatus').textContent='Google Calendar access was not granted.';return;
    }
+   draft621Permission=google.accounts.oauth2.hasGrantedAllScopes(result,draft621Scope);
    personalCalendarToken=result.access_token;
    personalCalendarExpiry=Date.now()+Number(result.expires_in)*1000;
    personalCalendarRefresh();
+   if(draft621Open)draft621Load();
   },
   error_callback:function(){
    if(request===personalCalendarRequest)el('personalCalendarStatus').textContent='Google sign-in did not finish.';
@@ -1003,7 +1005,7 @@ function personalCalendarConnect(){
  client.requestAccessToken({prompt:'select_account'});
 }
 function personalCalendarDisconnect(message){
- ++personalCalendarRequest;personalCalendarToken='';personalCalendarExpiry=0;personalCalendarEvents=[];personalCalendarDay='';
+ ++personalCalendarRequest;++draft621Request;draft621Permission=false;draft621Data=null;personalCalendarToken='';personalCalendarExpiry=0;personalCalendarEvents=[];personalCalendarDay='';
  week616Events=[];week616Token='';week616Date='';
  el('personalCalendarEvents').innerHTML='';
  el('personalCalendarStatus').textContent=message||'Calendar cleared from this tab.';render();
@@ -1202,7 +1204,7 @@ function week616Render(){
  var loaded=connected&&week616Token===personalCalendarToken&&week616Date===dayKey(),html='',now=new Date();
  for(var i=0;i<7;i++){
   var day=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i),end=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i+1);
-  var key=week616Day(day),entries=(i===0?state.tasks:defaultTasks().concat(routine616Items(day))).filter(function(t){return !t.skip}).map(function(t){return {time:t.time,title:t.title,tag:t.done?' · Done':''}});
+  var key=week616Day(day),savedDraft=(state.draft621Days||{})[key],entries=(i===0?state.tasks:defaultTasks().concat(routine616Items(day),savedDraft&&savedDraft.tasks||[])).filter(function(t){return !t.skip}).map(function(t){return {time:t.time,title:t.title,tag:t.done?' · Done':''}});
   if(loaded)week616Events.forEach(function(e){
    var all=!!e.start.date,start=all?null:new Date(e.start.dateTime);
    if(all?e.start.date<=key&&e.end.date>key:start<end&&new Date(e.end.dateTime)>day){
@@ -1310,6 +1312,212 @@ function repeat620Pause(index){
  var r=(state.routines616||[])[index];if(!r)return;
  remember();r.paused=!r.paused;setMessage(r.paused?'Future occurrences paused.':'Repeating routine resumed.');
 }
+
+/* Draft inbox. Google access stays in memory and only approved tasks enter the planner. */
+var draft621Scope='https://www.googleapis.com/auth/calendar.calendarlist.readonly';
+var draft621Permission=false,draft621Request=0,draft621Open=false,draft621Data=null;
+var draft621Status='';
+function draft621Date(){
+ var now=new Date();
+ return new Date(now.getFullYear(),now.getMonth(),now.getDate()+(el('draft621Day').value==='today'?0:1));
+}
+function draft621Next(day){return new Date(day.getFullYear(),day.getMonth(),day.getDate()+1)}
+function draft621ValidTime(value){return typeof value==='string'&&/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)}
+function draft621Read(url,token){
+ var items=[];
+ function page(cursor){
+  return fetch(url+(cursor?'&pageToken='+encodeURIComponent(cursor):''),{headers:{Authorization:'Bearer '+token}}).then(function(response){
+   if(!response.ok)throw Error(String(response.status));
+   return response.json();
+  }).then(function(data){
+   items=items.concat(data.items||[]);
+   return data.nextPageToken?page(data.nextPageToken):items;
+  });
+ }
+ return page('');
+}
+function draft621Events(id,day,token,fields){
+ var query='singleEvents=true&timeMin='+encodeURIComponent(day.toISOString())+'&timeMax='+encodeURIComponent(draft621Next(day).toISOString());
+ return draft621Read('https://www.googleapis.com/calendar/v3/calendars/'+encodeURIComponent(id)+'/events?'+query+'&fields=nextPageToken,items('+fields+')',token);
+}
+function draft621Parse(event,key){
+ if(event.status==='cancelled'||event.summary!=='Family HQ plan draft'||!event.start||event.start.date!==key||typeof event.description!=='string'||event.description.length>12000)return null;
+ var data;
+ try{data=JSON.parse(event.description)}catch(e){return null}
+ if(!data||data.format!=='family-hq-draft-v1'||data.date!==key||!Array.isArray(data.tasks)||!data.tasks.length||data.tasks.length>20)return null;
+ var valid=data.tasks.every(function(item){
+  return item&&typeof item.title==='string'&&item.title.trim()&&item.title.length<=140&&draft621ValidTime(item.time)&&
+   Number.isInteger(item.duration)&&item.duration>=5&&item.duration<=240;
+ });
+ return valid?{id:String(event.id||''),updated:String(event.updated||''),tasks:data.tasks}:null;
+}
+function draft621Busy(events,day){
+ var end=draft621Next(day),key=week616Day(day);
+ return events.reduce(function(slots,event){
+  if(!event.start||!event.end||event.status==='cancelled'||event.transparency==='transparent'||
+     (event.attendees||[]).some(function(person){return person.self&&person.responseStatus==='declined'}))return slots;
+  var from=0,to=1440;
+  if(event.start.dateTime){
+   var a=new Date(event.start.dateTime),b=new Date(event.end.dateTime);
+   if(!(a<end&&b>day))return slots;
+   if(a>day)from=a.getHours()*60+a.getMinutes();
+   if(b<end)to=b.getHours()*60+b.getMinutes()+Number(!!(b.getSeconds()||b.getMilliseconds()));
+  }else if(!(event.start.date<=key&&event.end.date>key))return slots;
+  slots.push({from:from,to:to});return slots;
+ },[]);
+}
+function draft621Title(title){return title.trim().replace(/\s+/g,' ').toLowerCase()}
+function draft621Plan(data){
+ var key=week616Day(data.day),today=key===state.day;
+ var saved=(state.draft621Days||{})[key],waiting=saved&&saved.waiting||[];
+ var existing=today?state.tasks:defaultTasks().concat(routine616Items(data.day),saved&&saved.tasks||[]);
+ var used=Object.create(null),slots=draft621Busy(data.events,data.day);
+ existing.forEach(function(item){
+  used[draft621Title(item.title)]=true;
+  if(item.draft621Origin)used[item.draft621Origin]=true;
+  if(!item.skip&&draft621ValidTime(item.time))slots.push({from:mins(item.time),to:mins(item.time)+(Number(item.duration)||30)});
+ });
+ state.chores.forEach(function(item){if(item.cadence==='daily')used[draft621Title(item.name)]=true});
+ waiting.forEach(function(item){used[item.origin||draft621Title(item.title)]=true});
+ var revision=draft621Revision(data.draft),alreadyApplied=saved&&(saved.applied||[]).indexOf(revision)>=0;
+ return data.draft.tasks.map(function(item){
+  var name=draft621Title(item.title),start=mins(item.time),duration=item.duration;
+  if(alreadyApplied||used[name])return {item:item,time:null,exists:true};
+  used[name]=true;
+  var earliest=today?Math.max(7*60,mins(timeNow())):7*60,latest=22*60-duration;
+  function free(from){return from>=earliest&&from<=latest&&!slots.some(function(slot){return from<slot.to&&from+duration>slot.from})}
+  var from=start;
+  while(from<=latest&&!free(from))from+=5;
+  if(from>latest){
+   from=earliest;
+   while(from<start&&!free(from))from+=5;
+   if(from>=start||from>latest)from=null;
+  }
+  if(from!==null)slots.push({from:from,to:from+duration});
+  return {item:item,time:from===null?null:fmt(from),exists:false};
+ });
+}
+function draft621Render(){
+ if(!draft621Open)return;
+ var key=week616Day(draft621Date()),saved=(state.draft621Days||{})[key];
+ var data=draft621Data,connected=personalCalendarToken&&Date.now()<personalCalendarExpiry&&draft621Permission;
+ var current=connected&&data&&data.token===personalCalendarToken&&week616Day(data.day)===key;
+ var plan=current&&data.draft?draft621Plan(data):[],pending=plan.some(function(row){return !row.exists});
+ el('draft621Connect').className=connected?'btn hidden':'btn';
+ el('draft621Status').textContent=connected?(draft621Status||'Refresh to check for a draft.'):'Connect your personal Google account to check for drafts.';
+ var html='';
+ if(plan.length)html+='<h3>Draft tasks</h3><ul>'+plan.map(function(row){
+  return '<li>'+safe(row.item.title)+' · '+safe(row.exists?'Already in your plan':row.time?(row.time===row.item.time?row.time:row.time+' (moved from '+row.item.time+')'):'Needs a time')+'</li>';
+ }).join('')+'</ul>';
+ if(saved&&saved.tasks&&saved.tasks.length)html+='<h3>Saved on this device</h3><ul>'+saved.tasks.map(function(item){
+  return '<li>'+safe(item.time+' · '+item.title)+'</li>';
+ }).join('')+'</ul>';
+ if(saved&&saved.waiting.length)html+='<h3>Needs a time</h3><ul>'+saved.waiting.map(function(item,index){
+  return '<li>'+safe(item.title)+' · '+item.duration+' min <button class="btn" onclick="draft621Place('+index+')">Choose a time</button></li>';
+ }).join('')+'</ul>';
+ el('draft621Items').innerHTML=html;
+ el('draft621Apply').className=pending?'btn primary':'btn primary hidden';
+}
+function draft621Toggle(){
+ draft621Open=!draft621Open;
+ el('draft621Panel').className=draft621Open?'panel':'panel hidden';
+ el('draft621Toggle').setAttribute('aria-expanded',String(draft621Open));
+ if(draft621Open)draft621Load();
+}
+function draft621Load(apply){
+ var token=personalCalendarToken,request=++draft621Request,day=draft621Date(),key=week616Day(day);
+ var previous=draft621Data;
+ draft621Data=null;
+ if(!token||Date.now()>=personalCalendarExpiry||!draft621Permission){draft621Render();return Promise.resolve()}
+ if(apply&&(!previous||!previous.draft)){draft621Render();return Promise.resolve()}
+ draft621Status=apply?'Checking appointments before applying…':'Checking for a draft…';draft621Render();
+ var root='https://www.googleapis.com/calendar/v3/';
+ var fields='id,summary,start,end,status,transparency,description,updated';
+ var events=draft621Events('primary',day,token,'start,end,status,transparency,attendees(self,responseStatus)');
+ var drafts=draft621Read(root+'users/me/calendarList?showHidden=true&minAccessRole=owner&fields=nextPageToken,items(id,summary,primary)',token).then(function(calendars){
+  var matches=calendars.filter(function(calendar){return !calendar.primary&&String(calendar.summary).trim().toLowerCase()==='family hq drafts'});
+  if(matches.length!==1)throw Error(matches.length?'duplicate':'missing');
+  return draft621Events(matches[0].id,day,token,fields);
+ });
+ function current(){return request===draft621Request&&token===personalCalendarToken&&Date.now()<personalCalendarExpiry&&key===week616Day(draft621Date())}
+ return Promise.all([events,drafts]).then(function(result){
+  if(!current())return;
+  var list=result[1].map(function(event){return draft621Parse(event,key)}).filter(Boolean);
+  list.sort(function(a,b){return b.updated.localeCompare(a.updated)||b.id.localeCompare(a.id)});
+  draft621Data={day:day,token:token,events:result[0],draft:list[0]};
+  draft621Status=list.length?'Draft and personal calendar checked.':'No draft found for this day.';
+  if(apply&&list.length){
+   var before=draft621Plan(previous),after=draft621Plan(draft621Data);
+   if(previous.draft.id!==list[0].id||previous.draft.updated!==list[0].updated||JSON.stringify(before)!==JSON.stringify(after)){
+    draft621Status='The draft or its timings changed. Review the updated plan and tap Apply plan again.';
+   }else if(after.some(function(row){return !row.exists}))draft621Save(after,day,list[0]);
+   else draft621Status='These draft tasks are already in your plan.';
+  }
+  draft621Render();
+ }).catch(function(error){
+  if(!current())return;
+  if(error.message==='401'){personalCalendarDisconnect('Google access expired. Connect again to check drafts.');return}
+  draft621Status=error.message==='missing'?'Family HQ Drafts was not found. Check that you connected the Gmail account that owns it.':
+   error.message==='duplicate'?'Two calendars are named Family HQ Drafts. Give the other one a different name.':
+   'Could not check the draft or your appointments. Try refreshing.';
+  draft621Render();
+ });
+}
+function draft621Revision(draft){return draft.id+'|'+draft.updated}
+function draft621Task(item,time,origin){
+ state.idCounter=(state.idCounter||100)+1;
+ var entry=task('customDraft_'+state.idCounter,time,item.title.trim(),periodFor693(time),'normal',item.duration);
+ entry.draft621Origin=origin;
+ return entry;
+}
+function draft621Save(rows,day,draft){
+ var key=week616Day(day),today=key===state.day,old=clone(state),previousUndo=previous;
+ var days=state.draft621Days||(state.draft621Days={});
+ var saved=days[key]||(days[key]={tasks:[],waiting:[]});
+ previous=old;
+ if(draft)saved.applied=(saved.applied||[]).concat(draft621Revision(draft)).slice(-20);
+ rows.forEach(function(row){
+  if(row.exists)return;
+  var item=row.item;
+  if(!row.time){saved.waiting.push({title:item.title.trim(),duration:item.duration});return}
+  var entry=task('customDraft_'+((state.idCounter=(state.idCounter||100)+1)),row.time,item.title.trim(),periodFor693(row.time),'normal',item.duration);
+  (today?state.tasks:saved.tasks).push(entry);
+ });
+ if(!save()){state=old;previous=previousUndo;draft621Status='Could not save on this device. Try again.';return}
+ draft621Status='Plan applied on this device.';render();
+}
+function draft621Place(index){
+ var day=draft621Date(),key=week616Day(day),saved=(state.draft621Days||{})[key];
+ if(!saved||!saved.waiting[index])return;
+ var item=saved.waiting[index],time=prompt('Time for '+item.title+' (24-hour HH:MM)');
+ if(time===null)return;
+ if(!draft621ValidTime(time)){alert('Enter a time such as 14:30.');return}
+ var token=personalCalendarToken,request=++draft621Request;
+ if(!token||Date.now()>=personalCalendarExpiry){alert('Connect Google Calendar first so appointments can be checked.');return}
+ draft621Events('primary',day,token,'start,end,status,transparency,attendees(self,responseStatus)').then(function(events){
+  if(request!==draft621Request||token!==personalCalendarToken||Date.now()>=personalCalendarExpiry||week616Day(draft621Date())!==key||(state.draft621Days||{})[key]!==saved||saved.waiting[index]!==item)return;
+  var today=state.day===key,from=mins(time),to=from+item.duration;
+  var entries=today?state.tasks:defaultTasks().concat(routine616Items(day),saved.tasks);
+  if(to>1440||draft621Busy(events,day).some(function(slot){return from<slot.to&&to>slot.from})||
+     entries.some(function(entry){return !entry.skip&&from<v67End(entry)&&to>mins(entry.time)})){
+   alert('That time overlaps an appointment or activity, or runs past midnight. Choose another time.');return;
+  }
+  var oldUndo=previous;
+  remember();
+  (today?state.tasks:saved.tasks).push(task('customDraft_'+((state.idCounter=(state.idCounter||100)+1)),time,item.title,periodFor693(time),'normal',item.duration));
+  saved.waiting.splice(index,1);
+  if(!save()){state=previous;previous=oldUndo;alert('Could not save on this device. Try again.')}
+  render();
+ }).catch(function(){alert('Could not check your appointments. Try again.')});
+}
+function draft621RollForward(next,prior){
+ var approved=(prior.draft621Days||{})[next.day];
+ if(!approved)return;
+ next.tasks=next.tasks.concat(approved.tasks);
+ next.draft621Days={};next.draft621Days[next.day]={tasks:[],waiting:approved.waiting,applied:approved.applied};
+}
+var draft621BaseRender=render;
+render=function(){draft621BaseRender();draft621Render()};
 
 init();
 </script><script src="https://accounts.google.com/gsi/client" async></script></body></html>
