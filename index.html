@@ -148,7 +148,7 @@ header{padding:9px 16px}
 <button class="btn" onclick="sleep53History()">Nap history</button>
 </div>
 <div class="smalltext">The interval is an editable planning preference, not a medical or developmental recommendation. This planner does not set Bear's bedtime or remove essential care.</div>
-<div id="sleep53Preview" class="hidden suggestion"></div>
+<div id="nap613Active" class="buttons hidden"><button class="btn" onclick="nap613Active(false)">Correct nap start</button><button class="btn" onclick="nap613Active(true)">Cancel nap timer</button></div><div id="nap613History" class="hidden"></div><div id="sleep53Preview" class="hidden suggestion"></div>
 </section><section class="panel" style="padding:14px;margin-top:12px"><h3>Bear’s day</h3><p class="small">Use the Bear asleep and Bear awake buttons at the top to record naps. Review any proposed changes before applying. Essential routines should be checked against your actual care plan.</p><button class="btn" onclick="switchTab('day')">Back to today</button></section></div><div id="view-chores" class="hidden"><div class="v61intro"><h2>🧹 Household</h2><span>Today’s jobs and your weekly rhythm</span></div><div id="house52" class="hq52">
 <h3>Household rhythm · Today &amp; This week</h3>
 <div class="tools">
@@ -159,7 +159,7 @@ header{padding:9px 16px}
 </div>
 <div id="house52Content" aria-live="polite"></div>
 </div>
-<p class="hint">Daily jobs reset each morning. Weekly jobs reset on Monday; monthly jobs reset on the first. Daily jobs also appear on Today.</p><div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="openChoreAdd()">＋ Add household job</button><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.12:</strong> The quick-action bar records your next task, adjusts its timing and shows a live nap duration. All information stays on this device.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. No AI service or online synchronisation is connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
+<p class="hint">Daily jobs reset each morning. Weekly jobs reset on Monday; monthly jobs reset on the first. Daily jobs also appear on Today.</p><div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="openChoreAdd()">＋ Add household job</button><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.13:</strong> The quick-action bar records your next task, adjusts its timing and shows a live nap duration. All information stays on this device.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. No AI service or online synchronisation is connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
 /* Deliberately ES5-compatible for older iPad Safari. No libraries, fetch or external resources. */
 var KEY='strawberry-family-hq-v4', state=null,previous=null,editing=null,editingChore=false;
 function el(id){return document.getElementById(id)}function pad(n){return n<10?'0'+n:String(n)}function timeNow(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())}function mins(s){var p=(s||'00:00').split(':');return Number(p[0])*60+Number(p[1])}function fmt(m){m=Math.max(0,Math.min(1439,m));return pad(Math.floor(m/60))+':'+pad(m%60)}function dayKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}function weekKey(){var d=new Date(),w=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));return w.getFullYear()+'-'+pad(w.getMonth()+1)+'-'+pad(w.getDate())}function monthKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)}function clone(o){return JSON.parse(JSON.stringify(o))}function safe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -321,13 +321,69 @@ function sleep53Render(){
  el('sleep53Status').innerHTML=msg+' You can review changes before applying them.';
 }
 function sleep53History(){
- var list=state.sleep53History||[],text='',i;
- if(!list.length){alert('No completed naps recorded yet.');return}
- for(i=Math.max(0,list.length-10);i<list.length;i++){
-  var n=list[i];text+=n.day+': '+n.start+'–'+n.end+' ('+n.duration+' min)\n';
- }
- alert('Recent recorded naps\n\n'+text);
+ var list=state.sleep53History||[];
+ el('nap613History').className='';
+ el('nap613History').innerHTML=list.length?list.map(function(n,i){
+  return '<div class="listrow"><span>'+safe(n.day)+' · '+safe(n.start)+'–'+safe(n.end)+' · '+safe(n.duration)+' min</span><button class="btn" onclick="nap613Edit('+i+')">Edit</button><button class="btn" onclick="nap613Delete('+i+')">Delete</button></div>';
+ }).reverse().join(''):'No completed naps recorded yet.';
 }
+function nap613Time(label,original){
+ var input=prompt(label+' (24-hour time, e.g. 13:05)',original);
+ if(input===null)return null;
+ var match=/^([01]?[0-9]|2[0-3]):([0-5][0-9])$/.exec(input.trim());
+ if(!match){alert('Enter a valid time such as 13:05.');return null}
+ return pad(Number(match[1]))+':'+match[2];
+}
+function nap613Sync(){
+ var list=state.sleep53History||[],latest=null;
+ for(var i=list.length-1;i>=0;i--)if(list[i].day===state.day){latest=list[i];break}
+ state.wakeTime=latest?latest.end:'';
+ var nap=findTask('nap');
+ if(nap&&!state.sleeping){
+  var original=defaultTasks().filter(function(t){return t.id==='nap'})[0];
+  nap.done=!!latest;
+  if(latest){nap.time=latest.start;nap.skip=false}
+  else if(original)nap.time=original.time;
+  nap.period=periodFor693(nap.time);
+ }
+}
+function nap613Edit(i){
+ var record=(state.sleep53History||[])[i];if(!record)return;
+ var start=nap613Time('Nap start',record.start);if(start===null)return;
+ var end=nap613Time('Nap end',record.end);if(end===null)return;
+ var duration=(mins(end)-mins(start)+1440)%1440;
+ if(!duration){alert('The start and end times must differ.');return}
+ if(mins(end)<mins(start)&&!confirm('Did this nap end after midnight?'))return;
+ remember();record.start=start;record.end=end;record.duration=duration;
+ if(record.day===state.day)nap613Sync();
+ setMessage('Nap corrected. Undo is available.');
+}
+function nap613Delete(i){
+ var record=(state.sleep53History||[])[i];
+ if(!record||!confirm('Delete this nap from '+record.day+'?'))return;
+ remember();state.sleep53History.splice(i,1);
+ if(record.day===state.day)nap613Sync();
+ setMessage('Nap removed. Undo is available.');
+}
+function nap613Active(cancel){
+ if(!state.sleeping)return;
+ if(cancel){
+  if(!confirm('Cancel the running nap timer?'))return;
+  remember();state.sleeping=false;state.sleepStart='';nap613Sync();setMessage('Nap timer cancelled. Undo is available.');return;
+ }
+ var start=nap613Time('Correct nap start',state.sleepStart);
+ if(start===null)return;
+ if(mins(start)>mins(timeNow())){alert('Enter a start time earlier today.');return}
+ remember();state.sleepStart=start;
+ var nap=findTask('nap');if(nap){nap.time=start;nap.period=periodFor693(start)}
+ setMessage('Nap timer start corrected. Undo is available.');
+}
+var nap613BaseRender=sleep53Render;
+sleep53Render=function(){
+ nap613BaseRender();
+ el('nap613Active').className=state.sleeping?'buttons':'buttons hidden';
+ if(el('nap613History').className!=='hidden')sleep53History();
+};
 var sleep53Pending=null;
 function sleep53Suggest(){
  if(state.sleeping){alert('Bear is currently asleep. Record his wake time first, then review the remaining day.');return}
