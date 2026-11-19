@@ -118,7 +118,15 @@ header{padding:9px 16px}
 <button class="btn" onclick="openAdd()">＋ Add task</button>
 <button class="btn primary" onclick="proposeReplan()">↻ Replan</button>
 <button class="btn" id="more61Btn" onclick="more61Toggle()">⋯ Day options</button>
-</div><div class="nowbar"><div><strong id="focusTitle">Your next step</strong><small id="focusDetail">Your plan updates as the day changes</small><span class="sleepbanner" id="napLive"></span></div><div class="nowbuttons"><button class="btn" onclick="completeNext()" style="background:#ffffff !important;color:#173e32 !important;border:2px solid #173e32 !important;font-size:20px !important;font-weight:bold !important;opacity:1 !important;-webkit-text-fill-color:#173e32 !important;">DONE NOW</button><button class="btn" onclick="delayNext(15)">↷ 15 min</button><button class="btn" onclick="startNext()">▶ Start</button><button class="btn" id="focusBtn" onclick="toggleFocus()">⛶ Focus</button></div></div></div><div class="day617Priorities"><section class="panel hidden" id="day617Appointment"><strong id="day617Title"></strong><p class="small" id="day617Conflict"></p></section><section id="sleep614Card" class="panel hidden" style="padding:12px;margin:8px 0" aria-live="polite"></section></div><section class="glance69" id="glance69"><div class="g69item"><small>BEAR</small><strong id="g69Bear">Ready</strong></div><div class="g69item"><small>ESSENTIAL CARE</small><strong id="g69Care">Checking…</strong></div><div class="g69item"><small>HOUSEHOLD</small><strong id="g69House">Checking…</strong></div><div class="g69item"><small>DAYLIGHT</small><strong id="g69Light">Connect weather</strong></div></section><div class="v68heading"><strong>Today at a glance</strong><span>Tap any activity to update your day</span></div><button class="btn" id="draft621Toggle" aria-expanded="false" aria-controls="draft621Panel" onclick="draft621Toggle()">Tomorrow and drafts</button><section id="draft621Panel" class="panel hidden" style="padding:12px;margin:8px 0"><h2>Family HQ drafts</h2><label>Plan for <select id="draft621Day" onchange="draft621Load()"><option value="tomorrow">Tomorrow</option><option value="today">Today</option></select></label><div class="row"><button class="btn" id="draft621Connect" onclick="personalCalendarConnect(true)">Connect draft inbox</button><button class="btn" onclick="draft621Load()">Refresh draft</button><button class="btn primary hidden" id="draft621Apply" onclick="draft621Load(true)">Apply plan</button></div><p class="small" id="draft621Status" role="status"></p><div id="draft621Items"></div></section><button class="btn" id="week616Toggle" aria-expanded="false" aria-controls="week616Panel" onclick="week616Toggle()">Week and routines</button><section id="week616Panel" class="panel hidden" style="padding:12px;margin:8px 0"><details id="repeat620Manager" open><summary>Manage repeating routines</summary><div id="routine616List"></div><div class="formline"><input type="hidden" id="routine616Index"><label>Activity <input id="routine616Title" maxlength="120"></label><label>Time <input type="time" id="routine616Time"></label><label>Minutes <input type="number" id="routine616Duration" min="5" max="240"></label><label>Priority <select id="routine616Priority"><option value="normal">Flexible</option><option value="essential">Essential</option><option value="fixed">Fixed</option></select></label></div><fieldset><legend>Repeat on</legend><label><input type="checkbox" id="routine616Day1">Mon</label> <label><input type="checkbox" id="routine616Day2">Tue</label> <label><input type="checkbox" id="routine616Day3">Wed</label> <label><input type="checkbox" id="routine616Day4">Thu</label> <label><input type="checkbox" id="routine616Day5">Fri</label> <label><input type="checkbox" id="routine616Day6">Sat</label> <label><input type="checkbox" id="routine616Day0">Sun</label></fieldset><button class="btn" onclick="routine616Save()">Save routine</button> <button class="btn" onclick="routine616Form(-1)">New routine</button><p class="small">Changes apply to future days. Use Add today to add a one-off copy you can edit in Today.</p></details><h3>Next seven days</h3><p id="week616Status" aria-live="polite"></p><button class="btn" onclick="week616Load()">Refresh week appointments</button><div id="week616Days"></div></section>
+</div><div class="nowbar"><div><strong id="focusTitle">Your next step</strong><small id="focusDetail">Your plan updates as the day changes</small><span class="sleepbanner" id="napLive"></span></div><div class="nowbuttons"><button class="btn" onclick="completeNext()" style="background:#ffffff !important;color:#173e32 !important;border:2px solid #173e32 !important;font-size:20px !important;font-weight:bold !important;opacity:1 !important;-webkit-text-fill-color:#173e32 !important;">DONE NOW</button><button class="btn" onclick="delayNext(15)">↷ 15 min</button><button class="btn" onclick="startNext()">▶ Start</button><button class="btn" id="focusBtn" onclick="toggleFocus()">⛶ Focus</button></div></div></div><div class="day617Priorities"><section class="panel hidden" id="day617Appointment"><strong id="day617Title"></strong><p class="small" id="day617Conflict"></p></section><section id="sleep614Card" class="panel hidden" style="padding:12px;margin:8px 0" aria-live="polite"></section></div><section class="glance69" id="glance69"><div class="g69item"><small>BEAR</small><strong id="g69Bear">Ready</strong></div><div class="g69item"><small>ESSENTIAL CARE</small><strong id="g69Care">Checking…</strong></div><div class="g69item"><small>HOUSEHOLD</small><strong id="g69House">Checking…</strong></div><div class="g69item"><small>DAYLIGHT</small><strong id="g69Light">Connect weather</strong></div></section><div class="v68heading"><strong>Today at a glance</strong><span>Tap any activity to update your day</span></div><details id="core625Panel" class="panel" style="padding:12px;margin:8px 0" ontoggle="if(this.open&&!el('core625Wake').value)core625Open()">
+ <summary>Plan from wake-up</summary>
+ <div class="formline"><label>Morning wake time <input type="time" id="core625Wake" onchange="core625Inputs()"></label>
+ <label>Day plan <select id="core625Kind" onchange="core625Inputs()"><option value="home">Usual day</option><option value="swim">Swimming</option><option value="soft-play">Soft play</option></select></label></div>
+ <div class="formline hidden" id="core625Outing"><label>Activity starts (optional) <input type="time" id="core625Start" onchange="core625Inputs()"></label><label>Activity ends <input type="time" id="core625End" onchange="core625Inputs()"></label></div>
+ <div class="row"><button class="btn" onclick="core625Preview()">Preview routine</button><button class="btn primary hidden" id="core625Apply" onclick="core625Apply()">Apply routine</button></div>
+ <p id="core625Status" class="small" role="status">Choose the morning wake time to plan today.</p><div id="core625Rows"></div>
+ <details><summary>Additional care session</summary><div class="row"><button class="btn" onclick="core625AddSession(false)">Add for today</button><button class="btn" onclick="core625AddSession(true)">Add a repeating session</button></div></details>
+</details><button class="btn" id="draft621Toggle" aria-expanded="false" aria-controls="draft621Panel" onclick="draft621Toggle()">Tomorrow and drafts</button><section id="draft621Panel" class="panel hidden" style="padding:12px;margin:8px 0"><h2>Family HQ drafts</h2><label>Plan for <select id="draft621Day" onchange="draft621Load()"><option value="tomorrow">Tomorrow</option><option value="today">Today</option></select></label><div class="row"><button class="btn" id="draft621Connect" onclick="personalCalendarConnect(true)">Connect draft inbox</button><button class="btn" onclick="draft621Load()">Refresh draft</button><button class="btn primary hidden" id="draft621Apply" onclick="draft621Load(true)">Apply plan</button></div><p class="small" id="draft621Status" role="status"></p><div id="draft621Items"></div></section><button class="btn" id="week616Toggle" aria-expanded="false" aria-controls="week616Panel" onclick="week616Toggle()">Week and routines</button><section id="week616Panel" class="panel hidden" style="padding:12px;margin:8px 0"><details id="repeat620Manager" open><summary>Manage repeating routines</summary><div id="routine616List"></div><div class="formline"><input type="hidden" id="routine616Index"><label>Activity <input id="routine616Title" maxlength="120"></label><label>Time <input type="time" id="routine616Time"></label><label>Minutes <input type="number" id="routine616Duration" min="5" max="240"></label><label>Priority <select id="routine616Priority"><option value="normal">Flexible</option><option value="essential">Essential</option><option value="fixed">Fixed</option></select></label></div><label>Repeat until (optional) <input type="date" id="routine616End"></label><fieldset><legend>Repeat on</legend><label><input type="checkbox" id="routine616Day1">Mon</label> <label><input type="checkbox" id="routine616Day2">Tue</label> <label><input type="checkbox" id="routine616Day3">Wed</label> <label><input type="checkbox" id="routine616Day4">Thu</label> <label><input type="checkbox" id="routine616Day5">Fri</label> <label><input type="checkbox" id="routine616Day6">Sat</label> <label><input type="checkbox" id="routine616Day0">Sun</label></fieldset><button class="btn" onclick="routine616Save()">Save routine</button> <button class="btn" onclick="routine616Form(-1)">New routine</button><p class="small">Changes apply to future days. Use Add today to add a one-off copy you can edit in Today.</p></details><h3>Next seven days</h3><p id="week616Status" aria-live="polite"></p><button class="btn" onclick="week616Load()">Refresh week appointments</button><div id="week616Days"></div></section>
 <div class="actions hidden" id="more61">
 <button class="btn" onclick="outing63Open()">🚗 Plan an outing</button>
 <button class="btn" onclick="changeMode('home')">🏠 Staying home</button>
@@ -168,7 +176,7 @@ header{padding:9px 16px}
  <div class="row"><button type="submit" class="btn primary">Save job</button><button type="button" class="btn" onclick="household623Close()">Cancel</button></div>
 </form>
 <details id="household623Starter" class="panel" style="padding:12px;margin:8px 0"><summary>Room-by-room starter list</summary><p class="small">Preview the suggested jobs, then add the list if it suits your home. Existing jobs and ticks stay in place.</p><div class="row"><button class="btn" onclick="household623Preview()">Preview jobs</button><button class="btn" onclick="household623Import()">Add starter jobs</button></div><div id="household623Preview"></div></details>
-<div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div><div><h3>As needed</h3><div id="household623AsNeeded"></div></div></div><details class="panel" style="padding:12px;margin:8px 0"><summary>Paused and removed jobs</summary><div id="household623Inactive"></div></details><div class="row" style="margin-top:10px"><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.24</strong> · Household views share the same checklist. Choose or skip the optional job and tick a timed chore from either view.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="hq52Carry()">Recover unfinished timetable activities</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts. Household jobs can sync when connected. The rest of the planner saves on this device.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
+<div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div><div><h3>As needed</h3><div id="household623AsNeeded"></div></div></div><details class="panel" style="padding:12px;margin:8px 0"><summary>Paused and removed jobs</summary><div id="household623Inactive"></div></details><div class="row" style="margin-top:10px"><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.25</strong> · Use Plan from wake-up to preview and apply today’s routine.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="hq52Carry()">Recover unfinished timetable activities</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts. Household jobs can sync when connected. The rest of the planner saves on this device.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
 /* Deliberately ES5-compatible for older iPad Safari. No libraries, fetch or external resources. */
 var KEY='strawberry-family-hq-v4', state=null,previous=null,editing=null,editingChore=false;
 function el(id){return document.getElementById(id)}function pad(n){return n<10?'0'+n:String(n)}function timeNow(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())}function mins(s){var p=(s||'00:00').split(':');return Number(p[0])*60+Number(p[1])}function fmt(m){m=Math.max(0,Math.min(1439,m));return pad(Math.floor(m/60))+':'+pad(m%60)}function dayKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}function weekKey(){var d=new Date(),w=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));return w.getFullYear()+'-'+pad(w.getMonth()+1)+'-'+pad(w.getDate())}function monthKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)}function clone(o){return JSON.parse(JSON.stringify(o))}function safe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -1168,7 +1176,7 @@ function week616Day(date){
 }
 function routine616Items(date){
  return (state.routines616||[]).filter(function(r){
-  return r&&!r.paused&&(!r.startDay||r.startDay<=week616Day(date))&&Array.isArray(r.days)&&r.days.indexOf(date.getDay())>=0;
+  return r&&!r.paused&&(!r.startDay||r.startDay<=week616Day(date))&&(!r.endDay||week616Day(date)<=r.endDay)&&Array.isArray(r.days)&&r.days.indexOf(date.getDay())>=0;
  }).map(function(r){
   return task(r.id,r.time,r.title,periodFor693(r.time),r.priority,r.duration);
  });
@@ -1184,6 +1192,7 @@ function routine616Form(index){
  el('routine616Time').value=r?r.time:'09:00';
  el('routine616Duration').value=r?r.duration:30;
  el('routine616Priority').value=r?r.priority:'normal';
+ el('routine616End').value=r&&r.endDay||'';
  for(var i=0;i<7;i++)el('routine616Day'+i).checked=r?r.days.indexOf(i)>=0:i>0&&i<6;
 }
 function routine616Save(){
@@ -1192,10 +1201,12 @@ function routine616Save(){
  if(!title||!/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(time)||duration<5||duration>240||Math.floor(duration)!==duration||!days.length){
   alert('Enter a name, time, duration of 5–240 minutes and at least one day.');return;
  }
- remember();
- var list=state.routines616||(state.routines616=[]),index=el('routine616Index').value;
- var old=index===''?null:list[Number(index)];
+ var list=state.routines616||[],index=el('routine616Index').value;
+ var old=index===''?null:list[Number(index)],end=el('routine616End').value;
+ if(end&&(!/^\d{4}-\d{2}-\d{2}$/.test(end)||end<(old&&old.startDay||dayKey()))){alert('Choose an end date on or after the start of this routine.');return}
+ remember();state.routines616=list;
  var entry={id:old?old.id:'routine616_'+(++state.idCounter),title:title,time:time,duration:duration,days:days,priority:el('routine616Priority').value};
+ if(end)entry.endDay=end;
  if(old){entry.paused=old.paused;entry.startDay=old.startDay;list[Number(index)]=entry}else list.push(entry);
  routine616Form(-1);setMessage('Routine saved for future days. Use Add today for a one-off copy.');
 }
@@ -1205,6 +1216,7 @@ function routine616Action(index,remove){
   if(!confirm('Remove this routine from future days?'))return;
   remember();list.splice(index,1);routine616Form(-1);setMessage('Routine removed. Undo is available.');return;
  }
+ if(r.endDay&&r.endDay<dayKey()){alert('This routine has ended. Edit the end date to use it again.');return}
  if(findTask(r.id)){alert('This routine is already on Today. Edit its task to make a one-off change.');return}
  remember();state.tasks.push(task(r.id,r.time,r.title,periodFor693(r.time),r.priority,r.duration));
  setMessage('Routine added to Today. Its repeat days are unchanged.');
@@ -1214,7 +1226,7 @@ function week616Render(){
  var daysView=el('week616Days'),expanded=daysView.querySelectorAll?Array.prototype.map.call(daysView.querySelectorAll('details'),function(d){return d.open}):[];
  var list=state.routines616||[], names=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
  el('routine616List').innerHTML=list.map(function(r,i){
-  return '<div class="listrow"><span>'+safe(r.time)+' · '+safe(r.title)+' · '+r.days.map(function(d){return names[d]}).join(', ')+'</span><button class="btn" onclick="routine616Form('+i+')">Edit</button><button class="btn" onclick="routine616Action('+i+',false)">Add today</button><button class="btn" onclick="repeat620Pause('+i+')">'+(r.paused?'Resume':'Pause')+'</button><button class="btn" onclick="routine616Action('+i+',true)">Remove</button></div>';
+  return '<div class="listrow"><span>'+safe(r.time)+' · '+safe(r.title)+' · '+r.days.map(function(d){return names[d]}).join(', ')+(r.endDay?' · until '+safe(r.endDay):'')+'</span><button class="btn" onclick="routine616Form('+i+')">Edit</button><button class="btn" onclick="routine616Action('+i+',false)">Add today</button><button class="btn" onclick="repeat620Pause('+i+')">'+(r.paused?'Resume':'Pause')+'</button><button class="btn" onclick="routine616Action('+i+',true)">Remove</button></div>';
  }).join('')||'<p>No reusable routines yet.</p>';
  var connected=!!personalCalendarToken&&Date.now()<personalCalendarExpiry;
  var loaded=connected&&week616Token===personalCalendarToken&&week616Date===dayKey(),html='',now=new Date();
@@ -1360,12 +1372,12 @@ function draft621Parse(event,key){
  if(event.status==='cancelled'||event.summary!=='Family HQ plan draft'||!event.start||event.start.date!==key||typeof event.description!=='string'||event.description.length>12000)return null;
  var data;
  try{data=JSON.parse(event.description)}catch(e){return null}
- if(!data||data.format!=='family-hq-draft-v1'||data.date!==key||!Array.isArray(data.tasks)||!data.tasks.length||data.tasks.length>20)return null;
+ if(!data||data.format!=='family-hq-draft-v1'||data.date!==key||!Array.isArray(data.tasks)||(!data.tasks.length&&!draft621ValidTime(data.wakeTime))||data.tasks.length>20)return null;
  var valid=data.tasks.every(function(item){
   return item&&typeof item.title==='string'&&item.title.trim()&&item.title.length<=140&&draft621ValidTime(item.time)&&
    Number.isInteger(item.duration)&&item.duration>=5&&item.duration<=240;
  });
- return valid?{id:String(event.id||''),updated:String(event.updated||''),tasks:data.tasks}:null;
+ return valid?{id:String(event.id||''),updated:String(event.updated||''),tasks:data.tasks,wakeTime:draft621ValidTime(data.wakeTime)?data.wakeTime:''}:null;
 }
 function draft621Busy(events,day){
  var end=draft621Next(day),key=week616Day(day);
@@ -1422,6 +1434,7 @@ function draft621Render(){
  el('draft621Connect').className=connected?'btn hidden':'btn';
  el('draft621Status').textContent=connected?(draft621Status||'Refresh to check for a draft.'):'Connect your personal Google account to check for drafts.';
  var html='';
+ if(current&&data.draft&&data.draft.wakeTime&&key===dayKey())html+='<p>Morning wake time · '+safe(data.draft.wakeTime)+' <button class="btn" onclick="core625FromDraft()">Use wake time</button></p>';
  if(plan.length)html+='<h3>Draft tasks</h3><ul>'+plan.map(function(row){
   return '<li>'+safe(row.item.title)+' · '+safe(row.exists?'Already in your plan':row.time?(row.time===row.item.time?row.time:row.time+' (moved from '+row.item.time+')'):'Needs a time')+'</li>';
  }).join('')+'</ul>';
@@ -2083,7 +2096,7 @@ function household624Mirror(){
   var job=household624Linked(entry);
   if(!job)return;
   if(entry.householdTitle===entry.title||!entry.householdTitle){
-   entry.householdTitle='Household focus: '+job.name;
+   entry.householdTitle=entry.id==='core625Wash'?job.name:'Household focus: '+job.name;
    entry.title=entry.householdTitle;
   }
   entry.done=!!job.done;
@@ -2131,6 +2144,191 @@ init=function(){
  var hadUnlinked=state.tasks.some(function(entry){return entry.id.indexOf('house52_')===0&&!entry.householdJobId});
  household624LinkLegacy();
  if(household624ApplyReview()||hadUnlinked){save();render()}
+};
+
+/* The daily routine is applied only after a dated, on-device preview. */
+var core625Draft=null,core625EditorDay='';
+function core625Settings(){
+ var kind=el('core625Kind').value;
+ return {wake:el('core625Wake').value,kind:kind,
+  start:kind==='home'?'':el('core625Start').value,end:kind==='home'?'':el('core625End').value};
+}
+function core625Inputs(){
+ el('core625Outing').className=el('core625Kind').value==='home'?'formline hidden':'formline';
+ core625Draft=null;el('core625Apply').className='btn primary hidden';el('core625Rows').innerHTML='';
+}
+function core625Open(settings){
+ core625EditorDay=state.day;
+ var saved=settings||state.core625||{wake:'',kind:'home',start:'',end:''};
+ el('core625Wake').value=saved.wake;
+ el('core625Kind').value=saved.kind;
+ el('core625Start').value=saved.start;
+ el('core625End').value=saved.end;
+ core625Inputs();el('core625Panel').open=true;
+ el('core625Status').textContent=settings?'Wake time loaded from your draft. Preview the routine before applying.':
+  state.core625?'Today’s wake time is '+state.core625.wake+'.':'Enter the actual morning wake time to plan today.';
+}
+function core625FromDraft(){
+ var data=draft621Data,token=personalCalendarToken;
+ if(!data||!data.draft||!data.draft.wakeTime||!token||Date.now()>=personalCalendarExpiry||
+    data.token!==token||week616Day(data.day)!==dayKey()||week616Day(draft621Date())!==dayKey())return;
+ var settings=clone(state.core625||{wake:'',kind:'home',start:'',end:''});
+ settings.wake=data.draft.wakeTime;
+ core625Open(settings);el('core625Panel').scrollIntoView({block:'start'});
+}
+function core625Signature(item){
+ return JSON.stringify([item.title,item.time,item.duration,item.priority,item.period]);
+}
+function core625Adjustable(entry,reference){
+ if(!entry)return true;
+ if(entry.done||entry.skip||entry.started||entry.priority==='fixed'||(entry.id==='nap'&&state.sleeping))return false;
+ var sig=entry.core625Stamp||(reference&&core625Signature(reference));
+ return sig===core625Signature(entry);
+}
+function core625Plan(settings){
+ var references=Object.create(null),original=Object.create(null);
+ defaultTasks().forEach(function(entry){references[entry.id]=entry});
+ state.tasks.forEach(function(entry){original[entry.id]=entry});
+ var morning=[
+  ['breakfast','Coffee and breakfast shake',15,'normal'],['core625Wash','Start a wash',10,'normal'],
+  ['nebs','Morning nebs',30,'essential'],['vest1','Morning vest physio',30,'essential'],
+  ['core625Brunch','Brunch and breakfast',30,'normal']
+ ];
+ var rest=[
+  ['shower','Shower, teeth and dressed',30,'normal'],['nap','Nap or quiet rest',75,'normal'],
+  ['lunch','Lunch and drinks',30,'normal'],['dinner','Dinner and drinks',40,'normal'],
+  ['vest2','Evening vest physio',30,'essential'],['core625Pjs','Toilet, teeth, moisturise and PJs',20,'normal'],
+  ['bedtime','Settle to sleep',40,'essential']
+ ];
+ var rows=[],changeable=Object.create(null),blocked=calendar611Slots().filter(function(slot){return !slot.calendarFree}).map(function(slot){
+  return {from:mins(slot.time),to:slot.calendarEnd};
+ });
+ var initial=mins(settings.wake),outing=settings.kind!=='home'?mins(settings.end):null;
+ var ordinaryOuting=original.outing;
+ var updateOuting=!!(ordinaryOuting&&(ordinaryOuting.core625OutingCovered||
+  (outing!==null&&core625Adjustable(ordinaryOuting,references.outing))));
+ if(outing!==null&&settings.start)blocked.push({from:mins(settings.start),to:outing});
+ morning.concat(rest).forEach(function(item){changeable[item[0]]=core625Adjustable(original[item[0]],references[item[0]])});
+ state.tasks.forEach(function(entry){
+  if(entry.id==='outing'&&updateOuting&&outing!==null)return;
+  if(!changeable[entry.id]&&(!entry.skip||(entry.id==='outing'&&updateOuting&&outing===null)))blocked.push({from:mins(entry.time),to:v67End(entry)});
+ });
+ function slot(start,duration){
+  var from=Math.max(0,start);
+  while(from+duration<=1440){
+   var end=from+duration,next=from;
+   blocked.forEach(function(block){if(from<block.to&&end>block.from)next=Math.max(next,block.to)});
+   if(next===from)return from;
+   from=next;
+  }
+  return null;
+ }
+ function row(item,wanted){
+  var id=item[0],entry=original[id],duration=entry?Math.max(5,Math.min(240,Number(entry.duration)||item[2])):item[2];
+  if(!changeable[id]){
+   rows.push({id:id,title:entry.title,time:entry.time,kept:true,done:!!entry.done});
+   return entry.skip?wanted:Math.max(wanted,mins(entry.time)+duration);
+  }
+  var from=slot(wanted,duration);
+  if(from===null){
+   rows.push({id:id,title:item[1],time:null,existingTime:entry&&entry.time});
+   return wanted;
+  }
+  var wash=id==='core625Wash'?findChore('c5'):null;
+  if(wash&&(!household623Active(wash)||['Start a wash','Laundry as needed'].indexOf(wash.name)<0))wash=null;
+  var otherWash=wash&&state.tasks.find(function(item){return item.id!==id&&item.householdJobId===wash.id&&!item.skip});
+  if(otherWash){rows.push({id:id,title:otherWash.title,time:otherWash.time,kept:true,done:!!otherWash.done});return wanted}
+  blocked.push({from:from,to:from+duration});
+  rows.push({id:id,title:wash?wash.name:item[1],time:fmt(from),duration:duration,priority:entry?entry.priority:item[3],job:wash&&wash.id});
+  return from+duration;
+ }
+ var cursor=initial;
+ morning.forEach(function(item){cursor=row(item,cursor)});
+ if(outing===null)cursor=row(rest[0],cursor);
+ var napGoal=Math.max(cursor,initial+(Number(state.sleep53Window)||210));
+ if(napGoal<12*60){
+  cursor=row(rest[1],napGoal);
+  cursor=row(rest[2],Math.max(cursor,12*60+30));
+ }else{
+  cursor=row(rest[2],Math.max(cursor,12*60+30));
+  cursor=row(rest[1],Math.max(cursor,napGoal));
+ }
+ if(outing!==null)row(rest[0],Math.max(initial,outing));
+ cursor=row(rest[3],Math.max(cursor,17*60+30));
+ cursor=row(rest[4],cursor);
+ cursor=row(rest[5],Math.max(cursor,19*60));
+ row(rest[6],Math.max(cursor,19*60+45));
+ if(updateOuting)rows.push({id:'outing',title:ordinaryOuting.title,time:ordinaryOuting.time,outingCovered:outing!==null});
+ return rows;
+}
+function core625Draw(rows){
+ el('core625Rows').innerHTML='<ol>'+rows.slice().sort(function(a,b){return (a.time||'99:99').localeCompare(b.time||'99:99')}).map(function(row){
+  var label=typeof row.outingCovered==='boolean'?(row.outingCovered?'Outside time covered by your outing':'Usual outside-time entry restored'):row.time?row.time+' · '+row.title+(row.kept?(row.done?' · Already done':' · Existing entry kept'):''):
+   row.title+' · Needs a time'+(row.existingTime?' (existing '+row.existingTime+' kept)':'');
+  return '<li>'+safe(label)+'</li>';
+ }).join('')+'</ol>';
+}
+function core625Preview(){
+ core625Draft=null;el('core625Apply').className='btn primary hidden';
+ var settings=core625Settings(),out=settings.kind!=='home',status=el('core625Status');
+ if(!draft621ValidTime(settings.wake)){status.textContent='Enter today’s morning wake time.';return}
+ if(out&&(!draft621ValidTime(settings.end)||settings.end<settings.wake||
+    (settings.start&&(!draft621ValidTime(settings.start)||settings.start<settings.wake||settings.start>=settings.end)))){
+  status.textContent='Enter when the activity ends. An optional start time must be between wake-up and the end.';return;
+ }
+ if(state.day!==dayKey()){status.textContent='Today could not be opened. Check your saved planner in Settings.';return}
+ var rows=core625Plan(settings);
+ core625Draft={day:state.day,settings:settings,rows:rows};core625Draw(rows);
+ el('core625Apply').className='btn primary';
+ status.textContent='Review the suggested times. Existing ticks, edited activities and fixed appointments are kept.'+
+  (personalCalendarDay===dayKey()?'':' Google appointments have not been loaded for today.');
+}
+function core625Apply(){
+ var draft=core625Draft,status=el('core625Status');
+ if(!draft||draft.day!==dayKey()||state.day!==draft.day)return;
+ if(JSON.stringify(core625Settings())!==JSON.stringify(draft.settings)){core625Preview();return}
+ var current=core625Plan(draft.settings);
+ if(JSON.stringify(current)!==JSON.stringify(draft.rows)){
+  core625Preview();status.textContent='The timetable changed. Review the new preview and tap Apply routine again.';return;
+ }
+ var oldUndo=previous;
+ remember();
+ current.forEach(function(row){
+  if(typeof row.outingCovered==='boolean'){
+   var outing=findTask(row.id);
+   outing.skip=row.outingCovered;outing.core625OutingCovered=row.outingCovered;
+   return;
+  }
+  if(row.kept||!row.time)return;
+  var entry=findTask(row.id);
+  if(!entry){entry=task(row.id,row.time,row.title,periodFor693(row.time),row.priority,row.duration);state.tasks.push(entry)}
+  entry.title=row.title;entry.time=row.time;entry.period=periodFor693(row.time);entry.priority=row.priority;entry.duration=row.duration;
+  if(row.job){entry.householdJobId=row.job;entry.householdTitle=entry.title}
+  entry.core625Stamp=core625Signature(entry);
+ });
+ state.core625=draft.settings;
+ if(!save()){
+  state=previous;previous=oldUndo;status.textContent='Could not save the routine on this device.';return;
+ }
+ core625Draft=null;el('core625Apply').className='btn primary hidden';
+ status.textContent='Routine applied for today from '+state.core625.wake+'.'+(current.some(function(row){return !row.time})?' Check any jobs that still need a time.':'');
+ render();
+}
+function core625AddSession(repeating){
+ if(repeating){
+  day618Open('week616Panel');el('repeat620Manager').open=true;routine616Form(-1);el('routine616Priority').value='essential';el('routine616Title').focus();
+ }else{
+  openAdd();el('editPriority').value='essential';el('editTitle').focus();
+ }
+}
+
+var core625BaseRender=render;
+render=function(){
+ core625BaseRender();
+ if(core625EditorDay&&state.day!==core625EditorDay){
+  var panel=el('core625Panel'),wasOpen=panel.open;
+  core625Open();panel.open=wasOpen;
+ }
 };
 
 init();
