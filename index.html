@@ -159,7 +159,7 @@ header{padding:9px 16px}
 </div>
 <div id="house52Content" aria-live="polite"></div>
 </div>
-<p class="hint">Daily jobs reset each morning. Weekly jobs reset on Monday; monthly jobs reset on the first. Daily jobs also appear on Today.</p><div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="openChoreAdd()">＋ Add household job</button><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.9.1:</strong> The quick-action bar records your next task, adjusts its timing and shows a live nap duration. All information stays on this device.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="history66Recovery()">Recover last saved day</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Create backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. No AI service or online synchronisation is connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time"></div><div class="formline"><label>Part of day</label><select id="editPeriod"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
+<p class="hint">Daily jobs reset each morning. Weekly jobs reset on Monday; monthly jobs reset on the first. Daily jobs also appear on Today.</p><div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="openChoreAdd()">＋ Add household job</button><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.9.2:</strong> The quick-action bar records your next task, adjusts its timing and shows a live nap duration. All information stays on this device.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. No AI service or online synchronisation is connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time"></div><div class="formline"><label>Part of day</label><select id="editPeriod"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
 /* Deliberately ES5-compatible for older iPad Safari. No libraries, fetch or external resources. */
 var KEY='strawberry-family-hq-v4', state=null,previous=null,editing=null,editingChore=false;
 function el(id){return document.getElementById(id)}function pad(n){return n<10?'0'+n:String(n)}function timeNow(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())}function mins(s){var p=(s||'00:00').split(':');return Number(p[0])*60+Number(p[1])}function fmt(m){m=Math.max(0,Math.min(1439,m));return pad(Math.floor(m/60))+':'+pad(m%60)}function dayKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}function weekKey(){var d=new Date(),w=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));return w.getFullYear()+'-'+pad(w.getMonth()+1)+'-'+pad(w.getDate())}function monthKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)}function clone(o){return JSON.parse(JSON.stringify(o))}function safe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -626,7 +626,7 @@ function household65Migrate(){
  }
  state.tasks=clean;
  state.household65Migrated=true;
- save();
+ return save();
 }
 function household65Render(){
  var area=el('today65List'),count=el('today65Count');
@@ -643,7 +643,7 @@ function household65Render(){
 var household65BaseRender=render;
 render=function(){household65BaseRender();household65Render()};
 var household65BaseInit=init;
-init=function(){household65BaseInit();household65Migrate();render()};
+init=function(){household65BaseInit();if(state.day===dayKey()&&!state.household65Migrated)household65Migrate();render()};
 var household65BaseRestore=restoreBackup;
 restoreBackup=function(){household65BaseRestore();household65Migrate();render()};
 
@@ -664,14 +664,16 @@ function history66Archive(reason){
 }
 var history66OriginalRollover=rollover;
 rollover=function(){
- if(state&&state.day!==dayKey())history66Archive('Automatic rollover');
+ if(state&&state.day!==dayKey()&&!history66Archive('Automatic rollover')){
+  el('history66Status').textContent='Could not archive the previous day. Copy or download a backup before starting a fresh day.';return;
+ }
  history66OriginalRollover();
 };
 var history66OriginalStart=startNewDay;
 startNewDay=function(){
  /* Confirm first; original method asks again only if called. */
  if(!confirm('Archive today and start a fresh day? Today’s timetable and ticks will reset.'))return;
- history66Archive('Manual new day');
+ if(!history66Archive('Manual new day')){alert('Today could not be archived. Copy or download a backup first.');return}
  /* Original function includes a second confirmation; bypass that duplicate. */
  remember();var chores=state.chores,id=state.idCounter,history=state.sleep53History||[],windowSize=state.sleep53Window;
  state=fresh();state.chores=chores;state.idCounter=id;state.sleep53History=history;state.sleep53Window=windowSize;
@@ -687,17 +689,6 @@ function history66Show(){
  }
  el('history66').innerHTML=h;
 }
-function history66Recovery(){
- var a=history66Read();if(!a.length){alert('No saved days are available.');return}
- var x=a[a.length-1];
- if(!confirm('Recover the archived day '+x.day+'? This will replace your current planner on this iPad. First create and save a backup if you need today’s changes.'))return;
- history66Archive('Before recovery');
- remember();state=clone(x.record);el('notes').value=state.notes||'';save();
- /* Do not automatically roll the recovered day forward; it can be reviewed first. */
- render();history66Show();alert('Archived day recovered. Note: the next automatic date check may start a fresh day.');
-}
-var history66OriginalSave=save;
-save=function(){history66OriginalSave();var e=el('history66Status');if(e)e.innerHTML='Saved locally · '+safe(timeNow())+' · Keep an external backup as well.'};
 
 
 /* v6.7 — protect fixed appointments and essential care across all quick shifts. */
@@ -794,6 +785,65 @@ function v68ToggleHouse(){var d=el('v68HouseDetails'),b=el('v68HouseToggle');var
 
 function glance69Update(){if(!state)return;var bear=el('g69Bear'),care=el('g69Care'),house=el('g69House'),light=el('g69Light');if(!bear||!care||!house||!light)return;bear.textContent=state.sleeping?'🌙 Asleep since '+(state.sleepStart||'recently'):'☀️ Awake';var total=0,done=0,overdue=0,now=mins(timeNow()),i,t,c;for(i=0;i<state.tasks.length;i++){t=state.tasks[i];if(t.priority==='essential'||t.priority==='fixed'){total++;if(t.done)done++;else if(!t.skip&&mins(t.time)<now-15)overdue++}}care.textContent=done+'/'+total+' done'+(overdue?' · '+overdue+' to review':'');total=0;done=0;for(i=0;i<state.chores.length;i++){c=state.chores[i];if(c.cadence==='daily'){total++;if(c.done)done++}}house.textContent=done+'/'+total+' daily jobs';if(typeof weather60Cache!=='undefined'&&weather60Cache&&weather60Cache.daily&&weather60Cache.daily.sunset&&weather60Cache.daily.sunset[0])light.textContent='Sunset '+weather60FormatDate(weather60Cache.daily.sunset[0]);else light.textContent='Weather not loaded'}
 var glance69PreviousRender=render;render=function(){glance69PreviousRender();glance69Update()};var glance69PreviousWeatherDisplay=weather60Display;weather60Display=function(data,stale){glance69PreviousWeatherDisplay(data,stale);glance69Update()};
+
+function history692Valid(s){
+ return s&&typeof s.day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s.day)&&Array.isArray(s.tasks)&&Array.isArray(s.chores)&&s.tasks.every(function(t){return t&&typeof t.id==='string'&&typeof t.title==='string'&&typeof t.time==='string'})&&s.chores.every(function(c){return c&&typeof c.id==='string'&&typeof c.name==='string'});
+}
+save=function(){
+ var status=el('history66Status');
+ try{localStorage.setItem(KEY,JSON.stringify(state))}
+ catch(e){status.textContent='Save failed. Keep this page open and copy or download a backup.';return false}
+ status.textContent='Saved locally · '+timeNow();return true;
+};
+history66Show=function(){
+ var a=history66Read(),h='';
+ for(var i=a.length-1;i>=0;i--)if(a[i]&&history692Valid(a[i].record))h+='<button class="btn" onclick="history692Review('+i+')">'+safe(a[i].record.day)+'</button> ';
+ el('history66').innerHTML=(h||'No archived days yet.')+'<div id="history692Detail"></div>';
+};
+function history692Review(i){
+ var item=history66Read()[i];if(!item||!history692Valid(item.record))return;
+ var s=item.record;
+ function rows(items,field){return '<ul>'+items.map(function(t){return '<li>'+safe((t.time?t.time+' ':'')+t[field])+' · '+(t.skip?'Skipped':t.done?'Done':'Open')+'</li>'}).join('')+'</ul>'}
+ el('history692Detail').innerHTML='<h4>'+safe(s.day)+'</h4><p><strong>Notes</strong><br>'+safe(s.notes||'No notes').replace(/\n/g,'<br>')+'</p><strong>Timetable</strong>'+rows(s.tasks,'title')+'<strong>Household jobs</strong>'+rows(s.chores,'name');
+}
+function history692Backup(){return JSON.stringify({format:'strawberry-family-hq-backup',version:1,planner:state,archivedDays:history66Read()})}
+makeBackup=function(){
+ el('backup').value=history692Backup();el('backup').focus();el('backup').select();
+ var copied=false;try{copied=document.execCommand('copy')}catch(e){}
+ alert(copied?'Backup copied, including saved days.':'Backup selected. Copy it or use Download backup.');
+};
+function history692Download(){
+ var link=document.createElement('a'),url=URL.createObjectURL(new Blob([history692Backup()],{type:'application/json'}));
+ link.href=url;link.download='strawberry-family-hq-'+dayKey()+'.json';document.body.appendChild(link);link.click();document.body.removeChild(link);setTimeout(function(){URL.revokeObjectURL(url)},1000);
+}
+restoreBackup=function(){
+ var incoming,record,days=[];
+ try{
+  incoming=JSON.parse(el('backup').value);
+  if(incoming&&incoming.format==='strawberry-family-hq-backup'){
+   if(incoming.version!==1||!Array.isArray(incoming.archivedDays))throw Error('Invalid backup');
+   record=incoming.planner;days=incoming.archivedDays;
+  }else record=incoming;
+  if(!history692Valid(record)||!days.every(function(x){return x&&history692Valid(x.record)&&x.day===x.record.day}))throw Error('Invalid backup');
+ }catch(e){alert('That does not look like a valid planner backup.');return}
+ var today=record.day===dayKey();
+ if(!confirm(today?'Restore this backup into Today and merge saved days?':'Import the older planner into saved days? Today stays as it is.'))return;
+ var before=history66Read(),merged=Object.create(null),original=state;
+ days.forEach(function(x){merged[x.day]=x});
+ if(!today)merged[record.day]={day:record.day,record:record,reason:'Imported backup',savedAt:new Date().toISOString()};
+ before.forEach(function(x){if(x&&x.day)merged[x.day]=x});
+ var archives=Object.keys(merged).sort().slice(-31).map(function(day){return merged[day]});
+ if(!history66Write(archives)){alert('Saved days could not be written. The planner was left as it was.');return}
+ if(today){
+  state=record;
+  if(!household65Migrate()){
+   state=original;var rolledBack=history66Write(before);render();
+   alert(rolledBack?'The planner could not be saved. The import was rolled back.':'The planner could not be saved. Check which saved days were imported.');return;
+  }
+  previous=clone(original);el('notes').value=state.notes||'';render();
+ }
+ history66Show();alert(today?'Today restored and saved days merged.':'Saved days imported.');
+};
 
 init();
 </script></body></html>
