@@ -159,7 +159,7 @@ header{padding:9px 16px}
 </div>
 <div id="house52Content" aria-live="polite"></div>
 </div>
-<p class="hint">Daily jobs reset each morning. Weekly jobs reset on Monday; monthly jobs reset on the first. Daily jobs also appear on Today.</p><div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="openChoreAdd()">＋ Add household job</button><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.21</strong> · Preview and apply private Family HQ drafts. Approved tasks are saved on this device.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts when connected. Planner changes are saved on this device.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
+<p class="hint">Daily jobs reset each morning. Weekly jobs reset on Monday; monthly jobs reset on the first. Daily jobs also appear on Today.</p><section class="panel" style="padding:12px;margin:8px 0"><h3>Phone and iPad sync</h3><p class="small">Connect the same Google account on both devices to combine household jobs and ticks. Google stores them in a private area for Family HQ.</p><div class="row"><button class="btn" id="household622Connect" onclick="household622Connect()">Connect household sync</button><button class="btn hidden" id="household622Pause" onclick="household622Pause()">Disconnect for now</button></div><p class="small" id="household622Status" role="status"></p></section><div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="openChoreAdd()">＋ Add household job</button><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.22</strong> · Opt in to phone and iPad sync from Household jobs. Drafts, notes and nap logs save on this device.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts. Household jobs can sync when connected. The rest of the planner saves on this device.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
 /* Deliberately ES5-compatible for older iPad Safari. No libraries, fetch or external resources. */
 var KEY='strawberry-family-hq-v4', state=null,previous=null,editing=null,editingChore=false;
 function el(id){return document.getElementById(id)}function pad(n){return n<10?'0'+n:String(n)}function timeNow(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())}function mins(s){var p=(s||'00:00').split(':');return Number(p[0])*60+Number(p[1])}function fmt(m){m=Math.max(0,Math.min(1439,m));return pad(Math.floor(m/60))+':'+pad(m%60)}function dayKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}function weekKey(){var d=new Date(),w=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));return w.getFullYear()+'-'+pad(w.getMonth()+1)+'-'+pad(w.getDate())}function monthKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)}function clone(o){return JSON.parse(JSON.stringify(o))}function safe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -1518,6 +1518,281 @@ function draft621RollForward(next,prior){
 }
 var draft621BaseRender=render;
 render=function(){draft621BaseRender();draft621Render()};
+
+/* Optional household sync uses Drive's app-specific storage. */
+(function(){
+ var scope='https://www.googleapis.com/auth/drive.appdata';
+ var api='https://www.googleapis.com/drive/v3/';
+ var filename='family-hq-household-v1.json';
+ var originalSave=save,baseline=null,meta=null;
+ var token='',expiry=0,email='',notice='',busy=false,authAttempt=0,timer=0;
+
+ function period(cadence,s){return cadence==='daily'?s.day:cadence==='weekly'?s.week:s.month}
+ function calendarKeys(){return {day:dayKey(),week:weekKey(),month:monthKey()}}
+ function randomId(){
+  var bytes=new Uint8Array(16);window.crypto.getRandomValues(bytes);
+  return Array.prototype.map.call(bytes,function(b){return ('0'+b.toString(16)).slice(-2)}).join('');
+ }
+ function idFor(job){return job.householdSyncId||(/^c(?:[1-9]|1[0-4])$/.test(job.id)?job.id:'')}
+ function stamp(){
+  var time=Math.max(Date.now(),(meta.clock||0)+1);meta.clock=time;return time;
+ }
+ function rememberJob(job,field,value,rank){
+  meta.pending.push({job:idFor(job),field:field,value:value,rank:rank,at:stamp(),id:randomId()});
+ }
+ function snapshot(){
+  return {day:state.day,week:state.week,month:state.month,chores:state.chores.map(function(job){return {id:job.id,name:job.name,cadence:job.cadence,done:!!job.done,householdSyncId:idFor(job)}})};
+ }
+ function seed(){
+  var occurrences=Object.create(null),defaults=defaultChores();
+  state.chores.forEach(function(job){
+   if(!idFor(job)){
+    var key=JSON.stringify([job.cadence,job.name.trim().replace(/\s+/g,' ').toLowerCase()]);
+    occurrences[key]=(occurrences[key]||0)+1;
+    job.householdSyncId='legacy:'+key+':'+occurrences[key];
+   }
+   var standard=defaults.find(function(item){return item.id===job.id});
+   rememberJob(job,'name',job.name,standard&&standard.name===job.name?0:1);
+   rememberJob(job,'cadence',job.cadence,standard&&standard.cadence===job.cadence?0:1);
+   if(job.done)rememberJob(job,'done:'+period(job.cadence,state),true,1);
+  });
+ }
+ function track(){
+  var before=Object.create(null);
+  baseline.chores.forEach(function(job){before[job.id]=job});
+  state.chores.forEach(function(job){
+   var old=before[job.id];
+   if(!idFor(job))job.householdSyncId=old?old.householdSyncId:'new:'+randomId();
+   if(!old||old.name!==job.name)rememberJob(job,'name',job.name,2);
+   if(!old||old.cadence!==job.cadence)rememberJob(job,'cadence',job.cadence,2);
+   var cycle=period(job.cadence,state);
+   if(cycle&&((!old&&job.done)||(old&&period(job.cadence,baseline)===cycle&&old.done!==!!job.done))){
+    rememberJob(job,'done:'+cycle,!!job.done,2);
+   }
+  });
+ }
+ function persist(){
+  if(meta)state.household622=meta;
+  else delete state.household622;
+  var ok=originalSave();
+  if(ok)baseline=snapshot();
+  return ok;
+ }
+ save=function(){
+  if(meta&&baseline)track();
+  var ok=persist();
+  if(meta&&meta.pending.length)schedule();
+  return ok;
+ };
+ function show(){
+  var panel=el('household622Status');
+  if(!panel)return;
+  var waiting=meta?(meta.pending.length+(meta.batch?meta.batch.ops.length:0)):0;
+  var connected=token&&Date.now()<expiry;
+  el('household622Connect').textContent=connected?'Sync now':meta?'Reconnect household sync':'Connect household sync';
+  el('household622Pause').className=connected?'btn':'btn hidden';
+  panel.textContent=notice||(connected?'Connected as '+email+'.':meta?'Reconnect Google to send and receive changes.':'Household jobs save on this device. You can connect the same Google account on both devices.');
+  if(waiting)panel.textContent+=' '+(connected?'Changes waiting to sync.':'Changes are waiting on this device.');
+ }
+ function schedule(){
+  if(!token||timer)return;
+  timer=setTimeout(function(){timer=0;run()},1500);
+ }
+ function matches(op){
+  if(!op||typeof op.job!=='string'||op.job.length>4000||typeof op.id!=='string'||!/^[a-f0-9]{32}$/.test(op.id)||!Number.isSafeInteger(op.at)||[0,1,2].indexOf(op.rank)<0)return false;
+  if(op.field==='name')return typeof op.value==='string'&&op.value.length>0&&op.value.length<=1000;
+  if(op.field==='cadence')return /^(daily|weekly|monthly)$/.test(op.value);
+  return typeof op.value==='boolean'&&typeof op.field==='string'&&/^done:\d{4}-\d{2}(-\d{2})?$/.test(op.field);
+ }
+ function absorb(records){
+  var cycles=calendarKeys(),periods=['done:'+cycles.day,'done:'+cycles.week,'done:'+cycles.month];
+  Object.keys(meta.fields).forEach(function(key){
+   var field=meta.fields[key].field;
+   if(field.indexOf('done:')===0&&periods.indexOf(field)<0)delete meta.fields[key];
+  });
+  records.forEach(function(op){
+   if(!matches(op)||(op.field.indexOf('done:')===0&&periods.indexOf(op.field)<0))return;
+   meta.clock=Math.max(meta.clock||0,op.at);
+   var key=JSON.stringify([op.job,op.field]),old=meta.fields[key];
+   if(!old||op.rank>old.rank||
+      (op.rank===old.rank&&(op.at>old.at||(op.at===old.at&&op.id>old.id))))meta.fields[key]=op;
+  });
+ }
+ function merge(){
+  if(state.day!==dayKey())return;
+  var jobs=Object.create(null),fields=Object.create(null);
+  state.chores.forEach(function(job){jobs[idFor(job)]=job});
+  Object.keys(meta.fields).forEach(function(key){
+   var op=meta.fields[key];
+   (fields[op.job]||(fields[op.job]=Object.create(null)))[op.field]=op.value;
+  });
+  Object.keys(fields).forEach(function(key){
+   var row=fields[key],job=jobs[key],oldJob=job&&clone(job);
+   if(!job&&row.name&&row.cadence){
+    job={id:'cs_'+randomId(),householdSyncId:key,name:row.name,cadence:row.cadence,done:false};
+    state.chores.push(job);
+   }
+   if(!job)return;
+   if(row.name)job.name=row.name;
+   if(row.cadence)job.cadence=row.cadence;
+   var tick=row['done:'+period(job.cadence,state)];
+   if(typeof tick==='boolean')job.done=tick;
+   if(!previous||previous.day!==state.day)return;
+   var undoJob=previous.chores.find(function(item){return item.id===job.id});
+   if(!oldJob){previous.chores.push(clone(job));return}
+   if(!undoJob)return;
+   ['name','cadence','done'].forEach(function(field){
+    if(undoJob[field]===oldJob[field])undoJob[field]=job[field];
+   });
+  });
+ }
+ function call(url,access,options){
+  var request=options||{};request.headers=request.headers||{};
+  request.headers.Authorization='Bearer '+access;
+  return fetch(url,request).then(function(response){
+   if(!response.ok){
+    return response.json().catch(function(){return {}}).then(function(body){
+     var reason=body.error&&((body.error.errors||[])[0]||{}).reason;
+     var disabled=body.error&&Array.isArray(body.error.details)&&body.error.details.some(function(detail){return detail.reason==='SERVICE_DISABLED'});
+     var error=Error(disabled||reason==='accessNotConfigured'?'disabled':String(response.status));error.status=response.status;throw error;
+    });
+   }
+   return response.json();
+  });
+ }
+ async function pull(access){
+  var next='',ids=[],seen=Object.create(null),known=meta.known;
+  known.forEach(function(id){seen[id]=true});
+  do{
+   var query='files?spaces=appDataFolder&pageSize=1000&fields=nextPageToken,files(id)&q='+encodeURIComponent("name = '"+filename+"'");
+   var result=await call(api+query+(next?'&pageToken='+encodeURIComponent(next):''),access);
+   (result.files||[]).forEach(function(file){if(!seen[file.id]){seen[file.id]=true;ids.push(file.id)}});
+   next=result.nextPageToken;
+  }while(next);
+  for(var index=0;index<ids.length;index+=8){
+   var group=ids.slice(index,index+8);
+   var records=await Promise.all(group.map(function(id){return call(api+'files/'+encodeURIComponent(id)+'?alt=media',access)}));
+   if(access!==token)return;
+   records.forEach(function(record,i){
+    if(record&&record.format==='family-hq-household-v1'&&Array.isArray(record.ops))absorb(record.ops);
+    meta.known.push(group[i]);
+   });
+  }
+ }
+ async function push(access){
+  if(!meta.batch&&meta.pending.length){
+   var reservation=await call(api+'files/generateIds?count=1&space=appDataFolder',access);
+   if(access!==token)return;
+   meta.batch={id:reservation.ids[0],ops:meta.pending.splice(0,75)};
+   if(!persist())throw Error('storage');
+  }
+  if(!meta.batch)return;
+  var batch=meta.batch,boundary='family_hq_sync_'+randomId();
+  var file={id:batch.id,name:filename,parents:['appDataFolder'],mimeType:'application/json'};
+  var body='--'+boundary+'\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n'+JSON.stringify(file)+
+   '\r\n--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+JSON.stringify({format:'family-hq-household-v1',ops:batch.ops})+'\r\n--'+boundary+'--\r\n';
+  try{
+   await call('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id',access,
+    {method:'POST',headers:{'Content-Type':'multipart/related; boundary='+boundary},body:body});
+  }catch(error){if(error.status!==409)throw error}
+  if(access!==token)return;
+  absorb(batch.ops);
+  if(meta.known.indexOf(batch.id)<0)meta.known.push(batch.id);
+  meta.batch=null;
+  if(!persist())throw Error('storage');
+ }
+ function fail(error){
+  if(error.message==='401'||error.message==='disabled'||error.message==='403'){token='';expiry=0}
+  notice=error.message==='disabled'?'Google Drive API needs to be enabled for Family HQ. Your jobs are saved here.':
+   error.message==='storage'?'Could not save locally. Sync is paused until storage is available.':
+   error.message==='401'||error.message==='403'?'Google access could not be used. Reconnect household sync.':
+   'Sync couldn’t finish. Your changes are saved here and will retry.';
+  show();
+ }
+ async function run(){
+  if(busy||!token)return;
+  if(Date.now()>=expiry){token='';notice='Google access expired. Reconnect to continue syncing.';show();return}
+  if(navigator.onLine===false){notice='Offline. Your changes are saved on this device.';show();return}
+  var access=token;busy=true;notice='Syncing household jobs…';show();
+  try{
+   await pull(access);
+   if(access!==token)return;
+   await push(access);
+   if(access!==token)return;
+   absorb((meta.batch?meta.batch.ops:[]).concat(meta.pending));
+   merge();
+   if(!persist())throw Error('storage');
+   notice='Household jobs synced at '+timeNow()+' · '+email;
+   render();
+   if(meta.pending.length)schedule();
+  }catch(error){if(access===token)fail(error)}
+  finally{busy=false;show()}
+ }
+ window.household622Pause=function(){
+  ++authAttempt;token='';expiry=0;notice='Sync disconnected. Household changes still save here.';show();
+ };
+ window.household622Connect=function(){
+  if(token&&Date.now()<expiry){run();return}
+  if(!window.google||!google.accounts||!google.accounts.oauth2){notice='Google sign-in is unavailable. Reload Family HQ and try again.';show();return}
+  var attempt=++authAttempt;
+  var client=google.accounts.oauth2.initTokenClient({client_id:personalCalendarClientId,scope:scope,include_granted_scopes:false,
+   callback:async function(result){
+    if(attempt!==authAttempt)return;
+    if(result.error||!result.access_token||!google.accounts.oauth2.hasGrantedAllScopes(result,scope)){
+     notice='Google did not grant access to Family HQ’s Drive storage.';show();return;
+    }
+    try{
+     var access=result.access_token;
+     var account=await call(api+'about?fields=user(permissionId,emailAddress)',access);
+     if(attempt!==authAttempt)return;
+     var user=account.user;
+     if(!user||!user.permissionId)throw Error('account');
+     if(meta&&meta.account!==user.permissionId){
+      notice='Choose the same Google account originally used on this device. Nothing was uploaded.';show();return;
+     }
+     if(!meta){
+      meta={version:1,account:user.permissionId,pending:[],batch:null,known:[],fields:{},clock:0};
+      seed();
+      if(!persist())throw Error('storage');
+     }
+     token=access;expiry=Date.now()+Number(result.expires_in)*1000;email=user.emailAddress||'Google account';
+     run();
+    }catch(error){if(attempt===authAttempt)fail(error)}
+   },
+   error_callback:function(){if(attempt===authAttempt){notice='Google sign-in did not finish.';show()}}
+  });
+  client.requestAccessToken({prompt:'select_account'});
+ };
+ var originalInit=init;
+ init=function(){
+  var stored;
+  try{stored=JSON.parse(localStorage.getItem(KEY)||'null')}catch(error){}
+  var sync=stored&&stored.household622;
+  if(sync&&sync.version===1&&sync.account&&Array.isArray(sync.pending)&&Array.isArray(sync.known)&&sync.fields)meta=sync;
+  baseline=null;originalInit();baseline=snapshot();show();
+  setInterval(function(){if(!document.hidden)run()},20000);
+  if(typeof window!=='undefined'&&window.addEventListener){
+   window.addEventListener('online',run);
+   document.addEventListener('visibilitychange',function(){if(!document.hidden)run()});
+  }
+ };
+ var originalRender=render;
+ render=function(){originalRender();show()};
+ var originalArchive=history66Archive;
+ history66Archive=function(reason){
+  if(!state||!state.household622)return originalArchive(reason);
+  var saved=state.household622;
+  delete state.household622;
+  try{return originalArchive(reason)}finally{state.household622=saved}
+ };
+ var originalBackup=history692Backup;
+ history692Backup=function(){
+  if(!state.household622)return originalBackup();
+  var saved=state.household622;
+  delete state.household622;
+  try{return originalBackup()}finally{state.household622=saved}
+ };
+})();
 
 init();
 </script><script src="https://accounts.google.com/gsi/client" async></script></body></html>
