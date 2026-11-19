@@ -84,6 +84,9 @@ header{padding:9px 16px}
 .today65job.done{background:#e8f1e9;color:#5b7462;text-decoration:line-through}
 .today65job span{font-size:18px;font-weight:bold}
 @media(orientation:landscape) and (min-width:720px){.today65job{flex:1 1 175px;min-height:36px;padding:5px 8px}.today65grid{gap:5px}}
+</style><style>
+.v67key{font-size:12px;padding:8px 10px;margin:7px 0;background:#eaf2ed;border-radius:9px;color:#305747}
+.v67fixed{border-left:4px solid #aa6b37}
 </style></head><body><header><div class="top"><div><h1>🍓 Strawberry Family HQ</h1><p id="todayDate">Our living family planner</p></div><div class="clock" id="clock">--:--<small>Kitchen command centre</small></div></div></header><main class="shell"><div class="summary"><div><div class="label">Right now</div><div class="value" id="rightNow">Ready for today</div><div class="detail" id="sleepInfo">Bear's day</div></div><div><div class="label">Up next</div><div class="value" id="upNext">Your next activity</div><div class="detail" id="upTime">Times are flexible</div></div><div><div class="label">Today's progress</div><div class="value" id="progressText">0 complete</div><div class="progress"><div id="progressBar"></div></div></div></div><div class="tabbar"><button class="btn activeTab" id="tab-day" onclick="switchTab('day')">☀️ Today</button><button class="btn" id="tab-bear" onclick="switchTab('bear')">🌙 Bear</button><button class="btn" id="tab-chores" onclick="switchTab('chores')">🧹 Household</button><button class="btn" id="tab-settings" onclick="switchTab('settings')">⚙️ Settings</button></div><div id="view-day"><section id="weather60" class="weather60"><div class="weatherhead"><strong>🌤 Weather &amp; daylight</strong><span id="weather60Updated">Not connected</span></div><div id="weather60Body">Choose <strong>Use my location</strong> to see the local forecast, sunrise and sunset.</div><div class="weatheractions"><button class="btn" onclick="weather60Locate()">📍 Use my location</button><button class="btn" onclick="weather60Belfast()">Belfast fallback</button><button class="btn" onclick="weather60Refresh()">↻ Refresh</button></div><p class="small">Weather requires internet. Location permission is optional; your coordinates are not saved by the planner. Forecasts are estimates.</p></section><section id="insight62" class="insight62" aria-live="polite"><div class="insight62title">🌿 Today's outdoor opportunity</div><div id="insight62Text">Connect the weather to see a practical suggestion for getting outside.</div><div id="insight62Action"></div></section><section class="panel" id="today65" style="padding:10px 12px;margin:9px 0"><div class="weatherhead"><strong>✓ Household jobs for today</strong><span id="today65Count">0 complete</span></div><div id="today65List" class="today65grid"></div><p class="small">These are the same jobs as Household — tick once, updated everywhere. Weekly and monthly jobs remain under Household.</p></section><div class="actions quick61">
 <button class="btn primary" onclick="sleepAction()">🌙 Bear asleep</button>
 <button class="btn primary" onclick="wakeAction()">☀️ Bear awake</button>
@@ -108,9 +111,9 @@ header{padding:9px 16px}
 <label class="out63check"><input type="checkbox" id="out63Bag" checked> Include Bear’s outing bag and care-equipment check in preparation</label>
 <div class="row"><button class="btn primary" onclick="outing63Preview()">Preview outing</button><button class="btn" onclick="outing63Close()">Close</button></div>
 <div id="outing63Preview" class="hidden" aria-live="polite"></div>
-</section><div class="nowbar"><div><strong id="focusTitle">Your next step</strong><small id="focusDetail">Your plan updates as the day changes</small><span class="sleepbanner" id="napLive"></span></div><div class="nowbuttons"><button class="btn" onclick="completeNext()" style="background:#ffffff !important;color:#173e32 !important;border:2px solid #173e32 !important;font-size:20px !important;font-weight:bold !important;opacity:1 !important;-webkit-text-fill-color:#173e32 !important;">DONE NOW</button><button class="btn" onclick="delayNext(15)">↷ 15 min</button><button class="btn" onclick="startNext()">▶ Start</button><button class="btn" id="focusBtn" onclick="toggleFocus()">⛶ Focus</button></div></div><div id="replanPreview" class="hidden" style="background:#fff;border:2px solid #86a995;border-radius:14px;padding:13px;margin:10px 0"><h3 style="margin:0 0 8px">Proposed timetable</h3><div id="replanList" style="font-size:14px;max-height:180px;overflow:auto"></div><div class="row" style="margin-top:10px"><button class="btn primary" onclick="acceptReplan()">Apply changes</button><button class="btn" onclick="cancelReplan()">Keep original</button></div><p class="small">Only outstanding activities change. Review the times before applying.</p></div><div class="notice" id="message">Tap Bear asleep or awake to record the current time instantly. Use ⋯ beside a task to edit, move, postpone or skip it.</div>
+</section><div class="nowbar"><div><strong id="focusTitle">Your next step</strong><small id="focusDetail">Your plan updates as the day changes</small><span class="sleepbanner" id="napLive"></span></div><div class="nowbuttons"><button class="btn" onclick="completeNext()" style="background:#ffffff !important;color:#173e32 !important;border:2px solid #173e32 !important;font-size:20px !important;font-weight:bold !important;opacity:1 !important;-webkit-text-fill-color:#173e32 !important;">DONE NOW</button><button class="btn" onclick="delayNext(15)">↷ 15 min</button><button class="btn" onclick="startNext()">▶ Start</button><button class="btn" id="focusBtn" onclick="toggleFocus()">⛶ Focus</button></div></div><div id="replanPreview" class="hidden" style="background:#fff;border:2px solid #86a995;border-radius:14px;padding:13px;margin:10px 0"><h3 style="margin:0 0 8px">Proposed timetable</h3><div id="replanList" style="font-size:14px;max-height:180px;overflow:auto"></div><div class="row" style="margin-top:10px"><button class="btn primary" onclick="acceptReplan()">Apply changes</button><button class="btn" onclick="cancelReplan()">Keep original</button></div><p class="small">Only flexible activities can move. Fixed appointments and essential care stay at their existing times. Review all proposed changes.</p></div><div class="notice" id="message">Tap Bear asleep or awake to record the current time instantly. Use ⋯ beside a task to edit, move, postpone or skip it.</div>
 
-<div class="columns"><section class="panel"><h2>🌤 Morning</h2><div id="morning"></div></section><section class="panel"><h2>☀️ Afternoon</h2><div id="afternoon"></div></section><section class="panel"><h2>🌙 Evening</h2><div id="evening"></div></section></div><div class="footer"><section><h3>✏️ Notes & reminders</h3><textarea class="field" id="notes" placeholder="Little reminders, plans, observations…" oninput="noteChange()"></textarea></section><section><h3>✨ Quick adjustments</h3><div class="row"><button class="btn" onclick="shiftRemaining(15)">Everything +15 min</button><button class="btn" onclick="shiftRemaining(30)">+30 min</button><button class="btn" onclick="undo()">↶ Undo</button><button class="btn" onclick="shiftRemaining(-15)">−15 min</button></div><p class="small" id="lastEvent">Tap an activity to tick it off; ⋯ opens its options.</p></section></div></div>
+<div class="v67key">🔒 Fixed appointment &nbsp; ♥ Essential care &nbsp; ↔ Flexible activity. Edit any activity using ⋯ to choose its type.</div><div class="columns"><section class="panel"><h2>🌤 Morning</h2><div id="morning"></div></section><section class="panel"><h2>☀️ Afternoon</h2><div id="afternoon"></div></section><section class="panel"><h2>🌙 Evening</h2><div id="evening"></div></section></div><div class="footer"><section><h3>✏️ Notes & reminders</h3><textarea class="field" id="notes" placeholder="Little reminders, plans, observations…" oninput="noteChange()"></textarea></section><section><h3>✨ Quick adjustments</h3><div class="row"><button class="btn" onclick="shiftRemaining(15)">Everything +15 min</button><button class="btn" onclick="shiftRemaining(30)">+30 min</button><button class="btn" onclick="undo()">↶ Undo</button><button class="btn" onclick="shiftRemaining(-15)">−15 min</button></div><p class="small" id="lastEvent">Tap an activity to tick it off; ⋯ opens its options.</p></section></div></div>
 <div id="view-bear" class="hidden"><div class="v61intro"><h2>🌙 Bear</h2><span>Sleep, routines and gentle replanning</span></div><section class="sleep53" id="sleep53">
 <h3>🌙 Bear's sleep &amp; gentle replanning</h3>
 <div class="smalltext" id="sleep53Status">Tap Bear asleep and Bear awake to record naps.</div>
@@ -131,7 +134,7 @@ header{padding:9px 16px}
 </div>
 <div id="house52Content" aria-live="polite"></div>
 </div>
-<p class="hint">Daily jobs reset each morning. Weekly jobs reset on Monday; monthly jobs reset on the first. Daily jobs also appear on Today.</p><div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="openChoreAdd()">＋ Add household job</button><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.6:</strong> The quick-action bar records your next task, adjusts its timing and shows a live nap duration. All information stays on this device.</p><p class="small">Changes to times stay on this iPad. The planner adjusts remaining tasks with simple local rules, not AI.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="history66Recovery()">Recover last saved day</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Create backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. No AI service or online synchronisation is connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time"></div><div class="formline"><label>Part of day</label><select id="editPeriod"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="essential">Essential / routine</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
+<p class="hint">Daily jobs reset each morning. Weekly jobs reset on Monday; monthly jobs reset on the first. Daily jobs also appear on Today.</p><div class="housegrid"><div><h3>Every day</h3><div id="dailyChores"></div></div><div><h3>Every week</h3><div id="weeklyChores"></div></div><div><h3>Every month</h3><div id="monthlyChores"></div></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="openChoreAdd()">＋ Add household job</button><button class="btn" onclick="switchTab('day')">Back to today</button></div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.7:</strong> The quick-action bar records your next task, adjusts its timing and shows a live nap duration. All information stays on this device.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">A snapshot of each finished day is saved on this iPad before the planner rolls over. Keep a separate backup too: Safari storage can still be cleared.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="history66Recovery()">Recover last saved day</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Create backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. It does not know the weather, your calendar or this ChatGPT conversation. An AI connection would require a secure server and separate setup.</p></section></div><div class="privacy">🔒 Your ticked tasks and notes are stored in this iPad's browser where supported. The hosted website itself is public, so do not add personal details to its source files. No AI service or online synchronisation is connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time"></div><div class="formline"><label>Part of day</label><select id="editPeriod"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
 /* Deliberately ES5-compatible for older iPad Safari. No libraries, fetch or external resources. */
 var KEY='strawberry-family-hq-v4', state=null,previous=null,editing=null,editingChore=false;
 function el(id){return document.getElementById(id)}function pad(n){return n<10?'0'+n:String(n)}function timeNow(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())}function mins(s){var p=(s||'00:00').split(':');return Number(p[0])*60+Number(p[1])}function fmt(m){m=Math.max(0,Math.min(1439,m));return pad(Math.floor(m/60))+':'+pad(m%60)}function dayKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}function weekKey(){var d=new Date(),w=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));return w.getFullYear()+'-'+pad(w.getMonth()+1)+'-'+pad(w.getDate())}function monthKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)}function clone(o){return JSON.parse(JSON.stringify(o))}function safe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -664,6 +667,96 @@ function history66Recovery(){
 }
 var history66OriginalSave=save;
 save=function(){history66OriginalSave();var e=el('history66Status');if(e)e.innerHTML='Saved locally · '+safe(timeNow())+' · Keep an external backup as well.'};
+
+
+/* v6.7 — protect fixed appointments and essential care across all quick shifts. */
+function v67Protected(t){return t.priority==='fixed'||t.priority==='essential'}
+function v67End(t){return mins(t.time)+Math.max(5,Math.min(240,Number(t.duration)||30))}
+function v67Collision(start,end,ignoreId){
+ for(var i=0;i<state.tasks.length;i++){
+  var t=state.tasks[i];
+  if(t.id===ignoreId||t.done||t.skip||!v67Protected(t))continue;
+  if(start<v67End(t)&&end>mins(t.time))return t;
+ }
+ return null;
+}
+function moveFuture(anchor,delta,excluded){
+ var blocked=0;
+ for(var i=0;i<state.tasks.length;i++){
+  var t=state.tasks[i];
+  if(t.done||t.skip||t.id===excluded||mins(t.time)<anchor)continue;
+  if(v67Protected(t)){blocked++;continue}
+  var start=mins(t.time)+delta;
+  if(start<0||start+Math.max(5,Number(t.duration)||30)>1440||v67Collision(start,start+Math.max(5,Number(t.duration)||30),t.id)){blocked++;continue}
+  t.time=fmt(start);t.period=start<720?'morning':start<1020?'afternoon':'evening';
+ }
+ return blocked;
+}
+function shiftRemaining(delta){
+ if(!confirm('Shift only flexible unfinished activities by '+delta+' minutes? Fixed appointments and essential care will not move.'))return;
+ remember();var blocked=moveFuture(mins(timeNow()),delta,'');
+ setMessage('Flexible activities shifted where possible. '+blocked+' activities protected or could not fit. Review the timetable.');
+}
+function proposeReplan(){
+ if(state.sleeping){alert('Bear is asleep. Record his wake-up before replanning.');return}
+ var now=mins(timeNow()),arr=[],lines=[],changes=[],cursor=now+10,i,t,start,duration,conflict,attempts;
+ for(i=0;i<state.tasks.length;i++){
+  t=state.tasks[i];if(t.done||t.skip||t.started)continue;
+  if(v67Protected(t)){
+   if(mins(t.time)<now-15)lines.push('🔒 Review overdue '+safe(t.title)+' at '+safe(t.time)+' — unchanged');
+   continue;
+  }
+  if(t.id==='nap')continue;
+  arr.push(t);
+ }
+ arr.sort(function(a,b){return mins(a.time)-mins(b.time)});
+ for(i=0;i<arr.length;i++){
+  t=arr[i];duration=Math.max(5,Math.min(240,Number(t.duration)||30));
+  start=Math.max(now+10,mins(t.time),cursor);attempts=0;
+  conflict=v67Collision(start,start+duration,t.id);
+  while(conflict&&attempts<30){
+   start=v67End(conflict)+5;
+   conflict=v67Collision(start,start+duration,t.id);attempts++;
+  }
+  if(start+duration>22*60||conflict){
+   lines.push('⚠ Cannot safely fit '+safe(t.title)+' today — left unchanged');
+   continue;
+  }
+  if(start!==mins(t.time)){
+   changes.push({id:t.id,time:fmt(start),period:start<720?'morning':start<1020?'afternoon':'evening'});
+   lines.push(safe(t.title)+': '+safe(t.time)+' → '+fmt(start));
+  }
+  cursor=start+duration+5;
+ }
+ pendingReplan=changes;
+ el('replanList').innerHTML=lines.length?lines.map(function(x){return '<div style="padding:5px 0;border-bottom:1px solid #eee">'+x+'</div>'}).join(''):'No flexible activities need moving. Fixed appointments and essential care are unchanged.';
+ el('replanPreview').className='';
+}
+function acceptReplan(){
+ if(!pendingReplan)return;
+ for(var i=0;i<pendingReplan.length;i++){
+  var c=pendingReplan[i],t=findTask(c.id);
+  if(!t||v67Protected(t)||t.done||t.skip||v67Collision(mins(c.time),mins(c.time)+Math.max(5,Number(t.duration)||30),t.id)){
+   alert('The plan has changed or a protected activity conflicts. Please preview again.');cancelReplan();return;
+  }
+ }
+ remember();
+ for(var j=0;j<pendingReplan.length;j++){
+  var x=pendingReplan[j],target=findTask(x.id);
+  target.time=x.time;target.period=x.period;
+ }
+ var count=pendingReplan.length;cancelReplan();
+ setMessage(count+' flexible activities adjusted. Fixed appointments and essential care unchanged.');
+}
+var v67BaseRender=render;
+render=function(){
+ v67BaseRender();
+ var upcoming=nextTask(),now=mins(timeNow());
+ if(upcoming){
+  el('upNext').innerHTML=safe(upcoming.title);
+  el('upTime').innerHTML=safe(upcoming.time)+(v67Protected(upcoming)?' · protected':' · flexible')+(mins(upcoming.time)<now-15?' · needs review':'');
+ }
+};
 
 init();
 </script></body></html>
