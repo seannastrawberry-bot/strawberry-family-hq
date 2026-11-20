@@ -167,6 +167,7 @@ header{border-bottom:3px solid #d6e4d9}
  .tabbar #tab-chores{flex:1.16;padding-inline:0;font-size:10px}
 }
 #more61{margin:5px 0 10px}.sleep636Next{padding:10px;margin:6px 0}#outing63{scroll-margin-top:68px}.sleep636Summary{margin:4px 0 8px;color:#214f43;font-weight:700}.sleep53 details{margin:12px 0}.sleep53 .formline{flex-wrap:wrap}
+.sleep637Week table{width:100%;border-collapse:collapse;font-size:14px}.sleep637Week th,.sleep637Week td{padding:6px 4px;text-align:left;border-bottom:1px solid #d6e2d9}.sleep637Actions{gap:8px;flex-wrap:wrap}
 </style></head><body><header><div class="top"><div><h1>🍓 Strawberry Family HQ</h1><p id="todayDate">Our living family planner</p></div><div class="clock" id="clock">--:--<small>Today</small></div></div></header><main class="shell"><nav class="tabbar" aria-label="Main sections"><button class="btn activeTab" id="tab-day" onclick="hq635Navigate('day')" aria-current="page">☀️ Today</button><button class="btn" id="tab-bear" onclick="hq635Navigate('bear')">🌙 Bear</button><button class="btn" id="tab-chores" onclick="hq635Navigate('chores')">🧹 Household</button><button class="btn" id="tab-meals" onclick="hq635Navigate('meals')" aria-label="Meals &amp; Shopping"><span class="hq635MealsWide">Meals &amp; Shopping</span><span class="hq635MealsNarrow" aria-hidden="true">🍽️ Meals</span></button><button class="btn" id="tab-settings" onclick="hq635Navigate('settings')">⚙️ Settings</button></nav><aside id="save627Warning" class="panel save627warning hidden"><p id="save627Text" role="alert"></p><button class="btn" onclick="save627Retry()">Retry save</button></aside><details class="panel morning628Weather" id="morning628Weather"><summary><strong class="morning628Label">Weather &amp; daylight</strong><span id="morning628Forecast">Connect weather for the local forecast</span></summary><section id="weather60" class="weather60"><div class="weatherhead"><strong>🌤 Weather &amp; daylight</strong><span id="weather60Updated">Not connected</span></div><div id="weather60Body">Choose <strong>Use my location</strong> to see the local forecast, sunrise and sunset.</div><div class="weatheractions"><button class="btn" onclick="weather60Locate()">📍 Use my location</button><button class="btn" onclick="weather60Belfast()">Belfast fallback</button><button class="btn" onclick="weather60Refresh()">↻ Refresh</button></div><p class="small">Weather requires internet. Location permission is optional; your coordinates are not saved by the planner. Forecasts are estimates.</p></section><section id="insight62" class="insight62" aria-live="polite"><div class="insight62title">🌿 Today's outdoor opportunity</div><div id="insight62Text">Connect the weather to see a practical suggestion for getting outside.</div><div id="insight62Action"></div></section></details><div id="view-day"><div class="small sync629Strip"><span id="sync629Today">Checking planner storage…</span> <a href="#device-sync" onclick="sync629Open(true)">Phone &amp; iPad sync</a></div><div class="day617Actions morning628Controls"><div class="actions quick61"><button class="btn primary" onclick="day618Open('core625Panel')">Plan from wake-up</button>
 <button class="btn primary" onclick="sleepAction()">🌙 Bear asleep</button>
 <button class="btn primary" onclick="wakeAction()">☀️ Bear awake</button>
@@ -217,14 +218,14 @@ header{border-bottom:3px solid #d6e4d9}
 <div id="view-bear" class="hidden"><div class="v61intro"><h2>🌙 Bear</h2><span>Sleep, routines and gentle replanning</span></div><section class="sleep53" id="sleep53">
 <h3>Sleep tracker</h3><p class="sleep636Summary" id="sleep636Count"></p><section class="panel hidden sleep636Next" id="sleep636NextBear"></section>
 <div class="row hq635NapActions"><button class="btn primary" onclick="sleepAction()">Start a nap</button><button class="btn" onclick="sleep636Start('night')">Start night sleep</button><button class="btn primary" onclick="wakeAction()">Bear awake</button></div>
+<div id="sleep637Controls" class="row sleep637Actions hidden"><button class="btn" id="sleep637Waking" onclick="sleep637ToggleWaking()">Log a night waking</button><span class="small" id="sleep637Status" role="status"></span></div>
 <form class="formline" onsubmit="sleep636SaveMorning(event)"><label>Morning wake <input id="sleep636MorningTime" type="time" required></label><button class="btn" type="submit">Save morning wake</button></form><p id="sleep636MorningStatus" class="small" role="status"></p>
 <div class="smalltext" id="sleep53Status">Tap Bear asleep and Bear awake to record naps.</div>
 <div class="buttons">
 <label class="smalltext">Suggested awake interval <input type="number" id="sleep53Window" min="90" max="420" step="15" value="210" onchange="sleep53SetWindow()"> minutes</label>
 <label class="smalltext">Birth month <input id="sleep614BirthMonth" type="month" placeholder="YYYY-MM" onchange="sleep614Prefs()"></label><label class="smalltext">Daily nap routine <select id="sleep614NapCount" onchange="sleep614Prefs()"><option value="">Use age as a starting point</option><option value="1">One nap</option><option value="2">Two naps</option></select></label><button class="btn" onclick="sleep53Suggest()">Review afternoon after nap</button>
 <button class="btn" onclick="sleep53History()">Sleep history</button>
-</div>
-<details><summary>Age, nap count and wake interval</summary><p class="small" id="sleep636Age"></p><p class="small">Birth month updates the reference as Bear grows. One or two naps tells the planner how many naps to consider before it looks for bedtime. In automatic mode, the last five days with naps guide the choice. With fewer logs it considers two under 18 months and one afterwards. Pick one or two if you prefer.</p><label><input type="checkbox" id="sleep636Learn" onchange="sleep636LearnToggle()"> Adjust the first-nap interval gradually from Bear’s log</label><p class="small" id="sleep636LearnStatus"></p><p class="small">The learned interval is a planning suggestion. It can change by up to 15 minutes per week. <a href="https://aasm.org/wp-content/uploads/2017/04/Pediatricsleepdurationconsensus.pdf" target="_blank" rel="noopener noreferrer">Age-band sleep reference</a></p></details>
+</div><details class="sleep637Week"><summary>Last seven days of sleep</summary><p class="small">Sleep is split at midnight. Only recorded time is shown.</p><table><thead><tr><th scope="col">Day</th><th scope="col">Night sleep</th><th scope="col">Nap time</th><th scope="col">Naps</th></tr></thead><tbody id="sleep637Week"></tbody></table></details><details><summary>Age, nap count and wake interval</summary><p class="small" id="sleep636Age"></p><p class="small">Birth month updates the reference as Bear grows. One or two naps tells the planner how many naps to consider before it looks for bedtime. In automatic mode, the last five days with naps guide the choice. With fewer logs it considers two under 18 months and one afterwards. Pick one or two if you prefer.</p><label><input type="checkbox" id="sleep636Learn" onchange="sleep636LearnToggle()"> Adjust the first-nap interval gradually from Bear’s log</label><p class="small" id="sleep636LearnStatus"></p><p class="small">The learned interval is a planning suggestion. It can change by up to 15 minutes per week. <a href="https://aasm.org/wp-content/uploads/2017/04/Pediatricsleepdurationconsensus.pdf" target="_blank" rel="noopener noreferrer">Age-band sleep reference</a></p></details>
 <div id="nap613Active" class="buttons hidden"><button class="btn" onclick="sleep636CorrectOpen()">Edit running sleep start</button><button class="btn" onclick="nap613Active(true)">Cancel sleep timer</button></div><form id="sleep636Correct" class="formline hidden" onsubmit="sleep636CorrectSave(event)"><label>Start date <input type="date" id="sleep636CorrectDate" required></label><label>Start time <input type="time" id="sleep636CorrectTime" required></label><button class="btn primary" type="submit">Save start</button><button class="btn" type="button" onclick="el('sleep636Correct').className='formline hidden'">Close</button><p class="small" id="sleep636CorrectStatus" role="status"></p></form><div id="nap613History" class="hidden"></div><div id="sleep53Preview" class="hidden suggestion"></div>
 </section><section class="panel" style="padding:14px;margin-top:12px"><h3>Bear’s day</h3><p class="small">Review the suggested changes after a nap before applying them. For your care routine and today’s timetable, go back to Today.</p><div class="row"><button class="btn" onclick="hq635Navigate('day')">Back to today</button><button class="btn" onclick="hq635Navigate('meals')">Family meal planner</button></div><p class="small">Meals &amp; Shopping is for the family’s menu. Bear’s shake and food log are planned for a future update.</p></section></div><div id="view-chores" class="hidden"><div class="v61intro"><h2>🧹 Household</h2><span>Today’s jobs and your weekly rhythm</span></div><div id="house52" class="hq52">
 <h3>Household checklist</h3><nav class="row hq635SectionLinks" aria-label="Household shortcuts"><a href="#household-jobs" onclick="hq635OpenJobs(true)">Manage jobs</a><a href="#device-sync" onclick="sync629Open(true)">Sync settings</a></nav>
@@ -288,7 +289,7 @@ header{border-bottom:3px solid #d6e4d9}
   </section>
   <section class="panel meals632Panel" id="meals632UseUp" tabindex="-1"><h3>Use up first</h3><form class="formline" onsubmit="meals632UseUp(event)"><label>Food to use up <input id="meals632UseUpInput" required maxlength="100"></label><button class="btn" type="submit">Add</button></form><ul id="meals632UseUpList"></ul></section>
  </div>
-</div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><p class="hq635SectionLinks"><a href="#device-sync" onclick="sync629Open(true)">Phone &amp; iPad sync</a></p><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.36.1</strong> · Night sleep, nap counts and daily PDF exports.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">Notes save as you type and are included in the daily archive. A day is archived when the date changes while Family HQ is running, or the next time you open it. The browser keeps up to 31 recent snapshots. Export them regularly to keep a copy in Files.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="hq52Carry()">Recover unfinished timetable activities</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><div class="formline"><label>Archive month <select id="history636Month"></select></label><button class="btn" id="history636MonthDownload" disabled onclick="history636Export(true)">Download month ZIP of PDFs</button></div><p id="history636Status" class="small" role="status"></p><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. Connected Google Calendar appointments are fixed when replanning. Weather is available at the top of Family HQ.</p></section></div><div class="privacy">🔒 Your timetable and notes save in this browser. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts. Household jobs and optional repeating routines sync when connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
+</div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><p class="hq635SectionLinks"><a href="#device-sync" onclick="sync629Open(true)">Phone &amp; iPad sync</a></p><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.37</strong> · Night wakings and seven-day sleep history.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">Notes save as you type and are included in the daily archive. A day is archived when the date changes while Family HQ is running, or the next time you open it. The browser keeps up to 31 recent snapshots. Export them regularly to keep a copy in Files.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="hq52Carry()">Recover unfinished timetable activities</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><div class="formline"><label>Archive month <select id="history636Month"></select></label><button class="btn" id="history636MonthDownload" disabled onclick="history636Export(true)">Download month ZIP of PDFs</button></div><p id="history636Status" class="small" role="status"></p><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. Connected Google Calendar appointments are fixed when replanning. Weather is available at the top of Family HQ.</p></section></div><div class="privacy">🔒 Your timetable and notes save in this browser. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts. Household jobs and optional repeating routines sync when connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
 /* Deliberately ES5-compatible for older iPad Safari. No libraries, fetch or external resources. */
 var KEY='strawberry-family-hq-v4', state=null,previous=null,editing=null,editingChore=false;
 function el(id){return document.getElementById(id)}function pad(n){return n<10?'0'+n:String(n)}function timeNow(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())}function mins(s){var p=(s||'00:00').split(':');return Number(p[0])*60+Number(p[1])}function fmt(m){m=Math.max(0,Math.min(1439,m));return pad(Math.floor(m/60))+':'+pad(m%60)}function dayKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}function weekKey(){var d=new Date(),w=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));return w.getFullYear()+'-'+pad(w.getMonth()+1)+'-'+pad(w.getDate())}function monthKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)}function clone(o){return JSON.parse(JSON.stringify(o))}function safe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -3329,17 +3330,22 @@ function sleep636Minutes(value){
 }
 function sleep636Stats(planner,day,includeRunning){
  var from=nap627Date(day,'00:00'),to=nap627Date(sleep636Day(day,1),'00:00');
- var intervals=[],count=0,nap=0,night=0;
+ var intervals=[],count=0,nap=0,night=0,logged=false;
+ function add(start,end,kind,wakings){
+  if(!(end>from&&start<to))return;
+  logged=true;
+  intervals=intervals.concat(sleep637Segments(Math.max(start,from),Math.min(end,to),kind,wakings));
+ }
  (planner.sleep53History||[]).forEach(function(record){
   var startDay=record.startDay||record.day,kind=sleep636Type(record);
   if(kind==='nap'&&startDay===day)count++;
   var start=Number.isFinite(record.startAt)?record.startAt:nap627Date(startDay,record.start);
   var end=Number.isFinite(record.endAt)?record.endAt:nap627Date(record.day,record.end);
-  if(end>from&&start<to)intervals.push({start:Math.max(start,from),end:Math.min(end,to),kind:kind});
+  add(start,end,kind,record.wakings);
  });
  if(includeRunning&&planner.sleeping){
   var start=nap627Started(planner),end=Date.now();
-  if(end>from&&start<to)intervals.push({start:Math.max(from,start),end:Math.min(end,to),kind:planner.sleep636Kind||'nap'});
+  add(start,end,planner.sleep636Kind||'nap',sleep637ActiveWakings(planner));
  }
  var coveredUntil=from;
  intervals.sort(function(a,b){return a.start-b.start}).forEach(function(item){
@@ -3349,7 +3355,7 @@ function sleep636Stats(planner,day,includeRunning){
   if(item.kind==='night')night+=minutes;else nap+=minutes;
   coveredUntil=item.end;
  });
- return {count:count,nap:Math.floor(nap),night:Math.floor(night),total:Math.floor(nap+night)};
+ return {count:count,nap:Math.floor(nap),night:Math.floor(night),total:Math.floor(nap+night),logged:logged};
 }
 function sleep636Carry(next,prior){
  next.sleep636Mornings=prior.sleep636Mornings;
@@ -3359,6 +3365,7 @@ function sleep636Carry(next,prior){
  next.sleep636Kind=prior.sleeping?prior.sleep636Kind:undefined;
  next.sleep636Task=prior.sleeping?prior.sleep636Task:undefined;
  next.sleep636TaskBefore=prior.sleeping?prior.sleep636TaskBefore:undefined;
+ if(prior.sleeping){next.sleep637Wakings=prior.sleep637Wakings;next.sleep637AwakeAt=prior.sleep637AwakeAt}
 }
 function sleep636Morning(day,time,source){
  var mornings=state.sleep636Mornings||(state.sleep636Mornings={});
@@ -3397,11 +3404,16 @@ function sleep636Stop(){
  var start=state.sleepStart||timeNow(),end=timeNow(),span=nap627Elapsed(state),startDay=state.nap627StartDay||state.day;
  if(span<1){alert('Wait until at least one minute is recorded, or correct the sleep start.');return}
  var kind=state.sleep636Kind||'nap',startAt=nap627Started(state),taskId=state.sleep636Task;
+ var endAt=Math.floor(Date.now()/60000)*60000;
+ var wakings=sleep637ActiveWakings(state).map(function(waking){
+  return {start:waking.start,end:waking.end==null?endAt:waking.end};
+ });
+ span=sleep637Duration(startAt,endAt,kind,wakings);
  remember();sleep636Clear();state.wakeTime=end;
  var nap=kind==='nap'&&startDay===state.day?findTask(taskId===undefined?'nap':taskId):null;
  if(nap){nap.done=true;nap.skip=false;nap.time=start;nap.period=periodFor693(start)}
  var records=state.sleep53History||(state.sleep53History=[]);
- records.push({kind:kind,day:state.day,startDay:startDay,start:start,end:end,startAt:startAt,endAt:Math.floor(Date.now()/60000)*60000,duration:span});
+ records.push({kind:kind,day:state.day,startDay:startDay,start:start,end:end,startAt:startAt,endAt:endAt,duration:span,wakings:wakings});
  state.sleep53History=records.slice(-60);
  if(kind==='night'){
   var morning=state.sleep636Mornings&&state.sleep636Mornings[state.day];
@@ -3412,7 +3424,7 @@ function sleep636Stop(){
 }
 function sleep636Clear(){
  state.sleeping=false;state.sleepStart='';
- delete state.nap627StartAt;delete state.nap627StartDay;delete state.sleep636Kind;delete state.sleep636Task;delete state.sleep636TaskBefore;
+ delete state.nap627StartAt;delete state.nap627StartDay;delete state.sleep636Kind;delete state.sleep636Task;delete state.sleep636TaskBefore;delete state.sleep637AwakeAt;delete state.sleep637Wakings;
  el('sleep636Correct').className='formline hidden';
 }
 function sleep636CorrectOpen(){
@@ -3451,7 +3463,7 @@ function sleep636EditRecord(index){
  if(!Number.isFinite(from)||!Number.isFinite(to)||to<=from||to>Date.now()){alert('Enter a start and wake time in order, at or before now.');return}
  remember();var originalEnd=entry.end;
  if(sleep636Type(entry)==='night'&&state.sleep636Mornings&&state.sleep636Mornings[entry.day]===entry.end&&(state.sleep636MorningSource||{})[entry.day]==='night')sleep636Morning(entry.day,end,'night');
- Object.assign(entry,{start:start,end:end,startDay:startDay,startAt:from,endAt:to,duration:Math.floor((to-from)/60000)});
+ Object.assign(entry,{start:start,end:end,startDay:startDay,startAt:from,endAt:to,duration:sleep637Duration(from,to,sleep636Type(entry),entry.wakings)});
  if(entry.day===state.day){
   if(sleep636Type(entry)==='nap')nap613Sync();
   else if(state.wakeTime===originalEnd)state.wakeTime=end;
@@ -3504,10 +3516,12 @@ function sleep636LearnToggle(){
 function sleep636Render(){
  var tally=sleep636Stats(state,state.day,true),type=state.sleep636Kind==='night'?'Night sleep':'Nap';
  var label=tally.count+' '+(tally.count===1?'nap':'naps')+' completed today · '+sleep636Minutes(tally.total)+' logged today';
- if(state.sleeping)label+=' · '+type+' running '+sleep636Minutes(nap627Elapsed(state));
+ var duration=state.sleeping?sleep637Duration(nap627Started(state),Date.now(),state.sleep636Kind,sleep637ActiveWakings(state)):0;
+ var paused=state.sleep637AwakeAt!=null;
+ if(state.sleeping)label+=' · '+type+(paused?' paused · ':' running · ')+sleep636Minutes(duration);
  ['sleep636Count','sleep636CountToday'].forEach(function(id){if(el(id).textContent!==label)el(id).textContent=label});
  if(state.sleeping){
-  el('sleepInfo').textContent=type+' started '+state.sleepStart+' · '+nap627Elapsed(state)+' min';
+  el('sleepInfo').textContent=type+' started '+state.sleepStart+' · '+duration+' min asleep'+(paused?' · Paused':'');
   el('sleep53Status').textContent=type+' running since '+state.sleepStart+(state.nap627StartDay&&state.nap627StartDay!==state.day?' on '+state.nap627StartDay:'')+'.';
  }
  el('sleep636Learn').checked=!!state.sleep636Learning;
@@ -3521,6 +3535,8 @@ function sleep636Render(){
   'The first nap uses your awake interval. You can turn on learning at any time.');
  if(document.activeElement!==el('sleep636MorningTime'))el('sleep636MorningTime').value=(state.sleep636Mornings||{})[state.day]||'';
  el('sleep636TodayEdit').className=state.sleeping?'btn':'btn hidden';
+ if(state.sleeping&&state.sleep636Kind==='night')el('napLive').textContent=' · '+(paused?'Night waking':'Night sleep')+' · '+duration+' min asleep';
+ sleep637Render();
 }
 function sleep636TodayEdit(){
  hq635Navigate('bear');sleep636CorrectOpen();el('sleep636Correct').scrollIntoView({block:'nearest'});
@@ -3669,6 +3685,56 @@ function history636Export(month,index){
   }
   status.textContent='Export ready. Look in Safari downloads or the Files app.';
  }catch(error){status.textContent='Couldn’t create this export. Try a single day or download a planner backup.'}
+}
+
+function sleep637Segments(start,end,kind,wakings){
+ if(!Number.isFinite(start)||!Number.isFinite(end)||end<=start)return [];
+ var pieces=[],cursor=start;
+ (wakings||[]).slice().sort(function(a,b){return a.start-b.start}).forEach(function(waking){
+  var from=Math.max(start,waking.start),to=Math.min(end,waking.end==null?end:waking.end);
+  if(!Number.isFinite(from)||!Number.isFinite(to)||to<=from||to<=cursor)return;
+  if(from>cursor)pieces.push({start:cursor,end:from,kind:kind});
+  cursor=to;
+ });
+ if(cursor<end)pieces.push({start:cursor,end:end,kind:kind});
+ return pieces;
+}
+function sleep637Duration(start,end,kind,wakings){
+ return Math.floor(sleep637Segments(start,end,kind,wakings).reduce(function(total,piece){return total+piece.end-piece.start},0)/60000);
+}
+function sleep637ToggleWaking(){
+ if(state.day!==dayKey())rollover();
+ if(state.day!==dayKey()||!state.sleeping||state.sleep636Kind!=='night')return;
+ var before=previous;remember();
+ var now=Math.floor(Date.now()/60000)*60000;
+ if(state.sleep637AwakeAt!=null){
+  var wakings=state.sleep637Wakings||(state.sleep637Wakings=[]);
+  wakings.push({start:state.sleep637AwakeAt,end:now});
+  delete state.sleep637AwakeAt;
+ }else state.sleep637AwakeAt=Math.max(nap627Started(state),now);
+ if(!save()){state=previous;previous=before;el('sleep637Status').textContent='Couldn’t save. Try again.';return}
+ render();
+}
+function sleep637ActiveWakings(planner){
+ var wakings=planner.sleep637Wakings||[];
+ if(planner.sleep637AwakeAt==null)return wakings;
+ return wakings.concat({start:planner.sleep637AwakeAt,end:null});
+}
+function sleep637Render(){
+ var active=state.sleeping&&state.sleep636Kind==='night',awake=active&&state.sleep637AwakeAt!=null;
+ el('sleep637Controls').className=active?'row sleep637Actions':'row sleep637Actions hidden';
+ el('sleep637Waking').textContent=awake?'Back asleep':'Log a night waking';
+ el('sleep637Status').textContent=active?(awake?'Awake since '+new Date(state.sleep637AwakeAt).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})+' · sleep timer paused.':
+  (state.sleep637Wakings||[]).length+' wakings logged this night.'):'';
+ var rows=[];
+ for(var i=0;i<7;i++){
+  var day=sleep636Day(state.day,-i),counts=sleep636Stats(state,day,true);
+  var date=new Date(sleep636Stamp(day,'12:00')).toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+  rows.push('<tr><th scope="row">'+safe(i===0?'Today':date)+'</th>'+
+   (counts.logged?'<td>'+sleep636Minutes(counts.night)+'</td><td>'+sleep636Minutes(counts.nap)+'</td><td>'+counts.count+'</td>':'<td colspan="3">No sleep logged</td>')+'</tr>');
+ }
+ var table=rows.join('');
+ if(el('sleep637Week').sleep637Markup!==table){el('sleep637Week').innerHTML=table;el('sleep637Week').sleep637Markup=table}
 }
 
 var sleep636BaseRender=render;
