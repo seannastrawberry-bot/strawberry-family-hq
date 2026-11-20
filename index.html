@@ -237,7 +237,7 @@ header{border-bottom:3px solid #d6e4d9}
 <h3>Bear’s food log</h3>
 <p class="small">Saved on this device. Pick a date to add or edit an earlier entry.</p>
 <div class="formline"><label>Log date <input id="food639Date" type="date" onchange="food639DateChanged()"></label></div>
-<div class="row food639Actions"><button id="food639Shake" class="btn primary" onclick="food639Shake()">Shake offered now</button><button class="btn" onclick="food639Start('food')">Log food</button></div>
+<div class="row food639Actions"><button id="food639Shake" class="btn primary" onclick="food639Shake()">Shake offered now</button><button class="btn" id="food643EarlierShake" onclick="food639Start('shake','shake',null,true)">Log earlier shake</button><button class="btn" onclick="food639Start('food')">Log food</button></div>
 <p class="small" id="food639ShakeStatus"></p>
 <p class="small" id="food639Status" role="status"></p>
 <div class="food640Panel" id="food640Panel">
@@ -262,7 +262,8 @@ header{border-bottom:3px solid #d6e4d9}
 </div>
 <form class="formline hidden" id="food639Editor" onsubmit="food639Submit(event)">
 <h4 id="food639EditorTitle">Log food</h4>
-<label>Time offered <input id="food639Time" type="time" required></label>
+<label>Actual time offered <input id="food639Time" type="time" required></label>
+<p class="small">Use the time you offered it. You can enter it later.</p>
 <div id="food639SolidFields" class="formline">
 <label>Meal <select id="food639Meal"><option>Breakfast</option><option>Snack</option><option>Brunch</option><option>Lunch</option><option>Dinner</option><option>Other</option></select></label>
 <label>Food offered <input id="food639Name" type="text" maxlength="110"></label>
@@ -333,7 +334,7 @@ header{border-bottom:3px solid #d6e4d9}
   </section>
   <section class="panel meals632Panel" id="meals632UseUp" tabindex="-1"><h3>Use up first</h3><form class="formline" onsubmit="meals632UseUp(event)"><label>Food to use up <input id="meals632UseUpInput" required maxlength="100"></label><button class="btn" type="submit">Add</button></form><ul id="meals632UseUpList"></ul></section>
  </div>
-</div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><p class="hq635SectionLinks"><a href="#device-sync" onclick="sync629Open(true)">Phone &amp; iPad sync</a></p><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.42</strong> · Brunch timing starts from the shake offer.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">Notes save as you type and are included in the daily archive. A day is archived when the date changes while Family HQ is running, or the next time you open it. The browser keeps up to 31 recent snapshots. Export them regularly to keep a copy in Files.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="hq52Carry()">Recover unfinished timetable activities</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><div class="formline"><label>Archive month <select id="history636Month"></select></label><button class="btn" id="history636MonthDownload" disabled onclick="history636Export(true)">Download month ZIP of PDFs</button></div><p id="history636Status" class="small" role="status"></p><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. Connected Google Calendar appointments are fixed when replanning. Weather is available at the top of Family HQ.</p></section></div><div class="privacy">🔒 Your timetable and notes save in this browser. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts. Household jobs and optional repeating routines sync when connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
+</div></div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><p class="hq635SectionLinks"><a href="#device-sync" onclick="sync629Open(true)">Phone &amp; iPad sync</a></p><section class="panel" style="padding:14px"><h3>Day settings</h3><p class="small"><strong>Version 6.43</strong> · Food suggestions show the time they use.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">Notes save as you type and are included in the daily archive. A day is archived when the date changes while Family HQ is running, or the next time you open it. The browser keeps up to 31 recent snapshots. Export them regularly to keep a copy in Files.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="hq52Carry()">Recover unfinished timetable activities</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><div class="formline"><label>Archive month <select id="history636Month"></select></label><button class="btn" id="history636MonthDownload" disabled onclick="history636Export(true)">Download month ZIP of PDFs</button></div><p id="history636Status" class="small" role="status"></p><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 style="margin-top:20px">Back up your planner</h3><p class="small">Copy the backup text to a safe place or paste a previous backup to restore. This is also a manual way to transfer between devices.</p><textarea id="backup" class="field" style="height:90px" placeholder="Your backup appears here"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="restoreBackup()">Restore backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" aria-live="polite"></p><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. Connected Google Calendar appointments are fixed when replanning. Weather is available at the top of Family HQ.</p></section></div><div class="privacy">🔒 Your timetable and notes save in this browser. The hosted website itself is public, so do not add personal details to its source files. Google Calendar can provide appointments and drafts. Household jobs and optional repeating routines sync when connected.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
 /* Deliberately ES5-compatible for older iPad Safari. No libraries, fetch or external resources. */
 var KEY='strawberry-family-hq-v4', state=null,previous=null,editing=null,editingChore=false;
 function el(id){return document.getElementById(id)}function pad(n){return n<10?'0'+n:String(n)}function timeNow(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())}function mins(s){var p=(s||'00:00').split(':');return Number(p[0])*60+Number(p[1])}function fmt(m){m=Math.max(0,Math.min(1439,m));return pad(Math.floor(m/60))+':'+pad(m%60)}function dayKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}function weekKey(){var d=new Date(),w=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));return w.getFullYear()+'-'+pad(w.getMonth()+1)+'-'+pad(w.getDate())}function monthKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)}function clone(o){return JSON.parse(JSON.stringify(o))}function safe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -3887,14 +3888,14 @@ function food639DateChanged(){
  food639ResetEditor();food639Render();food640Render();
  el('food639Status').textContent='';
 }
-function food639Start(kind,id,example){
+function food639Start(kind,id,example,enterTime){
  var item=food639Rows(food639Day()).find(function(row){return row.id===id});
  food639Editing=item?item.id:'';
  food639ShakeEditing=kind==='shake';
  el('food639Editor').className='formline';
  el('food639SolidFields').className=kind==='shake'?'hidden':'formline';
  el('food639EditorTitle').textContent=kind==='shake'?'Shake time':item?'Edit food entry':'Log food';
- el('food639Time').value=item?item.time:food639Day()===dayKey()?timeNow():'';
+ el('food639Time').value=item?item.time:!enterTime&&food639Day()===dayKey()?timeNow():'';
  el('food639Meal').value=item&&item.meal||'Other';
  el('food639Name').value=item&&item.name||example||'';
  el('food639Amount').value=item&&item.amount||'Unknown';
@@ -3929,7 +3930,7 @@ function food639Submit(event){
    if(!id){state.idCounter=(state.idCounter||100)+1;id='food639_'+state.idCounter}
    rows.push(Object.assign({id:id},changes));
   }
- },food639ShakeEditing?'Shake offer saved.':'Food entry saved.'))food639ResetEditor();
+ },(food639ShakeEditing?'Shake offer':'Food entry')+' saved for '+time+'.'))food639ResetEditor();
 }
 function food639Remove(){
  var id=food639Editing;
@@ -3954,6 +3955,7 @@ function food639Render(){
  var shake=items.find(function(row){return row.id==='shake'});
  el('food639Shake').textContent=shake?'Edit shake time':day===today?'Shake offered now':'Add shake offer';
  el('food639ShakeStatus').textContent=shake?'Shake offered at '+shake.time:'';
+ el('food643EarlierShake').className=day===today&&!shake?'btn':'btn hidden';
  var history=items.filter(function(row){return row.id!=='shake'}).map(function(row){
   return '<li><div><strong>'+safe(row.name)+'</strong><small>'+safe(row.time+' · '+row.meal+' · Eaten: '+row.amount)+'</small>'+
    (row.note?'<small>'+safe(row.note)+'</small>':'')+'</div><button class="btn" data-food="'+safe(row.id)+'" onclick="food639Start(\'food\',this.dataset.food)" aria-label="'+safe('Edit '+row.name+' at '+row.time)+'">Edit</button></li>';
@@ -3987,6 +3989,9 @@ function food641PreviousMeal(rows,index){
    ['Some','Most','All'].indexOf(row.amount)>=0;
  });
 }
+function food643Earliest(time,gap){
+ return gap+' min later · '+(time<1440?'earliest '+fmt(time):'after midnight');
+}
 function food640Plan(){
  var today=dayKey();
  if(state.day!==today)return null;
@@ -4012,16 +4017,19 @@ function food640Plan(){
  if(!choice)return null;
 
  var start=mins(choice.task.time),reason='Today’s timetable',gap=food640Gap();
- if(choice.meal==='Brunch'&&shake&&gap!==null&&mins(shake.time)+gap>=start){
-  start=mins(shake.time)+gap;reason='Shake offered at '+shake.time+' and your timing preference';
+ if(choice.meal==='Brunch'&&shake&&draft621ValidTime(shake.time)&&gap!==null){
+  start=mins(shake.time)+gap;
+  reason='Shake offered at '+shake.time+' · '+food643Earliest(start,gap);
  }
  var mainGap=food641MainGap(),previousMeal=food641PreviousMeal(todayRows,choice.index);
- if(mainGap&&previousMeal&&mins(previousMeal.time)+mainGap>=start){
-  start=mins(previousMeal.time)+mainGap;
-  reason='From '+previousMeal.meal.toLowerCase()+' at '+previousMeal.time+' · '+mainGap+' min between main meals';
+ if(mainGap&&previousMeal){
+  var earliest=mins(previousMeal.time)+mainGap;
+  reason='From '+previousMeal.meal.toLowerCase()+' at '+previousMeal.time+' · '+food643Earliest(earliest,mainGap);
+  if(start>earliest)reason+=' · meal planned for '+choice.task.time;
+  start=Math.max(start,earliest);
  }
  var deferred=decisions[choice.meal]&&decisions[choice.meal].after;
- if(Number.isFinite(deferred)&&deferred>=start){start=deferred;reason='Set aside until later'}
+ if(Number.isFinite(deferred)&&deferred>=start){start=deferred;reason+=' · set aside until later'}
  var next=choices.find(function(slot){return slot.index>choice.index&&mins(slot.task.time)>=mins(choice.task.time)});
  var limit=next?mins(next.task.time):1440;
  var duration=Number(choice.task.duration)||30;
@@ -4090,7 +4098,7 @@ function food640Render(){
  today.className=label?'small':'small hidden';
  panel.className=food639Day()===dayKey()?'food640Panel':'hidden';
  el('food640Title').textContent=plan?label:'No more meal prompts today';
- el('food640Reason').textContent=plan?(plan.time?plan.reason+(plan.moved?' · adjusted around the timetable':''):'No clear slot before '+plan.limit+'.'):'You can still log food at any time.';
+ el('food640Reason').textContent=plan?plan.reason+(plan.time?(plan.moved?' · adjusted around the timetable':''):'. No clear slot before '+plan.limit+'.'):'You can still log food at any time.';
  el('food640Actions').className=plan?'row food639Actions':'hidden';
  el('food640Later').disabled=!plan||!plan.time;
  if(!settings.open){
