@@ -311,7 +311,7 @@ header{border-bottom:3px solid #d6e4d9}
  <summary>Ask Family HQ</summary>
  <form onsubmit="askHqSubmit(event)">
   <label for="askHqQuestion">Ask about today’s plan</label>
-  <div class="askHqForm"><input id="askHqQuestion" type="search" maxlength="160" required placeholder="Find 20 minutes after 14:00"><button class="btn" type="submit">Ask</button></div>
+  <div class="askHqForm"><input id="askHqQuestion" oninput="askHqClearPreview()" type="search" maxlength="160" required placeholder="Move parcel drop-off after swimming"><button class="btn" type="submit">Ask</button></div>
  </form>
  <div class="row">
   <button class="btn" type="button" onclick="askHqSubmit(null,'What is fixed today?')">What’s fixed?</button>
@@ -319,6 +319,10 @@ header{border-bottom:3px solid #d6e4d9}
   <button class="btn" type="button" onclick="askHqSubmit(null,'What can wait?')">What can wait?</button>
  </div>
  <div id="askHqResult" role="status"></div>
+ <div id="askHqMoveActions" hidden>
+  <button class="btn" type="button" onclick="askHqApplyMove()">Apply move</button>
+  <button class="btn" type="button" onclick="askHqCancelMove()">Cancel</button>
+ </div>
 </details>
 <div class="v68heading" id="schedule658" tabindex="-1"><strong>Daily schedule</strong><button class="btn" id="done663Button" onclick="done663Toggle()" aria-expanded="false" aria-controls="schedule663Rows" hidden>Show finished</button><span id="progress658"></span></div>
 <form class="panel hidden" id="meal663Timing" tabindex="-1" onsubmit="meal663SaveTime(event)">
@@ -519,7 +523,7 @@ header{border-bottom:3px solid #d6e4d9}
     <button class="btn" type="submit">Add item</button>
    </form></details><details><summary>Manage manual additions</summary><ul id="meals632ManualList"></ul></details>
   </section>
-</div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><p class="hq635SectionLinks"><a href="#account655">Phone &amp; iPad sync</a></p><section class="panel" style="padding:14px"><h3>Day settings</h3><button id="disconnect655" class="btn" hidden onclick="whole655.pause()">Disconnect Google on this device</button><button id="recover655" class="btn" hidden onclick="whole655.recovery()">Download this device’s pre-sync backup</button><p class="small"><strong>Version 6.9</strong> · Ask Family HQ and linked meal times.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">Notes save as you type and are included in the daily archive. A day is archived when the date changes while Family HQ is running, or the next time you open it. The browser keeps up to 31 recent snapshots. Export them regularly to keep a copy in Files.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="hq52Carry()">Recover unfinished timetable activities</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><div class="formline"><label>Archive month <select id="history636Month"></select></label><button class="btn" id="history636MonthDownload" disabled onclick="history636Export(true)">Download month ZIP of PDFs</button></div><p id="history636Status" class="small" role="status"></p><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 id="plannerBackups" tabindex="-1" style="margin-top:20px;scroll-margin-top:100px">Planner backups</h3><p class="small">Download a copy of the planner and archived days saved on this device. The download works offline while Family HQ is open.</p><textarea id="backup" class="field" style="height:90px" aria-label="Backup text" placeholder="Paste backup text here" oninput="backup660TextChanged()"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="backup660Preview()">Review backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" role="status"></p><section id="backup660Panel" class="hidden" aria-labelledby="backup660Heading"><h4 id="backup660Heading" tabindex="-1">Review backup</h4><p id="backup660Effect"></p><button class="btn" id="backup660Apply" onclick="restoreBackup()">Restore reviewed backup</button><button class="btn" onclick="backup660Cancel()">Close preview</button></section><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. Connected Google Calendar appointments are fixed when replanning. Weather is available at the top of Family HQ.</p></section></div><div class="privacy">Planner changes save on this device and sync through Google Drive when connected. Appointments and drafts use a separate Google Calendar connection.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
+</div><div id="view-settings" class="hidden"><div class="v61intro"><h2>⚙️ Settings</h2><span>Backups and personalisation</span></div><p class="hq635SectionLinks"><a href="#account655">Phone &amp; iPad sync</a></p><section class="panel" style="padding:14px"><h3>Day settings</h3><button id="disconnect655" class="btn" hidden onclick="whole655.pause()">Disconnect Google on this device</button><button id="recover655" class="btn" hidden onclick="whole655.recovery()">Download this device’s pre-sync backup</button><p class="small"><strong>Version 6.9</strong> · Preview and apply activity moves with Ask Family HQ.</p><p class="small">Choose Fixed appointment, Essential care, Normal or Optional when editing activities. Replanning does not move fixed appointments or essential care. Times stay on this iPad.</p><div class="row"><button class="btn" onclick="startNewDay()">↻ Start a fresh day</button><button class="btn" onclick="undo()">↶ Undo last change</button><button class="btn" onclick="resetAll()">Reset everything</button></div><h3 style="margin-top:20px">Daily history and recovery</h3><p class="small">Notes save as you type and are included in the daily archive. A day is archived when the date changes while Family HQ is running, or the next time you open it. The browser keeps up to 31 recent snapshots. Export them regularly to keep a copy in Files.</p><div class="row"><button class="btn" onclick="history66Show()">View saved days</button><button class="btn" onclick="hq52Carry()">Recover unfinished timetable activities</button></div><div id="history66" class="small" style="margin:10px 0" aria-live="polite"></div><div class="formline"><label>Archive month <select id="history636Month"></select></label><button class="btn" id="history636MonthDownload" disabled onclick="history636Export(true)">Download month ZIP of PDFs</button></div><p id="history636Status" class="small" role="status"></p><p class="small" id="history66Status">Local history is available when browser storage works.</p><h3 id="plannerBackups" tabindex="-1" style="margin-top:20px;scroll-margin-top:100px">Planner backups</h3><p class="small">Download a copy of the planner and archived days saved on this device. The download works offline while Family HQ is open.</p><textarea id="backup" class="field" style="height:90px" aria-label="Backup text" placeholder="Paste backup text here" oninput="backup660TextChanged()"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="makeBackup()">Copy backup</button><button class="btn" onclick="history692Download()">Download backup</button><button class="btn" onclick="backup660Preview()">Review backup</button></div><label>Open a backup file <input type="file" id="backup615File" accept=".json,application/json" onchange="backup615Load(this)"></label><p class="small" id="backup615Status" role="status"></p><section id="backup660Panel" class="hidden" aria-labelledby="backup660Heading"><h4 id="backup660Heading" tabindex="-1">Review backup</h4><p id="backup660Effect"></p><button class="btn" id="backup660Apply" onclick="restoreBackup()">Restore reviewed backup</button><button class="btn" onclick="backup660Cancel()">Close preview</button></section><h3 style="margin-top:20px">About automatic replanning</h3><p class="small">The on-device engine shifts future activities after naps, outings and delays; keeps completed tasks untouched; and protects essential routines from easy-day mode. Connected Google Calendar appointments are fixed when replanning. Weather is available at the top of Family HQ.</p></section></div><div class="privacy">Planner changes save on this device and sync through Google Drive when connected. Appointments and drafts use a separate Google Calendar connection.</div></main><div class="modalwrap" id="modalwrap"><div class="modal"><h2 id="modalTitle">Edit task</h2><div class="formline"><label>Activity</label><input id="editTitle" maxlength="140"></div><div class="formline"><label>Time</label><input id="editTime" type="time" onchange="suggestEditPeriod()"></div><div class="formline"><label>Part of day</label><select id="editPeriod" onchange="rememberEditPeriod()"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select></div><div class="formline"><label>Duration (minutes)</label><input id="editDuration" type="number" min="5" max="240"></div><div class="formline"><label>Importance</label><select id="editPriority"><option value="fixed">Fixed appointment — do not move</option><option value="essential">Essential care / routine — do not move automatically</option><option value="normal">Normal</option><option value="optional">Optional</option></select></div><div id="repeat620" class="formline hidden"><label>Repeat <select id="repeat620Mode" onchange="repeat620Show()"><option value="once">Once</option><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="custom">Choose days</option></select></label></div><fieldset id="repeat620Days" class="hidden"><legend>Repeat on</legend><label><input id="repeat620Day1" type="checkbox">Mon</label> <label><input id="repeat620Day2" type="checkbox">Tue</label> <label><input id="repeat620Day3" type="checkbox">Wed</label> <label><input id="repeat620Day4" type="checkbox">Thu</label> <label><input id="repeat620Day5" type="checkbox">Fri</label> <label><input id="repeat620Day6" type="checkbox">Sat</label> <label><input id="repeat620Day0" type="checkbox">Sun</label></fieldset><div id="repeat620StartRow" class="formline hidden"><label>Start <select id="repeat620Start"><option value="today">Add to Today too</option><option value="later">Next matching day</option></select></label></div><p class="small hidden" id="repeat620EditHint">Save changes for today, or edit the repeating routine.</p><div class="modalbuttons"><button class="btn primary" onclick="saveEdit()">Save</button><button class="btn hidden" id="repeat620Manage" onclick="repeat620Manage()">Edit repeating routine</button><button class="btn" id="postponeBtn" onclick="postponeTask()">+30 min</button><button class="btn" id="skipBtn" onclick="skipTask()">Skip</button><button class="btn" id="deleteBtn" onclick="deleteTask()">Delete</button><button class="btn" onclick="closeModal()">Close</button></div></div></div><script>
 /* Deliberately ES5-compatible for older iPad Safari. No libraries, fetch or external resources. */
 var KEY='strawberry-family-hq-v4', state=null,previous=null,editing=null,editingChore=false;
 function el(id){return document.getElementById(id)}function pad(n){return n<10?'0'+n:String(n)}function timeNow(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())}function mins(s){var p=(s||'00:00').split(':');return Number(p[0])*60+Number(p[1])}function fmt(m){m=Math.max(0,Math.min(1439,m));return pad(Math.floor(m/60))+':'+pad(m%60)}function dayKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}function weekKey(){var d=new Date(),w=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));return w.getFullYear()+'-'+pad(w.getMonth()+1)+'-'+pad(w.getDate())}function monthKey(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)}function clone(o){return JSON.parse(JSON.stringify(o))}function safe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -1432,11 +1436,19 @@ function askHqSnapshot(){
   var display=food661TimelineTask(entry);
   var timed=!display.food661Waiting&&draft621ValidTime(display.time);
   var start=timed?mins(display.time):null;
-  return {title:entry.title,start:start,end:timed?start+(Number(entry.duration)||30):null,
+  return {id:entry.id,title:entry.title,start:start,end:timed?v67End(display):null,
    fixed:entry.priority==='fixed',optional:entry.priority==='optional'&&!entry.started&&!v67Protected(entry),
    label:timed?display.time:''};
  });
  return {events:events,tasks:tasks,calendarLoaded:personalCalendarDay===dayKey()};
+}
+function askHqGap(data,earliest,duration,excludedId){
+ var busy=data.events.filter(function(entry){return !entry.free}).concat(data.tasks)
+  .filter(function(entry){return (!excludedId||entry.id!==excludedId)&&entry.start!==null&&entry.end>entry.start})
+  .sort(function(a,b){return a.start-b.start});
+ var start=earliest;
+ busy.forEach(function(block){if(start<block.end&&start+duration>block.start)start=block.end});
+ return start+duration<=1440?start:null;
 }
 function askHqReply(question){
  var q=question.toLowerCase().replace(/[’‘]/g,"'").trim();
@@ -1449,12 +1461,9 @@ function askHqReply(question){
   if(duration<5||duration>180)return ['Choose a gap from 5 to 180 minutes.'];
   var requested=q.match(/\bafter\s+([01]?\d|2[0-3]):([0-5]\d)(?=\s|[?.!,]|$)/);
   if(/\bafter\b/.test(q)&&!requested)return ['Give an earliest time, for example “Find 20 minutes after 14:30”.'];
-  var start=Math.max(current,requested?Number(requested[1])*60+Number(requested[2]):0);
-  var busy=data.events.filter(function(entry){return !entry.free}).concat(data.tasks)
-    .filter(function(entry){return entry.start!==null&&entry.end>entry.start})
-    .sort(function(a,b){return a.start-b.start});
-  busy.forEach(function(block){if(start<block.end&&start+duration>block.start)start=block.end});
-  answer.push(start+duration<=1440
+  var earliest=Math.max(current,requested?Number(requested[1])*60+Number(requested[2]):0);
+  var start=askHqGap(data,earliest,duration);
+  answer.push(start!==null
    ? 'First '+duration+'-minute gap in the timed plan: '+fmt(start)+'–'+(start+duration===1440?'24:00':fmt(start+duration))+'.'
    : 'There’s no '+duration+'-minute gap left in today’s timed plan.');
   if(state.sleeping||data.tasks.some(function(entry){return entry.start===null}))answer.push('This may change when untimed activities get a time.');
@@ -1477,13 +1486,104 @@ function askHqReply(question){
  if(!data.calendarLoaded)answer.push('Personal Calendar hasn’t loaded today. This answer uses the planner only.');
  return answer;
 }
+var askHqPendingMove=null;
+function askHqName(value){
+ return value.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim()
+  .replace(/^(?:the|my|our) /,'');
+}
+function askHqMatch(items,query){
+ var name=askHqName(query),exact=items.filter(function(item){return askHqName(item.title)===name});
+ if(!name)return [];
+ if(exact.length)return exact;
+ return items.filter(function(item){return (' '+askHqName(item.title)+' ').includes(' '+name+' ')});
+}
+function askHqMovePlan(taskName,anchorName){
+ if(state.day!==dayKey())return {message:'Open today’s plan first.'};
+ var raw=state.tasks.filter(function(entry){return !entry.done&&!entry.skip});
+ var targets=askHqMatch(raw,taskName);
+ if(targets.length!==1)return {message:targets.length?'More than one activity matches. Use the full activity name.':'I couldn’t find that unfinished activity. Use its name from today’s schedule.'};
+ var entry=targets[0];
+ // Restrict automatic moves to one-off activities added by the user.
+ if(!/^custom/.test(entry.id)||entry.started||v67Protected(entry)||!draft621ValidTime(entry.time)){
+  return {message:'I can move one-off activities you added, as long as they’re flexible and haven’t started.'};
+ }
+ if(state.sleeping)return {message:'The plan can shift when Bear wakes. Ask again after logging his wake-up.'};
+ var data=askHqSnapshot();
+ var anchorTime;
+ if(draft621ValidTime(anchorName)){
+  anchorTime=mins(anchorName);
+ }else{
+  var anchors=askHqMatch(data.events.concat(data.tasks.filter(function(item){return item.id!==entry.id})),anchorName);
+  if(anchors.length!==1)return {message:anchors.length?'More than one activity matches the time reference. Use its full name or a time such as 14:30.':'I couldn’t find that activity on today’s timetable. Use its full name or a time such as 14:30.'};
+  anchorTime=anchors[0].end;
+  if(!Number.isFinite(anchorTime))return {message:'That activity doesn’t have an end time yet.'};
+ }
+ var earliest=Math.max(mins(timeNow()),anchorTime),duration=v67End(entry)-mins(entry.time);
+ var start=askHqGap(data,earliest,duration,entry.id);
+ if(start===null)return {message:'There’s no room for that activity in the rest of today’s timed plan.'};
+ var time=fmt(start);
+ if(time===entry.time)return {message:entry.title+' is already in that slot at '+time+'.'};
+ return {day:state.day,id:entry.id,title:entry.title,from:entry.time,time:time,
+  end:start+duration===1440?'24:00':fmt(start+duration),calendarLoaded:data.calendarLoaded,
+  untimed:data.tasks.some(function(item){return item.start===null})};
+}
+function askHqRender(lines){
+ el('askHqResult').innerHTML=lines.map(function(line){return '<p>'+safe(line)+'</p>'}).join('');
+}
+function askHqClearPreview(){
+ if(!askHqPendingMove)return;
+ askHqPendingMove=null;
+ el('askHqMoveActions').hidden=true;
+ el('askHqResult').textContent='';
+}
+function askHqCancelMove(){
+ askHqClearPreview();
+ askHqRender(['Preview dismissed.']);
+ el('askHqQuestion').focus();
+}
+function askHqApplyMove(){
+ if(!askHqPendingMove)return;
+ var preview=askHqPendingMove;
+ askHqPendingMove=null;
+ el('askHqMoveActions').hidden=true;
+ var plan=askHqMovePlan(preview.taskName,preview.anchorName);
+ if(JSON.stringify(plan)!==JSON.stringify(preview.plan)){
+  askHqRender(['The timetable changed. Ask again to check the new time before applying.']);
+  el('askHqQuestion').focus();
+  return;
+ }
+ saveLocalChange(function(){
+  var entry=findTask(plan.id);
+  entry.time=plan.time;
+  entry.period=periodFor693(plan.time);
+ },plan.title+' moved to '+plan.time+'. Undo is in Quick adjustments.','askHqResult');
+ el('askHqQuestion').focus();
+}
+function askHqPreviewMove(question){
+ var match=question.trim().replace(/[?.!]+$/,'').match(/^(?:could you |can you |please )?(?:move|put|reschedule)\s+(.+?)\s+(?:to\s+)?after\s+(.+)$/i);
+ if(!match)return false;
+ var plan=askHqMovePlan(match[1],match[2]);
+ if(plan.message){askHqRender([plan.message]);return true;}
+ askHqPendingMove={plan:plan,taskName:match[1],anchorName:match[2]};
+ var lines=['Move '+plan.title+' from '+plan.from+' to '+plan.time+'–'+plan.end+'?'];
+ if(plan.untimed)lines.push('Some activities are awaiting a time and could still affect this slot.');
+ if(!plan.calendarLoaded)lines.push('Personal Calendar hasn’t loaded today. This preview only checks the planner.');
+ askHqRender(lines);
+ el('askHqMoveActions').hidden=false;
+ return true;
+}
 function askHqSubmit(event,example){
  if(event)event.preventDefault();
- var input=el('askHqQuestion');
+ askHqPendingMove=null;
+ el('askHqMoveActions').hidden=true;
+ var input=el('askHqQuestion'),question=(example||input.value).trim();
  if(example)input.value=example;
- if(!input.value.trim())return;
- var answer=askHqReply(input.value);
- el('askHqResult').innerHTML=answer.map(function(line){return '<p>'+safe(line)+'</p>'}).join('');
+ if(!question)return;
+ if(/\b(tomorrow|yesterday|next week|this week)\b/i.test(question)){
+  askHqRender(askHqReply(question));
+  return;
+ }
+ if(!askHqPreviewMove(question))askHqRender(askHqReply(question));
 }
 function calendar611Slots(){
  if(personalCalendarDay!==dayKey())return [];
